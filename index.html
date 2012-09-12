@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>My Octopress Blog</title>
-  <meta name="author" content="Your Name">
+  <title>Monkey Blog</title>
+  <meta name="author" content="Beau Gaines">
 
   
-  <meta name="description" content=" Blog Archives Recent Posts ">
+  <meta name="description" content="In no particular order, here are the things I learned this week about: Github pages Learned how to set up the bones of this site and deploy to Github &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -24,7 +24,7 @@
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="/javascripts/ender.js"></script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <link href="/atom.xml" rel="alternate" title="Monkey Blog" type="application/atom+xml">
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
@@ -35,9 +35,9 @@
 
 <body   >
   <header role="banner"><hgroup>
-  <h1><a href="/">My Octopress Blog</a></h1>
+  <h1><a href="/">Monkey Blog</a></h1>
   
-    <h2>A blogging framework for hackers.</h2>
+    <h2>Investigating the infinite monkey theorem</h2>
   
 </hgroup>
 
@@ -65,6 +65,96 @@
       <div class="blog-index">
   
   
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/09/12/code-titbits-no-1/">Code Titbits No. 1</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-09-12T11:44:00-04:00" pubdate data-updated="true">Sep 12<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>In no particular order, here are the things I learned this week about:</p>
+
+<h3>Github pages</h3>
+
+<p>Learned how to set up the bones of this site and deploy to Github via <a href="http://www.tomordonez.com/blog/2012/06/04/creating-a-github-blog-using-octopress/">Tom Ordonez&#8217; fine instructions</a></p>
+
+<h3>Cucumber</h3>
+
+<p>Learned all this from <a href="http://coryschires.com">Corey Schires&#8217; blog</a>:</p>
+
+<ul>
+<li>consolidate positive and negative assertions:</li>
+</ul>
+
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='gherkin'><span class='line'><span class="k">Then </span><span class="nf">/^I should( not)? see the following columns: &quot;</span><span class="s">([^</span><span class="nf">&quot;]*)&quot;</span><span class="s">$/ do |negate, columns|</span>
+</span><span class='line'><span class="s">  within(&#39;table thead tr&#39;) do</span>
+</span><span class='line'><span class="s">    columns.split(&#39;, &#39;).each do |column|</span>
+</span><span class='line'><span class="s">      negate ? page.should_not(have_content(column)) : page.should(have_content(column))</span>
+</span><span class='line'><span class="s">    end</span>
+</span><span class='line'><span class="s">  end</span>
+</span><span class='line'><span class="s">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The optional <code>( not)?</code> gets passed into the step as <code>negate</code> var for conditional assertion goodness.</p>
+
+<ul>
+<li></li>
+</ul>
+
+
+<h3>Gimp</h3>
+
+<p>I wanted to create a transparent png from a black and white image.  This is pretty easy in gimp:</p>
+
+<ol>
+<li>add an alpha layer to the image ( Layer > Transparency > Add Alpha Layer )</li>
+<li>make sure the image is in RGB mode ( Image > Mode > RGB )</li>
+<li>change the background to alpha ( Colors > Color to Alpha)</li>
+</ol>
+
+
+<p>That second bit is important; if the image is greyscale the Color to Alpha option will be greyed out&#8230;</p>
+
+<h3>Ruby</h3>
+
+<p>Learned a bunch!  To be updated&#8230;</p>
+</div>
+  
+  
+
+
+    </article>
+  
   <div class="pagination">
     
     <a href="/blog/archives">Blog Archives</a>
@@ -77,12 +167,58 @@
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
     
+      <li class="post">
+        <a href="/blog/2012/09/12/code-titbits-no-1/">Code titbits no. 1</a>
+      </li>
+    
   </ul>
 </section>
 
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/beaugaines">@beaugaines</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'beaugaines',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
 
 
-
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("perfectidiot", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/perfectidiot" class="twitter-follow-button" data-show-count="false">Follow @perfectidiot</a>
+  
+</section>
 
 
   
@@ -91,7 +227,7 @@
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2012 - Your Name -
+  Copyright &copy; 2012 - Beau Gaines -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

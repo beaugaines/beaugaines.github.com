@@ -1,16 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[My Octopress Blog]]></title>
+  <title><![CDATA[Monkey Blog]]></title>
   <link href="http://beaugaines.github.com/atom.xml" rel="self"/>
   <link href="http://beaugaines.github.com/"/>
-  <updated>2012-09-12T11:01:47-04:00</updated>
+  <updated>2012-09-12T17:07:46-04:00</updated>
   <id>http://beaugaines.github.com/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
+    <name><![CDATA[Beau Gaines]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Code titbits no. 1]]></title>
+    <link href="http://beaugaines.github.com/blog/2012/09/12/code-titbits-no-1/"/>
+    <updated>2012-09-12T11:44:00-04:00</updated>
+    <id>http://beaugaines.github.com/blog/2012/09/12/code-titbits-no-1</id>
+    <content type="html"><![CDATA[<p>In no particular order, here are the things I learned this week about:</p>
+
+<h3>Github pages</h3>
+
+<p>Learned how to set up the bones of this site and deploy to Github via <a href="http://www.tomordonez.com/blog/2012/06/04/creating-a-github-blog-using-octopress/">Tom Ordonez&#8217; fine instructions</a></p>
+
+<h3>Cucumber</h3>
+
+<p>Learned all this from <a href="http://coryschires.com">Corey Schires&#8217; blog</a>:</p>
+
+<ul>
+<li>consolidate positive and negative assertions:</li>
+</ul>
+
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='gherkin'><span class='line'><span class="k">Then </span><span class="nf">/^I should( not)? see the following columns: &quot;</span><span class="s">([^</span><span class="nf">&quot;]*)&quot;</span><span class="s">$/ do |negate, columns|</span>
+</span><span class='line'><span class="s">  within(&#39;table thead tr&#39;) do</span>
+</span><span class='line'><span class="s">    columns.split(&#39;, &#39;).each do |column|</span>
+</span><span class='line'><span class="s">      negate ? page.should_not(have_content(column)) : page.should(have_content(column))</span>
+</span><span class='line'><span class="s">    end</span>
+</span><span class='line'><span class="s">  end</span>
+</span><span class='line'><span class="s">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The optional <code>( not)?</code> gets passed into the step as <code>negate</code> var for conditional assertion goodness.</p>
+
+<ul>
+<li></li>
+</ul>
+
+
+<h3>Gimp</h3>
+
+<p>I wanted to create a transparent png from a black and white image.  This is pretty easy in gimp:</p>
+
+<ol>
+<li>add an alpha layer to the image ( Layer > Transparency > Add Alpha Layer )</li>
+<li>make sure the image is in RGB mode ( Image > Mode > RGB )</li>
+<li>change the background to alpha ( Colors > Color to Alpha)</li>
+</ol>
+
+
+<p>That second bit is important; if the image is greyscale the Color to Alpha option will be greyed out&#8230;</p>
+
+<h3>Ruby</h3>
+
+<p>Learned a bunch!  To be updated&#8230;</p>
+]]></content>
+  </entry>
   
 </feed>
