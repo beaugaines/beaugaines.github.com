@@ -45,6 +45,6 @@ That second bit is important; if the image is greyscale the Color to Alpha optio
 
 ### Ruby
 
-Learned a bunch!
+Learned a bunch!  To be updated...
 
 
