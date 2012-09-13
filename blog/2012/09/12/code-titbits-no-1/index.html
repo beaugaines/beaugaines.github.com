@@ -98,14 +98,15 @@
 
 <h3>Cucumber</h3>
 
-<p>Learned all this from <a href="http://coryschires.com">Corey Schires&#8217; blog</a>:</p>
+<p>Learned this from <a href="http://coryschires.com">Corey Schires&#8217; blog</a>:</p>
 
 <ul>
-<li>consolidate positive and negative assertions:</li>
+<li>consolidate positive and negative assertions in step definitions:</li>
 </ul>
 
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>negative assertions in Cuke  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -143,12 +144,10 @@
 
 <p>Here are my answers for the Day 2 exercises:</p>
 
-<ol>
-<li>Find out how to access files with and without a code block.  What is the benefit of the code block?</li>
-</ol>
+<h4>1. Find out how to access files with and without a code block.  What is the benefit of the code block?</h4>
 
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>File handling in a block  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -159,7 +158,7 @@
 </span><span class='line'><span class="n">file</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;Holy guacamole&quot;</span>
 </span><span class='line'><span class="n">file</span><span class="o">.</span><span class="n">close</span>
 </span><span class='line'>
-</span><span class='line'><span class="no">Accessing</span> <span class="n">the</span> <span class="n">file</span> <span class="k">in</span> <span class="n">the</span> <span class="n">blocky</span> <span class="n">mode</span><span class="p">:</span>
+</span><span class='line'><span class="c1"># accessing the file in the blocky mode:</span>
 </span><span class='line'>
 </span><span class='line'><span class="no">File</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;guacamole.txt&quot;</span><span class="p">,</span> <span class="s1">&#39;w+&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">line</span><span class="o">|</span> <span class="nb">puts</span> <span class="n">line</span> <span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure>
@@ -167,10 +166,31 @@
 
 <p>One line versus three, and at the end of the block the file closes automatically. Tidy and elegant.</p>
 
-<ol>
-<li>How to translate a hash into an array?  And can the reverse be done?</li>
-</ol>
+<h4>2. How to translate a hash into an array?  And can the reverse be done?</h4>
 
+<p>A trivial task using Ruby&#8217;s <code>to_a</code> method:</p>
+
+<figure class='code'><figcaption><span>hash-to-array-conversion  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">hash</span> <span class="o">=</span> <span class="p">{</span> <span class="ss">:bob</span> <span class="o">=&gt;</span> <span class="s2">&quot;uncle&quot;</span> <span class="p">}</span>
+</span><span class='line'><span class="nb">hash</span><span class="o">.</span><span class="n">to_a</span><span class="o">.</span><span class="n">flatten</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">word</span><span class="o">|</span> <span class="n">word</span><span class="o">.</span><span class="n">to_s</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And the reverse:</p>
+
+<figure class='code'><figcaption><span>array-to-hash-conversion  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">array</span> <span class="o">=</span> <span class="n">w</span><span class="sx">%(bob is your uncle)</span>
+</span><span class='line'><span class="nb">hash</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">[*</span><span class="n">array</span><span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>I know there&#8217;s an uglier way to do that&#8230;but there&#8217;s plenty enough ugliness in the world as things stand.  Why add more?</p>
+
+<h4>3.  To be continued&#8230;</h4>
 </div>
 
 
