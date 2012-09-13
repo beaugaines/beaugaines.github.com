@@ -31,7 +31,6 @@ end
 
 The optional `( not)?` gets passed into the step as `negate` var for conditional assertion goodness.
 
--  
 
 ### Gimp
 
@@ -45,6 +44,23 @@ That second bit is important; if the image is greyscale the Color to Alpha optio
 
 ### Ruby
 
-Learned a bunch!  To be updated...
+I'm working my way through the Ruby section of [Seven Languages in Seven Weeks](http://pragprog.com/book/btlang/seven-languages-in-seven-weeks).  This book has been great fun.  I like how broad a scope it takes:  from the simplest features of the language on Day 1 to fairly sophisticated subjects on Day 3.
 
+Here are my answers for the Day 2 exercises:
+
+1. Find out how to access files with and without a code block.  What is the benefit of the code block?
+
+{% codeblock  lang:ruby %}
+file = File.open("guacamole.txt", 'w+')
+file << "Holy guacamole"
+file.close
+
+Accessing the file in the blocky mode:
+
+File.open("guacamole.txt", 'w+').each { |line| puts line } 
+{% endcodeblock %}
+
+One line versus three, and at the end of the block the file closes automatically. Tidy and elegant.
+
+2. How to translate a hash into an array?  And can the reverse be done?
 
