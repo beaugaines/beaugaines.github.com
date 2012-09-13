@@ -124,11 +124,6 @@
 
 <p>The optional <code>( not)?</code> gets passed into the step as <code>negate</code> var for conditional assertion goodness.</p>
 
-<ul>
-<li></li>
-</ul>
-
-
 <h3>Gimp</h3>
 
 <p>I wanted to create a transparent png from a black and white image.  This is pretty easy in gimp:</p>
@@ -144,7 +139,38 @@
 
 <h3>Ruby</h3>
 
-<p>Learned a bunch!  To be updated&#8230;</p>
+<p>I&#8217;m working my way through the Ruby section of <a href="http://pragprog.com/book/btlang/seven-languages-in-seven-weeks">Seven Languages in Seven Weeks</a>.  This book has been great fun.  I like how broad a scope it takes:  from the simplest features of the language on Day 1 to fairly sophisticated subjects on Day 3.</p>
+
+<p>Here are my answers for the Day 2 exercises:</p>
+
+<ol>
+<li>Find out how to access files with and without a code block.  What is the benefit of the code block?</li>
+</ol>
+
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">file</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;guacamole.txt&quot;</span><span class="p">,</span> <span class="s1">&#39;w+&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="n">file</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;Holy guacamole&quot;</span>
+</span><span class='line'><span class="n">file</span><span class="o">.</span><span class="n">close</span>
+</span><span class='line'>
+</span><span class='line'><span class="no">Accessing</span> <span class="n">the</span> <span class="n">file</span> <span class="k">in</span> <span class="n">the</span> <span class="n">blocky</span> <span class="n">mode</span><span class="p">:</span>
+</span><span class='line'>
+</span><span class='line'><span class="no">File</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;guacamole.txt&quot;</span><span class="p">,</span> <span class="s1">&#39;w+&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">line</span><span class="o">|</span> <span class="nb">puts</span> <span class="n">line</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>One line versus three, and at the end of the block the file closes automatically. Tidy and elegant.</p>
+
+<ol>
+<li>How to translate a hash into an array?  And can the reverse be done?</li>
+</ol>
+
 </div>
 
 
