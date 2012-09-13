@@ -14,12 +14,12 @@ Learned how to set up the bones of this site and deploy to Github via [Tom Ordon
 
 ### Cucumber
 
-Learned all this from [Corey Schires' blog](http://coryschires.com):
+Learned this from [Corey Schires' blog](http://coryschires.com):
 
 
-- consolidate positive and negative assertions:
+- consolidate positive and negative assertions in step definitions:
 
-{% codeblock lang:gherkin %}
+{% codeblock negative assertions in Cuke lang:gherkin %}
 Then /^I should( not)? see the following columns: "([^"]*)"$/ do |negate, columns|
   within('table thead tr') do
     columns.split(', ').each do |column|
@@ -48,19 +48,36 @@ I'm working my way through the Ruby section of [Seven Languages in Seven Weeks](
 
 Here are my answers for the Day 2 exercises:
 
-1. Find out how to access files with and without a code block.  What is the benefit of the code block?
+####1. Find out how to access files with and without a code block.  What is the benefit of the code block?
 
-{% codeblock  lang:ruby %}
+{% codeblock  File handling in a block lang:ruby %}
 file = File.open("guacamole.txt", 'w+')
 file << "Holy guacamole"
 file.close
 
-Accessing the file in the blocky mode:
+# accessing the file in the blocky mode:
 
 File.open("guacamole.txt", 'w+').each { |line| puts line } 
 {% endcodeblock %}
 
 One line versus three, and at the end of the block the file closes automatically. Tidy and elegant.
 
-2. How to translate a hash into an array?  And can the reverse be done?
+####2. How to translate a hash into an array?  And can the reverse be done?
 
+A trivial task using Ruby's `to_a` method:
+
+{% codeblock hash-to-array-conversion lang:ruby %}
+hash = { :bob => "uncle" }
+hash.to_a.flatten.map { |word| word.to_s }
+{% endcodeblock %}
+
+And the reverse:
+
+{% codeblock array-to-hash-conversion lang:ruby %}
+array = w%(bob is your uncle)
+hash = Hash[*array]
+{% endcodeblock %}
+
+I know there's an uglier way to do that...but there's plenty enough ugliness in the world as things stand.  Why add more?
+
+####3.  To be continued...
