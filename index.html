@@ -191,9 +191,110 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>I know there&#8217;s an uglier way to do that&#8230;but there&#8217;s plenty enough ugliness in the world as things stand.  Why add more?</p>
+<p>Or in uglier fashion:</p>
 
-<h4>3.  To be continued&#8230;</h4>
+<h4>3. Can you iterate through a hash?</h4>
+
+<figure class='code'><figcaption><span>hash-iteration  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">hash</span> <span class="o">=</span> <span class="p">{</span><span class="ss">:bob</span> <span class="o">=&gt;</span> <span class="s2">&quot;uncle&quot;</span><span class="p">,</span> <span class="ss">:belinda</span> <span class="o">=&gt;</span> <span class="s2">&quot;aunt&quot;</span><span class="p">}</span>
+</span><span class='line'><span class="nb">hash</span><span class="o">.</span><span class="n">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span> <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">key</span><span class="si">}</span><span class="s2"> - </span><span class="si">#{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>4. Ruby arrays can be used as stacks.  What other data structures do arrays support?</h4>
+
+<figure class='code'><figcaption><span>array-data-structures  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Queues/Dequeues</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">queue</span> <span class="o">=</span> <span class="o">[]</span>
+</span><span class='line'><span class="n">queue</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s2">&quot;delightful&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s2">&quot;queue&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="n">queue</span><span class="o">.</span><span class="n">unshift</span><span class="p">(</span><span class="s2">&quot;2&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">unshift</span><span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">queue</span><span class="o">.</span><span class="n">pop</span>  <span class="c1"># =&gt; &quot;queue&quot;</span>
+</span><span class='line'><span class="n">queue</span><span class="o">.</span><span class="n">shift</span> <span class="c1"># =&gt; &quot;1&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Lists</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">list</span> <span class="o">=</span> <span class="sx">%w(a bag of tricks)</span>
+</span><span class='line'><span class="n">list</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;special&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="n">list</span><span class="o">.</span><span class="n">map!</span> <span class="p">{</span> <span class="o">|</span><span class="n">e</span><span class="o">|</span> <span class="n">e</span> <span class="o">==</span> <span class="s2">&quot;bag&quot;</span> <span class="p">?</span> <span class="s2">&quot;hag&quot;</span> <span class="p">:</span> <span class="n">e</span> <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Bag/Set</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">bag</span> <span class="o">=</span> <span class="sx">%w(ceci n&#39;est pas une emeraude)</span>
+</span><span class='line'><span class="n">bag2</span> <span class="o">=</span> <span class="sx">%w(non pas du tout une emeraude)</span>
+</span><span class='line'><span class="n">set</span> <span class="o">=</span> <span class="n">bag</span> <span class="o">|</span> <span class="n">bag2</span> <span class="c1"># =&gt; [&quot;ceci&quot;, &quot;n&#39;est&quot;, &quot;pas&quot;, &quot;une&quot;,</span>
+</span><span class='line'>                 <span class="c1">#     &quot;emeraude&quot;, &quot;non&quot;, &quot;du&quot;, &quot;tout&quot;]</span>
+</span><span class='line'><span class="c1"># Matrices</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">m</span> <span class="o">=</span> <span class="o">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="o">]</span><span class="p">,</span> <span class="o">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="o">]</span><span class="p">,</span> <span class="o">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="o">]]</span>
+</span><span class='line'><span class="n">m</span><span class="o">.</span><span class="n">transpose</span> <span class="c1"># =&gt; [[1,4,7], [2,5,8], [3,6,9]]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And the &#8216;Do&#8217; section:</p>
+
+<h4>1.  Print the content of an array of sixteen numbers, four numbers at a time, using just each.  Then do the same with <code>each_slice</code> in Enumerable.</h4>
+
+<p>I couldn&#8217;t find an each implementation I liked so I came up with this.</p>
+
+<p><code>a = [*(1..16)]</code>
+<code>4.times { p (a.shift(4)) }</code></p>
+
+<p>And the same done with <code>each_slice</code>:</p>
+
+<p><code>a.each_slice(4) { |slice| p slice }</code></p>
+
+<h3>3.  Write a simple grep that will print the lines of a file having any</h3>
+
+<p>occurrences of a phrase anywhere in that line.  Include line numbers if you like.</p>
+
+<figure class='code'><figcaption><span>simple-grep  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">simple_grep</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">regex</span> <span class="o">=</span> <span class="sr">%r{pattern}</span>
+</span><span class='line'>  <span class="no">File</span><span class="o">.</span><span class="n">foreach</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span><span class="o">.</span><span class="n">with_index</span> <span class="k">do</span> <span class="o">|</span><span class="n">line</span><span class="p">,</span> <span class="n">line_num</span><span class="o">|</span>
+</span><span class='line'>    <span class="nb">p</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">line_num</span> <span class="o">-</span> <span class="n">line</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">if</span> <span class="n">regex</span> <span class="o">=~</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Unfortunately I&#8217;ve had to punt on question number 2&#8230;for the time being.  Now on to chapter 3.</p>
 </div>
   
   
