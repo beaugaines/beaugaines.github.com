@@ -2,14 +2,22 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://beaugaines.github.com/blog/2012/09/12/code-titbits-no-1/</loc>
-        <lastmod>2012-09-14T14:19:44-04:00</lastmod>
+        <lastmod>2012-09-14T14:31:51-04:00</lastmod>
+    </url>
+    <url>
+        <loc>http://beaugaines.github.com/blog/2012/09/14/my-road-map/</loc>
+        <lastmod>2012-09-14T14:41:09-04:00</lastmod>
+    </url>
+    <url>
+        <loc>http://beaugaines.github.com/blog/2012/09/14/road-map-no-1-ruby/</loc>
+        <lastmod>2012-09-14T14:33:09-04:00</lastmod>
     </url>
     <url>
         <loc>http://beaugaines.github.com/</loc>
-        <lastmod>2012-09-14T14:19:44-04:00</lastmod>
+        <lastmod>2012-09-14T14:41:09-04:00</lastmod>
     </url>
     <url>
         <loc>http://beaugaines.github.com/blog/archives/</loc>
-        <lastmod>2012-09-14T14:19:44-04:00</lastmod>
+        <lastmod>2012-09-14T14:41:09-04:00</lastmod>
     </url>
 </urlset>

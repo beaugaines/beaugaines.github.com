@@ -188,9 +188,9 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Or in uglier fashion:</p>
-
 <h4>3. Can you iterate through a hash?</h4>
+
+<p>Yes, thusly:</p>
 
 <figure class='code'><figcaption><span>hash-iteration  </span></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -201,6 +201,8 @@
 
 
 <h4>4. Ruby arrays can be used as stacks.  What other data structures do arrays support?</h4>
+
+<p>I tried to find a comprehensive list of array data structures but this is all I came up with.  I&#8217;ll add more when I find em.</p>
 
 <figure class='code'><figcaption><span>array-data-structures  </span></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -256,22 +258,27 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>And the &#8216;Do&#8217; section:</p>
-
-<h4>1.  Print the content of an array of sixteen numbers, four numbers at a time, using just each.  Then do the same with <code>each_slice</code> in Enumerable.</h4>
+<h4>5.  Print the content of an array of sixteen numbers, four numbers at a time, using just each.  Then do the same with <code>each_slice</code> in Enumerable.</h4>
 
 <p>I couldn&#8217;t find an each implementation I liked so I came up with this.</p>
 
-<p><code>a = [*(1..16)]</code>
-<code>4.times { p (a.shift(4)) }</code></p>
+<figure class='code'><figcaption><span>array-slice-n-dice  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">a</span> <span class="o">=</span> <span class="o">[*</span><span class="p">(</span><span class="mi">1</span><span class="o">.</span><span class="n">.</span><span class="mi">16</span><span class="p">)</span><span class="o">]</span>
+</span><span class='line'><span class="mi">4</span><span class="o">.</span><span class="n">times</span> <span class="p">{</span> <span class="nb">p</span> <span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span> <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># and the same done with `each_slice`:</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">a</span><span class="o">.</span><span class="n">each_slice</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">slice</span><span class="o">|</span> <span class="nb">p</span> <span class="n">slice</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
-<p>And the same done with <code>each_slice</code>:</p>
 
-<p><code>a.each_slice(4) { |slice| p slice }</code></p>
-
-<h3>3.  Write a simple grep that will print the lines of a file having any</h3>
-
-<p>occurrences of a phrase anywhere in that line.  Include line numbers if you like.</p>
+<h4>6.  Write a simple grep that will print the lines of a file having any occurrences of a phrase anywhere in that line.  Include line numbers if you like.</h4>
 
 <figure class='code'><figcaption><span>simple-grep  </span></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -291,7 +298,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Unfortunately I&#8217;ve had to punt on question number 2&#8230;for the time being.  Now on to chapter 3.</p>
+
 </div>
 
 
@@ -332,6 +339,8 @@
     <p class="meta">
       
       
+        <a class="basic-alignment right" href="/blog/2012/09/14/my-road-map/" title="Next Post: My road map">My road map &raquo;</a>
+      
     </p>
   </footer>
 </article>
@@ -343,6 +352,14 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/09/14/road-map-no-1-ruby/">Road Map No. 1 - Ruby</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/09/14/my-road-map/">My road map</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2012/09/12/code-titbits-no-1/">Code titbits no. 1</a>

@@ -4,7 +4,7 @@
   <title><![CDATA[Monkey Blog]]></title>
   <link href="http://beaugaines.github.com/atom.xml" rel="self"/>
   <link href="http://beaugaines.github.com/"/>
-  <updated>2012-09-14T14:22:32-04:00</updated>
+  <updated>2012-09-14T14:49:38-04:00</updated>
   <id>http://beaugaines.github.com/</id>
   <author>
     <name><![CDATA[Beau Gaines]]></name>
@@ -12,6 +12,26 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Road Map No. 1 - Ruby]]></title>
+    <link href="http://beaugaines.github.com/blog/2012/09/14/road-map-no-1-ruby/"/>
+    <updated>2012-09-14T14:25:00-04:00</updated>
+    <id>http://beaugaines.github.com/blog/2012/09/14/road-map-no-1-ruby</id>
+    <content type="html"><![CDATA[<p>To be done!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[My road map]]></title>
+    <link href="http://beaugaines.github.com/blog/2012/09/14/my-road-map/"/>
+    <updated>2012-09-14T14:25:00-04:00</updated>
+    <id>http://beaugaines.github.com/blog/2012/09/14/my-road-map</id>
+    <content type="html"><![CDATA[<p>I&#8217;ve been navigating my way through the task of teaching myself how to code in part thanks to these <a href="https://github.com/thoughtbot/trail-map">trail maps</a> that Thoughtbot has assembled.  I used them as a base and cooked up my own map.  I&#8217;m going to call it a road map because I don&#8217;t ski or hike really.  And roads take you places while trails do not usually have a destination.</p>
+
+<p>So here, first of all, is my <a href="blog/2012-09-14-road-map-no-1-ruby">Ruby road map</a>.  I&#8217;m going to add items to the list when I encounter them, and cross off what I&#8217;ve achieved.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Code titbits no. 1]]></title>
@@ -116,9 +136,9 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Or in uglier fashion:</p>
-
 <h4>3. Can you iterate through a hash?</h4>
+
+<p>Yes, thusly:</p>
 
 <figure class='code'><figcaption><span>hash-iteration  </span></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -129,6 +149,8 @@
 
 
 <h4>4. Ruby arrays can be used as stacks.  What other data structures do arrays support?</h4>
+
+<p>I tried to find a comprehensive list of array data structures but this is all I came up with.  I&#8217;ll add more when I find em.</p>
 
 <figure class='code'><figcaption><span>array-data-structures  </span></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -184,22 +206,27 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>And the &#8216;Do&#8217; section:</p>
-
-<h4>1.  Print the content of an array of sixteen numbers, four numbers at a time, using just each.  Then do the same with <code>each_slice</code> in Enumerable.</h4>
+<h4>5.  Print the content of an array of sixteen numbers, four numbers at a time, using just each.  Then do the same with <code>each_slice</code> in Enumerable.</h4>
 
 <p>I couldn&#8217;t find an each implementation I liked so I came up with this.</p>
 
-<p><code>a = [*(1..16)]</code>
-<code>4.times { p (a.shift(4)) }</code></p>
+<figure class='code'><figcaption><span>array-slice-n-dice  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">a</span> <span class="o">=</span> <span class="o">[*</span><span class="p">(</span><span class="mi">1</span><span class="o">.</span><span class="n">.</span><span class="mi">16</span><span class="p">)</span><span class="o">]</span>
+</span><span class='line'><span class="mi">4</span><span class="o">.</span><span class="n">times</span> <span class="p">{</span> <span class="nb">p</span> <span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span> <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># and the same done with `each_slice`:</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">a</span><span class="o">.</span><span class="n">each_slice</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">slice</span><span class="o">|</span> <span class="nb">p</span> <span class="n">slice</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
-<p>And the same done with <code>each_slice</code>:</p>
 
-<p><code>a.each_slice(4) { |slice| p slice }</code></p>
-
-<h3>3.  Write a simple grep that will print the lines of a file having any</h3>
-
-<p>occurrences of a phrase anywhere in that line.  Include line numbers if you like.</p>
+<h4>6.  Write a simple grep that will print the lines of a file having any occurrences of a phrase anywhere in that line.  Include line numbers if you like.</h4>
 
 <figure class='code'><figcaption><span>simple-grep  </span></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -219,7 +246,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Unfortunately I&#8217;ve had to punt on question number 2&#8230;for the time being.  Now on to chapter 3.</p>
+
 ]]></content>
   </entry>
   
