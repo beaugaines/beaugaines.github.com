@@ -78,6 +78,76 @@ array = w%(bob is your uncle)
 hash = Hash[*array]
 {% endcodeblock %}
 
-I know there's an uglier way to do that...but there's plenty enough ugliness in the world as things stand.  Why add more?
+Or in uglier fashion:
 
-####3.  To be continued...
+
+
+####3. Can you iterate through a hash?
+
+{% codeblock hash-iteration lang:ruby %}
+hash = {:bob => "uncle", :belinda => "aunt"}
+hash.each { |key, value| puts "#{key} - #{value}" }
+
+{% endcodeblock %}
+
+####4. Ruby arrays can be used as stacks.  What other data structures do arrays support?
+
+{% codeblock array-data-structures lang:ruby %}
+
+# Queues/Dequeues
+
+queue = []
+queue.push("delightful").push("queue")
+queue.unshift("2").unshift("1")
+
+queue.pop  # => "queue"
+queue.shift # => "1"
+
+# Lists
+
+list = %w(a bag of tricks)
+list.insert(1, "special")
+list.map! { |e| e == "bag" ? "hag" : e }
+
+# Bag/Set
+
+bag = %w(ceci n'est pas une emeraude)
+bag2 = %w(non pas du tout une emeraude)
+set = bag | bag2 # => ["ceci", "n'est", "pas", "une",
+                 #     "emeraude", "non", "du", "tout"]
+# Matrices
+
+m = [[1,2,3], [4,5,6], [7,8,9]]
+m.transpose # => [[1,4,7], [2,5,8], [3,6,9]]
+
+{% endcodeblock %}
+
+And the 'Do' section:
+
+####1.  Print the content of an array of sixteen numbers, four numbers at a time, using just each.  Then do the same with `each_slice` in Enumerable.
+
+I couldn't find an each implementation I liked so I came up with this.
+
+`a = [*(1..16)]`
+`4.times { p (a.shift(4)) }`
+
+And the same done with `each_slice`:
+
+`a.each_slice(4) { |slice| p slice }`
+
+###3.  Write a simple grep that will print the lines of a file having any
+occurrences of a phrase anywhere in that line.  Include line numbers if you like.
+
+{% codeblock simple-grep lang:ruby %}
+
+def simple_grep(pattern, filename)
+  regex = %r{pattern}
+  File.foreach(filename).with_index do |line, line_num|
+    p "#{line_num - line}" if regex =~ 
+  end
+end
+ 
+{% endcodeblock %} 
+
+Unfortunately I've had to punt on question number 2...for the time being.  Now on to chapter 3.
+
