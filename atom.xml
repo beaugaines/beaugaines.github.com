@@ -4,7 +4,7 @@
   <title><![CDATA[Monkey Blog]]></title>
   <link href="http://beaugaines.github.com/atom.xml" rel="self"/>
   <link href="http://beaugaines.github.com/"/>
-  <updated>2012-09-14T14:49:38-04:00</updated>
+  <updated>2012-09-14T14:52:34-04:00</updated>
   <id>http://beaugaines.github.com/</id>
   <author>
     <name><![CDATA[Beau Gaines]]></name>
@@ -29,7 +29,7 @@
     <id>http://beaugaines.github.com/blog/2012/09/14/my-road-map</id>
     <content type="html"><![CDATA[<p>I&#8217;ve been navigating my way through the task of teaching myself how to code in part thanks to these <a href="https://github.com/thoughtbot/trail-map">trail maps</a> that Thoughtbot has assembled.  I used them as a base and cooked up my own map.  I&#8217;m going to call it a road map because I don&#8217;t ski or hike really.  And roads take you places while trails do not usually have a destination.</p>
 
-<p>So here, first of all, is my <a href="blog/2012-09-14-road-map-no-1-ruby">Ruby road map</a>.  I&#8217;m going to add items to the list when I encounter them, and cross off what I&#8217;ve achieved.</p>
+<p>So here, first of all, is my <a href="blog/2012/09/14/road-map-no-1-ruby">Ruby road map</a>.  I&#8217;m going to add items to the list when I encounter them, and cross off what I&#8217;ve achieved.</p>
 ]]></content>
   </entry>
   
