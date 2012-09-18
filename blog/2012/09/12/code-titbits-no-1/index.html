@@ -125,6 +125,24 @@
 
 <p>The optional <code>( not)?</code> gets passed into the step as <code>negate</code> var for conditional assertion goodness.</p>
 
+<p>Also learned (true titbits here):</p>
+
+<ul>
+<li>to get the convenience methods in Cucumber features, create a file <code>features/support/factory_girl.rb</code> with the contents <code>World(FactoryGirl::Syntax::Methods)</code></li>
+<li>to be <em>fair</em> to both Rspec and Cucumber, it&#8217;s good to put factories in their own <code>factories/..</code> folder at your application root.  If you do this you also need to put this in a file at <code>features/support/factories.rb</code>:</li>
+</ul>
+
+
+<figure class='code'><figcaption><span>factories-support-fil  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Dir</span><span class="o">[</span><span class="no">Rails</span><span class="o">.</span><span class="n">root</span> <span class="o">+</span> <span class="s2">&quot;factories/*.rb&quot;</span><span class="o">].</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">file</span><span class="o">|</span>
+</span><span class='line'>  <span class="nb">require</span> <span class="n">file</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
 <h3>Gimp</h3>
 
 <p>I wanted to create a transparent png from a black and white image.  This is pretty easy in gimp:</p>
@@ -260,7 +278,7 @@
 
 <h4>5.  Print the content of an array of sixteen numbers, four numbers at a time, using just each.  Then do the same with <code>each_slice</code> in Enumerable.</h4>
 
-<p>I couldn&#8217;t find an each implementation I liked so I came up with this.</p>
+<p>I couldn&#8217;t find an <code>each</code> implementation I liked so I came up with this.</p>
 
 <figure class='code'><figcaption><span>array-slice-n-dice  </span></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
