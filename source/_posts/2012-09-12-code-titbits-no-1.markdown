@@ -32,6 +32,17 @@ end
 The optional `( not)?` gets passed into the step as `negate` var for conditional assertion goodness.
 
 
+Also learned (true titbits here):
+
+- to get the convenience methods in Cucumber features, create a file `features/support/factory_girl.rb` with the contents `World(FactoryGirl::Syntax::Methods)`
+- to be *fair* to both Rspec and Cucumber, it's good to put factories in their own `factories/..` folder at your application root.  If you do this you also need to put this in a file at `features/support/factories.rb`:
+
+{% codeblock factories-support-fil lang:ruby %}
+Dir[Rails.root + "factories/*.rb"].each do |file|
+  require file
+end
+{% endcodeblock %}
+
 ### Gimp
 
 I wanted to create a transparent png from a black and white image.  This is pretty easy in gimp:
@@ -78,11 +89,10 @@ array = w%(bob is your uncle)
 hash = Hash[*array]
 {% endcodeblock %}
 
-Or in uglier fashion:
-
-
 
 ####3. Can you iterate through a hash?
+
+Yes, thusly:
 
 {% codeblock hash-iteration lang:ruby %}
 hash = {:bob => "uncle", :belinda => "aunt"}
@@ -91,6 +101,8 @@ hash.each { |key, value| puts "#{key} - #{value}" }
 {% endcodeblock %}
 
 ####4. Ruby arrays can be used as stacks.  What other data structures do arrays support?
+
+I tried to find a comprehensive list of array data structures but this is all I came up with.  I'll add more when I find em.
 
 {% codeblock array-data-structures lang:ruby %}
 
@@ -122,21 +134,23 @@ m.transpose # => [[1,4,7], [2,5,8], [3,6,9]]
 
 {% endcodeblock %}
 
-And the 'Do' section:
 
-####1.  Print the content of an array of sixteen numbers, four numbers at a time, using just each.  Then do the same with `each_slice` in Enumerable.
+####5.  Print the content of an array of sixteen numbers, four numbers at a time, using just each.  Then do the same with `each_slice` in Enumerable.
 
-I couldn't find an each implementation I liked so I came up with this.
+I couldn't find an `each` implementation I liked so I came up with this.
 
-`a = [*(1..16)]`
-`4.times { p (a.shift(4)) }`
+{% codeblock array-slice-n-dice lang:ruby %}
+a = [*(1..16)]
+4.times { p (a.shift(4)) }
 
-And the same done with `each_slice`:
+# and the same done with `each_slice`:
 
-`a.each_slice(4) { |slice| p slice }`
+a.each_slice(4) { |slice| p slice }
 
-###3.  Write a simple grep that will print the lines of a file having any
-occurrences of a phrase anywhere in that line.  Include line numbers if you like.
+{% endcodeblock %}
+
+
+####6.  Write a simple grep that will print the lines of a file having any occurrences of a phrase anywhere in that line.  Include line numbers if you like.
 
 {% codeblock simple-grep lang:ruby %}
 
@@ -148,6 +162,4 @@ def simple_grep(pattern, filename)
 end
  
 {% endcodeblock %} 
-
-Unfortunately I've had to punt on question number 2...for the time being.  Now on to chapter 3.
 
