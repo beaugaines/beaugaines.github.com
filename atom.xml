@@ -4,7 +4,7 @@
   <title><![CDATA[Monkey Blog]]></title>
   <link href="http://beaugaines.github.com/atom.xml" rel="self"/>
   <link href="http://beaugaines.github.com/"/>
-  <updated>2012-09-18T17:47:45-04:00</updated>
+  <updated>2012-09-19T17:46:43-04:00</updated>
   <id>http://beaugaines.github.com/</id>
   <author>
     <name><![CDATA[Beau Gaines]]></name>
@@ -14,11 +14,48 @@
 
   
   <entry>
+    <title type="html"><![CDATA[road map no. 4 - html+css]]></title>
+    <link href="http://beaugaines.github.com/blog/2012/09/19/road-map-no-4-html-plus-css/"/>
+    <updated>2012-09-19T17:40:00-04:00</updated>
+    <id>http://beaugaines.github.com/blog/2012/09/19/road-map-no-4-html-plus-css</id>
+    <content type="html"><![CDATA[<p>TBD!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[road map no. 3 - javascript]]></title>
+    <link href="http://beaugaines.github.com/blog/2012/09/19/road-map-no-3-javascript/"/>
+    <updated>2012-09-19T17:40:00-04:00</updated>
+    <id>http://beaugaines.github.com/blog/2012/09/19/road-map-no-3-javascript</id>
+    <content type="html"><![CDATA[<p>TBD!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[road map no. 2 - postgres]]></title>
+    <link href="http://beaugaines.github.com/blog/2012/09/19/road-map-no-2-postgres/"/>
+    <updated>2012-09-19T17:39:00-04:00</updated>
+    <id>http://beaugaines.github.com/blog/2012/09/19/road-map-no-2-postgres</id>
+    <content type="html"><![CDATA[<p>TBD!</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Road Map No. 1 - Ruby]]></title>
     <link href="http://beaugaines.github.com/blog/2012/09/14/road-map-no-1-ruby/"/>
     <updated>2012-09-14T14:25:00-04:00</updated>
     <id>http://beaugaines.github.com/blog/2012/09/14/road-map-no-1-ruby</id>
-    <content type="html"><![CDATA[<p>To be done!</p>
+    <content type="html"><![CDATA[<p>Not yet in strict order, here&#8217;s my list:</p>
+
+<ol>
+<li>Go through the APIs for Ruby <strong>Arrayы, Hashes, Strings, and Files</strong>  Learn &#8216;em by heart</li>
+<li>Finish <em>The Well-Grounded Rubyist</em></li>
+<li>Finish <em>Ruby Koans</em></li>
+<li>Read chaps. 23 and 34 of <em>The Pickaxe</em></li>
+<li>Read <em>Practical Projects in Ruby</em></li>
+<li>Read <em>Metaprogramming in Ruby</em></li>
+</ol>
+
 ]]></content>
   </entry>
   
