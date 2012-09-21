@@ -157,7 +157,7 @@ a.each_slice(4) { |slice| p slice }
 def simple_grep(pattern, filename)
   regex = %r{pattern}
   File.foreach(filename).with_index do |line, line_num|
-    p "#{line_num - line}" if regex =~ 
+    p "#{line_num - line}" if regex =~ line 
   end
 end
  
