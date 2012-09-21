@@ -114,7 +114,10 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<h2>- function parameters come with their type, which appears after the colon.  If a return type is given, it appears after the parameter list.</h2>
+<ul>
+<li>function parameters come with their type, which appears after the colon.  If a return type is given, it appears after the parameter list.</li>
+</ul>
+
 </div>
   
   
@@ -226,71 +229,96 @@
 
 <p>Read these sections of the <a href="http://www.postgresql.org/docs/9.0/static/index.html">Postgres manual</a></p>
 
+<h4>Basics</h4>
+
 <ul>
 <li><del> 2.5. Querying a Table </del></li>
 <li><del> 2.6. Joins Between Tables </del></li>
 <li>2.7. Aggregate Functions</li>
 <li>3.5. Window Functions</li>
-<li><ol>
-<li>SQL Syntax</li>
-</ol>
-</li>
+</ul>
+
+
+<h4>SQL Syntax</h4>
+
+<ul>
 <li>4.1. Lexical Structure</li>
 <li>4.2. Value Expressions</li>
-<li><ol>
-<li>Data Definition</li>
-</ol>
-</li>
+</ul>
+
+
+<h4>Data Definition</h4>
+
+<ul>
 <li>5.1. Table Basics</li>
 <li>5.2. Default Values</li>
 <li>5.3. Constraints</li>
 <li>5.5. Modifying Tables</li>
-<li><ol>
-<li>Data Manipulation</li>
-</ol>
-</li>
+</ul>
+
+
+<h4>Data Manipulation</h4>
+
+<ul>
 <li>6.1. Inserting Data</li>
 <li>6.2. Updating Data</li>
 <li>6.3. Deleting Data</li>
-<li><ol>
-<li>Queries</li>
-</ol>
-</li>
-<li>7.1. Overview</li>
-<li>7.2. Table Expressions</li>
-<li>7.3. Select Lists</li>
-<li>7.4. Combining Queries</li>
-<li>7.5. Sorting Rows</li>
-<li>7.6. LIMIT and OFFSET</li>
-<li>7.7. VALUES Lists</li>
+</ul>
+
+
+<h4>Queries</h4>
+
+<ul>
+<li>7.1. overview</li>
+<li>7.2. table expressions</li>
+<li>7.3. select lists</li>
+<li>7.4. combining queries</li>
+<li>7.5. sorting rows</li>
+<li>7.6. limit and offset</li>
+<li>7.7. values lists</li>
 <li>7.8. WITH Queries (Common Table Expressions)</li>
-<li><ol>
-<li>Functions and Operators</li>
-</ol>
-</li>
+</ul>
+
+
+<h4>Functions and Operators</h4>
+
+<ul>
 <li>9.1. Logical Operators</li>
 <li>9.2. Comparison Operators</li>
 <li>9.7.1. LIKE</li>
 <li>9.20.Subquery Expressions</li>
-<li><ol>
-<li>Indexes</li>
-</ol>
-</li>
+</ul>
+
+
+<h4>Indexes</h4>
+
+<ul>
 <li>11.1. Introduction</li>
 <li>11.5. Combining Multiple Indexes</li>
 </ul>
 
 
-<p>I. SQL Commands
-ALTER TABLE
-CREATE INDEX [ CONCURRENTLY ]
-CREATE TABLE
-DELETE
-INSERT
-SELECT
-UPDATE</p>
+<p>I. SQL Commands</p>
 
-<p>Read the following sections of the SQL Cookbook: ($)</p>
+<figure class='code'><figcaption><span>sql-commands  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='sql'><span class='line'><span class="k">ALTER</span> <span class="k">TABLE</span>
+</span><span class='line'><span class="k">CREATE</span> <span class="k">INDEX</span> <span class="p">[</span> <span class="n">CONCURRENTLY</span> <span class="p">]</span>
+</span><span class='line'><span class="k">CREATE</span> <span class="k">TABLE</span>
+</span><span class='line'><span class="k">DELETE</span>
+</span><span class='line'><span class="k">INSERT</span>
+</span><span class='line'><span class="k">SELECT</span>
+</span><span class='line'><span class="k">UPDATE</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Read the following sections of the SQL Cookbook:</p>
 
 <p>Appendix A: Window Function Refresher
 Any recipes that interest you</p>
