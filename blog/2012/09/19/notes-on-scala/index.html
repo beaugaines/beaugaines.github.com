@@ -5,14 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Blog Archive - A Raker's Progress</title>
+  <title>Notes on Scala - A Raker's Progress</title>
   <meta name="author" content="Beau Gaines">
 
   
-  <meta name="description" content="Blog Archive 2012 Notes on Scala
-Sep 19 2012 road map no. 4 - html+css
-Sep 19 2012 road map no. 3 - javascript
-Sep 19 2012 road map no. 2 - postgres &hellip;">
+  <meta name="description" content="I&#8217;m taking the free course from Coursera. I fear it might be a bit beyond me&#8230;but I&#8217;m gonna risk it. Here are my notes: Lecture 1 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,7 +18,7 @@ Sep 19 2012 road map no. 2 - postgres &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://beaugaines.github.com/blog/archives/">
+  <link rel="canonical" href="http://beaugaines.github.com/blog/2012/09/19/notes-on-scala/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -66,91 +63,99 @@ Sep 19 2012 road map no. 2 - postgres &hellip;">
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Blog Archive</h1>
+    
+      <h1 class="entry-title">Notes on Scala</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-09-19T18:55:00-04:00" pubdate data-updated="true">Sep 19<span>th</span>, 2012</time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives">
 
 
+<div class="entry-content"><p>I&#8217;m taking the free course from Coursera.  I fear it might be a bit beyond me&#8230;but I&#8217;m gonna risk it.  Here are my notes:</p>
 
-  
-  <h2>2012</h2>
+<h4>Lecture 1</h4>
 
-<article>
-  
-<h1><a href="/blog/2012/09/19/notes-on-scala/">Notes on Scala</a></h1>
-<time datetime="2012-09-19T18:55:00-04:00" pubdate><span class='month'>Sep</span> <span class='day'>19</span> <span class='year'>2012</span></time>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2012/09/19/road-map-no-4-html-plus-css/">road map no. 4 - html+css</a></h1>
-<time datetime="2012-09-19T17:40:00-04:00" pubdate><span class='month'>Sep</span> <span class='day'>19</span> <span class='year'>2012</span></time>
+<ul>
+<li>pure imperative programming models are limited by the &#8220;Von Neumann&#8221; bottleneck; in order to scale up, higher-level abstractions will be required</li>
+<li>in a <em>restricted sense</em>, functional programming means programming without mutable variables, assignments, loops, and other imperative control structures.  In a <em>broader</em> sense, it just means focusing on the functions.  Functions are values that are &#8216;produced, consumed, and composed&#8217;.</li>
+<li>every programming language provides:  a) primitive <em>expressions</em> representing the simplest elements, b) ways to <em>combine</em> expressions, and c) ways to <em>abstract</em> expressions, which introduce a name for an expression by which it can be referred to</li>
+<li>in its most basic sesne, functional programming can be looked at as a bit like using a calculator.  An interactive shell lets one write expressions and responds to their value</li>
+<li>in Scala, definitions can have parameters, e.g.</li>
+</ul>
 
 
-</article>
+<figure class='code'><figcaption><span>func-def-params  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='scala'><span class='line'><span class="n">scala</span><span class="o">&gt;</span> <span class="k">def</span> <span class="n">square</span><span class="o">(</span><span class="n">x</span><span class="k">:</span> <span class="kt">Double</span><span class="o">)</span> <span class="k">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
+</span><span class='line'><span class="n">square</span><span class="k">:</span> <span class="o">(</span><span class="kt">Double</span><span class="o">)</span><span class="kt">Double</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
-
-<article>
-  
-<h1><a href="/blog/2012/09/19/road-map-no-3-javascript/">road map no. 3 - javascript</a></h1>
-<time datetime="2012-09-19T17:40:00-04:00" pubdate><span class='month'>Sep</span> <span class='day'>19</span> <span class='year'>2012</span></time>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2012/09/19/road-map-no-2-postgres/">road map no. 2 - postgres</a></h1>
-<time datetime="2012-09-19T17:39:00-04:00" pubdate><span class='month'>Sep</span> <span class='day'>19</span> <span class='year'>2012</span></time>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2012/09/14/road-map-no-1-ruby/">Road Map No. 1 - Ruby</a></h1>
-<time datetime="2012-09-14T14:25:00-04:00" pubdate><span class='month'>Sep</span> <span class='day'>14</span> <span class='year'>2012</span></time>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2012/09/14/my-road-map/">My road map</a></h1>
-<time datetime="2012-09-14T14:25:00-04:00" pubdate><span class='month'>Sep</span> <span class='day'>14</span> <span class='year'>2012</span></time>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2012/09/12/code-titbits-no-1/">Code titbits no. 1</a></h1>
-<time datetime="2012-09-12T11:44:00-04:00" pubdate><span class='month'>Sep</span> <span class='day'>12</span> <span class='year'>2012</span></time>
-
-
-</article>
-
+<h2>- function parameters come with their type, which appears after the colon.  If a return type is given, it appears after the parameter list.</h2>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Beau Gaines</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-09-19T18:55:00-04:00" pubdate data-updated="true">Sep 19<span>th</span>, 2012</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://beaugaines.github.com/blog/2012/09/19/notes-on-scala/" data-via="perfectidiot" data-counturl="http://beaugaines.github.com/blog/2012/09/19/notes-on-scala/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/09/19/road-map-no-4-html-plus-css/" title="Previous Post: road map no. 4 - html+css">&laquo; road map no. 4 - html+css</a>
+      
+      
+    </p>
+  </footer>
 </article>
 
 </div>

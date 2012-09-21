@@ -5,12 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Monkey Blog</title>
+  <title>A Raker's Progress</title>
   <meta name="author" content="Beau Gaines">
 
   
-  <meta name="description" content="TBD!
-">
+  <meta name="description" content="I&#8217;m taking the free course from Coursera. I fear it might be a bit beyond me&#8230;but I&#8217;m gonna risk it. Here are my notes: Lecture 1 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -25,7 +24,7 @@
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="/javascripts/ender.js"></script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <link href="/atom.xml" rel="alternate" title="Monkey Blog" type="application/atom+xml">
+  <link href="/atom.xml" rel="alternate" title="A Raker's Progress" type="application/atom+xml">
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
@@ -36,9 +35,9 @@
 
 <body   >
   <header role="banner"><hgroup>
-  <h1><a href="/">Monkey Blog</a></h1>
+  <h1><a href="/">A Raker's Progress</a></h1>
   
-    <h2>Investigating the infinite monkey theorem</h2>
+    <h2>Exploring the spelunc of Ruby and other dark caverns.</h2>
   
 </hgroup>
 
@@ -65,6 +64,63 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/09/19/notes-on-scala/">Notes on Scala</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-09-19T18:55:00-04:00" pubdate data-updated="true">Sep 19<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&#8217;m taking the free course from Coursera.  I fear it might be a bit beyond me&#8230;but I&#8217;m gonna risk it.  Here are my notes:</p>
+
+<h4>Lecture 1</h4>
+
+<ul>
+<li>pure imperative programming models are limited by the &#8220;Von Neumann&#8221; bottleneck; in order to scale up, higher-level abstractions will be required</li>
+<li>in a <em>restricted sense</em>, functional programming means programming without mutable variables, assignments, loops, and other imperative control structures.  In a <em>broader</em> sense, it just means focusing on the functions.  Functions are values that are &#8216;produced, consumed, and composed&#8217;.</li>
+<li>every programming language provides:  a) primitive <em>expressions</em> representing the simplest elements, b) ways to <em>combine</em> expressions, and c) ways to <em>abstract</em> expressions, which introduce a name for an expression by which it can be referred to</li>
+<li>in its most basic sesne, functional programming can be looked at as a bit like using a calculator.  An interactive shell lets one write expressions and responds to their value</li>
+<li>in Scala, definitions can have parameters, e.g.</li>
+</ul>
+
+
+<figure class='code'><figcaption><span>func-def-params  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='scala'><span class='line'><span class="n">scala</span><span class="o">&gt;</span> <span class="k">def</span> <span class="n">square</span><span class="o">(</span><span class="n">x</span><span class="k">:</span> <span class="kt">Double</span><span class="o">)</span> <span class="k">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
+</span><span class='line'><span class="n">square</span><span class="k">:</span> <span class="o">(</span><span class="kt">Double</span><span class="o">)</span><span class="kt">Double</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>- function parameters come with their type, which appears after the colon.  If a return type is given, it appears after the parameter list.</h2>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -166,7 +222,78 @@
   </header>
 
 
-  <div class="entry-content"><p>TBD!</p>
+  <div class="entry-content"><p>Straight from Thoughtbot&#8217;s map:</p>
+
+<p>Read these sections of the <a href="http://www.postgresql.org/docs/9.0/static/index.html">Postgres manual</a></p>
+
+<ul>
+<li><del> 2.5. Querying a Table </del></li>
+<li><del> 2.6. Joins Between Tables </del></li>
+<li>2.7. Aggregate Functions</li>
+<li>3.5. Window Functions</li>
+<li><ol>
+<li>SQL Syntax</li>
+</ol>
+</li>
+<li>4.1. Lexical Structure</li>
+<li>4.2. Value Expressions</li>
+<li><ol>
+<li>Data Definition</li>
+</ol>
+</li>
+<li>5.1. Table Basics</li>
+<li>5.2. Default Values</li>
+<li>5.3. Constraints</li>
+<li>5.5. Modifying Tables</li>
+<li><ol>
+<li>Data Manipulation</li>
+</ol>
+</li>
+<li>6.1. Inserting Data</li>
+<li>6.2. Updating Data</li>
+<li>6.3. Deleting Data</li>
+<li><ol>
+<li>Queries</li>
+</ol>
+</li>
+<li>7.1. Overview</li>
+<li>7.2. Table Expressions</li>
+<li>7.3. Select Lists</li>
+<li>7.4. Combining Queries</li>
+<li>7.5. Sorting Rows</li>
+<li>7.6. LIMIT and OFFSET</li>
+<li>7.7. VALUES Lists</li>
+<li>7.8. WITH Queries (Common Table Expressions)</li>
+<li><ol>
+<li>Functions and Operators</li>
+</ol>
+</li>
+<li>9.1. Logical Operators</li>
+<li>9.2. Comparison Operators</li>
+<li>9.7.1. LIKE</li>
+<li>9.20.Subquery Expressions</li>
+<li><ol>
+<li>Indexes</li>
+</ol>
+</li>
+<li>11.1. Introduction</li>
+<li>11.5. Combining Multiple Indexes</li>
+</ul>
+
+
+<p>I. SQL Commands
+ALTER TABLE
+CREATE INDEX [ CONCURRENTLY ]
+CREATE TABLE
+DELETE
+INSERT
+SELECT
+UPDATE</p>
+
+<p>Read the following sections of the SQL Cookbook: ($)</p>
+
+<p>Appendix A: Window Function Refresher
+Any recipes that interest you</p>
 </div>
   
   
@@ -505,7 +632,7 @@
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">simple_grep</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
 </span><span class='line'>  <span class="n">regex</span> <span class="o">=</span> <span class="sr">%r{pattern}</span>
 </span><span class='line'>  <span class="no">File</span><span class="o">.</span><span class="n">foreach</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span><span class="o">.</span><span class="n">with_index</span> <span class="k">do</span> <span class="o">|</span><span class="n">line</span><span class="p">,</span> <span class="n">line_num</span><span class="o">|</span>
-</span><span class='line'>    <span class="nb">p</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">line_num</span> <span class="o">-</span> <span class="n">line</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">if</span> <span class="n">regex</span> <span class="o">=~</span>
+</span><span class='line'>    <span class="nb">p</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">line_num</span> <span class="o">-</span> <span class="n">line</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">if</span> <span class="n">regex</span> <span class="o">=~</span> <span class="n">line</span>
 </span><span class='line'>  <span class="k">end</span>
 </span><span class='line'><span class="k">end</span>
 </span><span class='line'>
@@ -533,6 +660,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/09/19/notes-on-scala/">Notes on Scala</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/09/19/road-map-no-4-html-plus-css/">road map no. 4 - html+css</a>
       </li>
     
@@ -546,10 +677,6 @@
     
       <li class="post">
         <a href="/blog/2012/09/14/road-map-no-1-ruby/">Road Map No. 1 - Ruby</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/09/14/my-road-map/">My road map</a>
       </li>
     
   </ul>

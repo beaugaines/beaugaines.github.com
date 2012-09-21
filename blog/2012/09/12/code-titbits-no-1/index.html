@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Code titbits no. 1 - Monkey Blog</title>
+  <title>Code titbits no. 1 - A Raker's Progress</title>
   <meta name="author" content="Beau Gaines">
 
   
@@ -24,7 +24,7 @@
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="/javascripts/ender.js"></script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <link href="/atom.xml" rel="alternate" title="Monkey Blog" type="application/atom+xml">
+  <link href="/atom.xml" rel="alternate" title="A Raker's Progress" type="application/atom+xml">
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
@@ -35,9 +35,9 @@
 
 <body   >
   <header role="banner"><hgroup>
-  <h1><a href="/">Monkey Blog</a></h1>
+  <h1><a href="/">A Raker's Progress</a></h1>
   
-    <h2>Investigating the infinite monkey theorem</h2>
+    <h2>Exploring the spelunc of Ruby and other dark caverns.</h2>
   
 </hgroup>
 
@@ -309,7 +309,7 @@
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">simple_grep</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
 </span><span class='line'>  <span class="n">regex</span> <span class="o">=</span> <span class="sr">%r{pattern}</span>
 </span><span class='line'>  <span class="no">File</span><span class="o">.</span><span class="n">foreach</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span><span class="o">.</span><span class="n">with_index</span> <span class="k">do</span> <span class="o">|</span><span class="n">line</span><span class="p">,</span> <span class="n">line_num</span><span class="o">|</span>
-</span><span class='line'>    <span class="nb">p</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">line_num</span> <span class="o">-</span> <span class="n">line</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">if</span> <span class="n">regex</span> <span class="o">=~</span>
+</span><span class='line'>    <span class="nb">p</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">line_num</span> <span class="o">-</span> <span class="n">line</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">if</span> <span class="n">regex</span> <span class="o">=~</span> <span class="n">line</span>
 </span><span class='line'>  <span class="k">end</span>
 </span><span class='line'><span class="k">end</span>
 </span><span class='line'>
@@ -372,6 +372,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/09/19/notes-on-scala/">Notes on Scala</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/09/19/road-map-no-4-html-plus-css/">road map no. 4 - html+css</a>
       </li>
     
@@ -385,10 +389,6 @@
     
       <li class="post">
         <a href="/blog/2012/09/14/road-map-no-1-ruby/">Road Map No. 1 - Ruby</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/09/14/my-road-map/">My road map</a>
       </li>
     
   </ul>
