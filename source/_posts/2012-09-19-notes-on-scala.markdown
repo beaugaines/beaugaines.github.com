@@ -22,4 +22,3 @@ square: (Double)Double
 {% endcodeblock %}
 
 - function parameters come with their type, which appears after the colon.  If a return type is given, it appears after the parameter list.
-- 
