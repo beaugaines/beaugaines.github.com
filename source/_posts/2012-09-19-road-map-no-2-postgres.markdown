@@ -14,8 +14,8 @@ Read these sections of the [Postgres manual](http://www.postgresql.org/docs/9.0/
 ####Basics
 - ~~ 2.5. Querying a Table ~~
 - ~~ 2.6. Joins Between Tables ~~
-- 2.7. Aggregate Functions
-- 3.5. Window Functions
+- ~~ 2.7. Aggregate Functions ~~
+- ~~ 3.5. Window Functions ~~
 
 ####SQL Syntax  
 - 4.1. Lexical Structure

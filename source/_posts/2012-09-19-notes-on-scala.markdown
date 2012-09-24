@@ -6,7 +6,7 @@ comments: true
 categories: 
 ---
 
-I'm taking the free course from Coursera.  I fear it might be a bit beyond me...but I'm gonna risk it.  Here are my notes:
+I'm taking the free course from Coursera.  It's hard!  But I'm giving it a go.
 
 
 ####Lecture 1
@@ -22,3 +22,5 @@ square: (Double)Double
 {% endcodeblock %}
 
 - function parameters come with their type, which appears after the colon.  If a return type is given, it appears after the parameter list.
+- n.b. that `if - else` in Scala is used for _expressions_, not for statements as in Java
+- 
