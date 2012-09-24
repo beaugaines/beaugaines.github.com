@@ -4,7 +4,7 @@
   <title><![CDATA[A Raker's Progress]]></title>
   <link href="http://beaugaines.github.com/atom.xml" rel="self"/>
   <link href="http://beaugaines.github.com/"/>
-  <updated>2012-09-21T16:22:06-04:00</updated>
+  <updated>2012-09-24T15:58:12-04:00</updated>
   <id>http://beaugaines.github.com/</id>
   <author>
     <name><![CDATA[Beau Gaines]]></name>
@@ -18,7 +18,7 @@
     <link href="http://beaugaines.github.com/blog/2012/09/19/notes-on-scala/"/>
     <updated>2012-09-19T18:55:00-04:00</updated>
     <id>http://beaugaines.github.com/blog/2012/09/19/notes-on-scala</id>
-    <content type="html"><![CDATA[<p>I&#8217;m taking the free course from Coursera.  I fear it might be a bit beyond me&#8230;but I&#8217;m gonna risk it.  Here are my notes:</p>
+    <content type="html"><![CDATA[<p>I&#8217;m taking the free course from Coursera.  It&#8217;s hard!  But I&#8217;m giving it a go.</p>
 
 <h4>Lecture 1</h4>
 
@@ -40,7 +40,13 @@
 
 
 <ul>
-<li>function parameters come with their type, which appears after the colon.  If a return type is given, it appears after the parameter list.</li>
+<li>function parameters come with their type, which appears after the colon.  If a return type is given, it appears after the parameter list.
+
+<ul>
+<li>n.b. that <code>if - else</code> in Scala is used for <em>expressions</em>, not for statements as in Java</li>
+</ul>
+</li>
+<li></li>
 </ul>
 
 ]]></content>
@@ -78,8 +84,8 @@
 <ul>
 <li><del> 2.5. Querying a Table </del></li>
 <li><del> 2.6. Joins Between Tables </del></li>
-<li>2.7. Aggregate Functions</li>
-<li>3.5. Window Functions</li>
+<li><del> 2.7. Aggregate Functions </del></li>
+<li><del> 3.5. Window Functions </del></li>
 </ul>
 
 
