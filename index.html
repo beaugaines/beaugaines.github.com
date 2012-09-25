@@ -129,8 +129,8 @@
 </ul>
 
 
-<figure class='code'><figcaption><span>dotless-method-call lang: ruby </span></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>dotless-method-call  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -145,21 +145,22 @@
 <span class='line-number'>13</span>
 <span class='line-number'>14</span>
 <span class='line-number'>15</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>class Bob
-</span><span class='line'>  def is
-</span><span class='line'>    puts "This is method 'is'"
-</span><span class='line'>  end
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Bob</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">is</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;This is method &#39;is&#39;&quot;</span>
+</span><span class='line'>  <span class="k">end</span>
 </span><span class='line'>
-</span><span class='line'>  def your_uncle
-</span><span class='line'>    puts "Method your_uncle here, about to call is with no dot."
-</span><span class='line'>    is
-</span><span class='line'>  end
-</span><span class='line'>end
+</span><span class='line'>  <span class="k">def</span> <span class="nf">your_uncle</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;Method your_uncle here, about to call is with no dot.&quot;</span>
+</span><span class='line'>    <span class="n">is</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
 </span><span class='line'>
-</span><span class='line'>bob = Bob.new
-</span><span class='line'>bob.your_uncle
-</span><span class='line'># => This is method your_uncle here, about to call is with no dot.
-</span><span class='line'># => This is method 'is'</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'><span class="n">bob</span> <span class="o">=</span> <span class="no">Bob</span><span class="o">.</span><span class="n">new</span>
+</span><span class='line'><span class="n">bob</span><span class="o">.</span><span class="n">your_uncle</span>
+</span><span class='line'><span class="c1"># =&gt; This is method your_uncle here, about to call is with no dot.</span>
+</span><span class='line'><span class="c1"># =&gt; This is method &#39;is&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <ul>
