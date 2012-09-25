@@ -4,7 +4,7 @@
   <title><![CDATA[A Raker's Progress]]></title>
   <link href="http://beaugaines.github.com/atom.xml" rel="self"/>
   <link href="http://beaugaines.github.com/"/>
-  <updated>2012-09-24T15:58:12-04:00</updated>
+  <updated>2012-09-25T15:43:27-04:00</updated>
   <id>http://beaugaines.github.com/</id>
   <author>
     <name><![CDATA[Beau Gaines]]></name>
@@ -12,6 +12,64 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[more ruby titbits]]></title>
+    <link href="http://beaugaines.github.com/blog/2012/09/25/more-ruby-titbits/"/>
+    <updated>2012-09-25T11:32:00-04:00</updated>
+    <id>http://beaugaines.github.com/blog/2012/09/25/more-ruby-titbits</id>
+    <content type="html"><![CDATA[<p>I&#8217;ve decided to press ahead and finish <em>The Well Grounded Rubyist</em>.  I don&#8217;t find it easy reading somehow&#8230;too much blah blah blah and not enough doing.  But I&#8217;ll plow through it and then spend a couple days plundering the Ruby APIs.  Some selected titbits from said plowing and plundering:</p>
+
+<p>The topic du jour is <em>default objects</em> and <em>scope</em>:</p>
+
+<ul>
+<li>self inside a singleton method is the object whose singleton method it is.  For ex., a class method can be defined thus:</li>
+</ul>
+
+
+<figure class='code'><figcaption><span>singleton-class-method  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Bob</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">x</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;This is Bob&#39;s class method&quot;</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;self: </span><span class="si">#{</span><span class="nb">self</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># =&gt; This is Bob&#39;s class method</span>
+</span><span class='line'><span class="c1"># =&gt; self:  Bob</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>note that where the receiver of a method&#8217;s call is self, the receiver can be omitted and will be called implicitly, e.g. <code>self.babble</code> is the same as plain &#8216;ole <code>babble</code>.  This is most common when one method calls another:</li>
+</ul>
+
+
+<p>Liquid error: ClassNotFound: no lexer for alias &#8216;method_call&#8217; found</p>
+
+<ul>
+<li>every instance variable belongs to whatever object is <code>self</code> at that current point of execution.</li>
+<li><em>scope</em> refers to the visibility of <em>identifiers</em> - particularly variables and constants</li>
+<li>note that you can start a new scope without self changing - but sometimes they can change together</li>
+<li>some common global variables:  <code>$0</code> - the name of the startup file for the currently running program; <code>$:</code> - a list of the directories Ruby searches when you load an external file; <code>$$</code> - contains the process id of the current Ruby process</li>
+<li>good practice to avoid global variables as much as possible - to avoid namespace contamination and design things such that data and actions are encapsulated in objects</li>
+<li><em>local scope</em> is the foundation of every program; at any moment, your program is in a particular local scope. Every top level has its own local scope; every class or module definition has its own local scope; and every call to a method generates a new local scope, with all local vars set to and undefined state</li>
+<li>like a slash at the beginning of a pathname, a <code>::</code> in front of a constant means &#8216;start the search for this at the top level&#8217;</li>
+<li>class variables are written as <code>@@bob</code> and provide a storage mechanism that is shared between a class an instances of that class, but is not visible to any other objects.  This differs from Constants and Globals in that they are visible throughout the program.</li>
+<li>note that class variables are actually <em>class hierarchy variables</em>.  Classes and their descendents share the same class variables; so if you set one in a child class, it is shared all the way up the hierarchy</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Notes on Scala]]></title>
@@ -183,7 +241,7 @@ Any recipes that interest you</p>
     <content type="html"><![CDATA[<p>Not yet in strict order, here&#8217;s my list:</p>
 
 <ol>
-<li>Go through the APIs for Ruby <strong>Arrayы, Hashes, Strings, and Files</strong>  Learn &#8216;em by heart</li>
+<li>Go through the APIs for Ruby <strong>Arrayы, Hashes, Strings, and Files</strong>.  Learn &#8216;em by heart</li>
 <li>Finish <em>The Well-Grounded Rubyist</em></li>
 <li>Finish <em>Ruby Koans</em></li>
 <li>Read chaps. 23 and 34 of <em>The Pickaxe</em></li>
