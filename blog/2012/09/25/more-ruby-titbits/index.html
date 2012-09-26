@@ -92,7 +92,7 @@
 
 <div class="entry-content"><p>I&#8217;ve decided to press ahead and finish <em>The Well Grounded Rubyist</em>.  I don&#8217;t find it easy reading somehow&#8230;too much blah blah blah and not enough doing.  But I&#8217;ll plow through it and then spend a couple days plundering the Ruby APIs.  Some selected titbits from said plowing and plundering:</p>
 
-<p>The topic du jour is <em>default objects</em> and <em>scope</em>:</p>
+<h4>Default objects and scope:</h4>
 
 <ul>
 <li>self inside a singleton method is the object whose singleton method it is.  For ex., a class method can be defined thus:</li>
@@ -155,7 +155,7 @@
 </span><span class='line'>
 </span><span class='line'><span class="n">bob</span> <span class="o">=</span> <span class="no">Bob</span><span class="o">.</span><span class="n">new</span>
 </span><span class='line'><span class="n">bob</span><span class="o">.</span><span class="n">your_uncle</span>
-</span><span class='line'><span class="c1"># =&gt; This is method your_uncle here, about to call is with no dot.</span>
+</span><span class='line'><span class="c1"># =&gt; Method your_uncle here, about to call is with no dot.</span>
 </span><span class='line'><span class="c1"># =&gt; This is method &#39;is&#39;</span>
 </span></code></pre></td></tr></table></div></figure>
 
@@ -171,6 +171,36 @@
 <li>class variables are written as <code>@@bob</code> and provide a storage mechanism that is shared between a class an instances of that class, but is not visible to any other objects.  This differs from Constants and Globals in that they are visible throughout the program.</li>
 <li>note that class variables are actually <em>class hierarchy variables</em>.  Classes and their descendents share the same class variables; so if you set one in a child class, it is shared all the way up the hierarchy</li>
 </ul>
+
+
+<h4>On private, public, and protected:</h4>
+
+<ul>
+<li><em>private</em> is a method and takes as an argument a list of the methods you want private; alternately you can define a bunch of instance methods below the call to private</li>
+<li>private means that a method <em>can&#8217;t be called with an explicit receiver</em> - e.g. <code>b = Bob.new</code> would fail b/c you&#8217;ve specified the receiver <code>b</code></li>
+<li>lacking an explicit receiver, private methods adopt the implicit receiver of <code>self</code></li>
+<li>difference between singleton and private methods:  singleton methods belong to only one object, but are not private by default; private methods can be shared by many objects, but may only be called when the object calling them is <code>self</code> and has access to said method</li>
+<li>note that the <em>no explicit receiver</em> stipulation is ignored when it comes to <em>setter</em> methods, as these methods require an explicit reciever</li>
+<li><em>protected</em> methods can be called on a given object x provided that self is an instance of the same class as x - or of an ancestor or descendent of x&#8217;s class</li>
+<li>what that adds up to is this:  protected is usually used when you want an instance of a class to do something with another instance of the same class</li>
+<li>note also that subclasses inherit method access rules from their superclass, although these can be overriden</li>
+</ul>
+
+
+<h4>Writing and using top-level methods</h4>
+
+<ul>
+<li>sometimes you&#8217;ll want to forego writing classes and modules and just whack together a script; when you do you&#8217;re coding in the context of the top-level default object - which is <em>main</em></li>
+<li>methods defined at the top level are not instance methods of any class or module but instead are stored as a private instance method of the <code>Object</code> class</li>
+<li>for this reason, methods defined at top level can only be called on self - not an an explicit receiver</li>
+<li>many many build in top-level methods - e.g. <code>print</code> or <code>puts</code> - which are private methods of <em>Kernel</em>.  Here is a full list of Ruby&#8217;s top-level Kernel methods:</li>
+</ul>
+
+
+<figure class='code'><figcaption><span>top-level-kernel-methods  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">[</span><span class="ss">:Array</span><span class="p">,</span> <span class="ss">:Complex</span><span class="p">,</span> <span class="ss">:Float</span><span class="p">,</span> <span class="ss">:Integer</span><span class="p">,</span> <span class="ss">:Rational</span><span class="p">,</span> <span class="ss">:String</span><span class="p">,</span> <span class="ss">:__callee__</span><span class="p">,</span> <span class="ss">:__method__</span><span class="p">,</span> <span class="ss">:`</span><span class="p">,</span> <span class="ss">:abort</span><span class="p">,</span> <span class="ss">:at_exit</span><span class="p">,</span> <span class="ss">:autoload</span><span class="p">,</span> <span class="ss">:autoload?</span><span class="p">,</span> <span class="ss">:binding</span><span class="p">,</span> <span class="ss">:block_given?</span><span class="p">,</span> <span class="ss">:caller</span><span class="p">,</span> <span class="ss">:catch</span><span class="p">,</span> <span class="ss">:eval</span><span class="p">,</span> <span class="ss">:exec</span><span class="p">,</span> <span class="ss">:exit</span><span class="p">,</span> <span class="ss">:exit!</span><span class="p">,</span> <span class="ss">:fail</span><span class="p">,</span> <span class="ss">:fork</span><span class="p">,</span> <span class="ss">:format</span><span class="p">,</span> <span class="ss">:gem</span><span class="p">,</span> <span class="ss">:gem_original_require</span><span class="p">,</span> <span class="ss">:gets</span><span class="p">,</span> <span class="ss">:global_variables</span><span class="p">,</span> <span class="ss">:initialize_copy</span><span class="p">,</span> <span class="ss">:iterator?</span><span class="p">,</span> <span class="ss">:lambda</span><span class="p">,</span> <span class="ss">:load</span><span class="p">,</span> <span class="ss">:local_variables</span><span class="p">,</span> <span class="ss">:loop</span><span class="p">,</span> <span class="ss">:open</span><span class="p">,</span> <span class="ss">:p</span><span class="p">,</span> <span class="ss">:print</span><span class="p">,</span> <span class="ss">:printf</span><span class="p">,</span> <span class="ss">:proc</span><span class="p">,</span> <span class="ss">:putc</span><span class="p">,</span> <span class="ss">:puts</span><span class="p">,</span> <span class="ss">:raise</span><span class="p">,</span> <span class="ss">:rand</span><span class="p">,</span> <span class="ss">:readline</span><span class="p">,</span> <span class="ss">:readlines</span><span class="p">,</span> <span class="ss">:remove_instance_variable</span><span class="p">,</span> <span class="ss">:require</span><span class="p">,</span> <span class="ss">:require_relative</span><span class="p">,</span> <span class="ss">:select</span><span class="p">,</span> <span class="ss">:set_trace_func</span><span class="p">,</span> <span class="ss">:sleep</span><span class="p">,</span> <span class="ss">:spawn</span><span class="p">,</span> <span class="ss">:sprintf</span><span class="p">,</span> <span class="ss">:srand</span><span class="p">,</span> <span class="ss">:syscall</span><span class="p">,</span> <span class="ss">:system</span><span class="p">,</span> <span class="ss">:test</span><span class="p">,</span> <span class="ss">:throw</span><span class="p">,</span> <span class="ss">:trace_var</span><span class="p">,</span> <span class="ss">:trap</span><span class="p">,</span> <span class="ss">:untrace_var</span><span class="p">,</span> <span class="ss">:warn</span><span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
 
 </div>
 
@@ -214,6 +244,8 @@
         <a class="basic-alignment left" href="/blog/2012/09/19/notes-on-scala/" title="Previous Post: Notes on Scala">&laquo; Notes on Scala</a>
       
       
+        <a class="basic-alignment right" href="/blog/2012/09/26/sublime-text-voodoo/" title="Next Post: Sublime Text Voodoo">Sublime Text Voodoo &raquo;</a>
+      
     </p>
   </footer>
 </article>
@@ -225,6 +257,10 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/09/26/sublime-text-voodoo/">Sublime Text Voodoo</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2012/09/25/more-ruby-titbits/">more ruby titbits</a>
@@ -240,10 +276,6 @@
     
       <li class="post">
         <a href="/blog/2012/09/19/road-map-no-3-javascript/">road map no. 3 - javascript</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/09/19/road-map-no-2-postgres/">road map no. 2 - postgres</a>
       </li>
     
   </ul>
