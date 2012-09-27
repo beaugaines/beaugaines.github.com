@@ -75,12 +75,12 @@ bob.your_uncle
 {% endcodeblock %}
 
 #### Control Flow
-- you can negate conditions two ways: `if not "bob" == "uncle"` and `if !("bob" == "uncle").  Parentheses required in the latter; the _bang_ binds more tightly than the _not_.
+- you can negate conditions two ways: `if not "bob" == "uncle"` and `if !("bob" == "uncle")`.  Parentheses required in the latter; the _bang_ binds more tightly than the _not_
 - if there's any ambiguity at all in your expression, always include parentheses
-- if you have an `else` clause, `if` is generally a better choice than `unless`
+- if you have an `else` clause, better to use `if` than `unless`
 - local variables are initialized to nil at runtime _even if they are not ultimately used_.  This is not the case with instance and class variables
-- note that in `case/when` structures, the matches are evalueated using the _case equality_ or 'threequal' operator `===`.  For strings and any object that does not override it it is equivalent to `==` but it can be overridden in any class to define how your objects behave in a case statement
-- the `case` statement can be used with no test expression and followed by some when clauses; the first when whose condition is true will bring home the bacon.  And since the statement evaluates to an object, you can do suchlike:
+- note that in `case/when` structures, the matches are evaluated using the _case equality_ or 'threequal' operator `===`.  For strings and any object that does not override it it is equivalent to `==` but it can be overridden in any class to define how your objects behave in a case statement
+- the `case` statement can be used with no test expression and followed by a sequence of `when` clauses; the first clause whose condition is true will bring home the bacon.  And since the statement evaluates to an object, you can do suchlike:
 {% codeblock puts-case-ex lang:ruby %}
 puts case
   when meal.breakfast == 'Bacon'
@@ -93,4 +93,4 @@ end
 {% endcodeblock %}
 
 #### Iteration
-- note that `yield` is not the same as returning from a method; yielding takes place while the method is still running.  Also note that the code block is not an argument but rather just part of the method call itself - part of the syntax
+- note that `yield` is not the same as returning from a method; yielding takes place while the method is still running.  Also note that the code block is not an argument but rather just part of the method call itself - i.e. part of the syntax
