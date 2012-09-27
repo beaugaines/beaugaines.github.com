@@ -4,7 +4,7 @@
   <title><![CDATA[A Raker's Progress]]></title>
   <link href="http://beaugaines.github.com/atom.xml" rel="self"/>
   <link href="http://beaugaines.github.com/"/>
-  <updated>2012-09-27T14:29:02-04:00</updated>
+  <updated>2012-09-27T14:41:30-04:00</updated>
   <id>http://beaugaines.github.com/</id>
   <author>
     <name><![CDATA[Beau Gaines]]></name>
@@ -158,12 +158,12 @@
 <h4>Control Flow</h4>
 
 <ul>
-<li>you can negate conditions two ways: <code>if not "bob" == "uncle"</code> and `if !(&#8220;bob&#8221; == &#8220;uncle&#8221;).  Parentheses required in the latter; the <em>bang</em> binds more tightly than the <em>not</em>.</li>
+<li>you can negate conditions two ways: <code>if not "bob" == "uncle"</code> and <code>if !("bob" == "uncle")</code>.  Parentheses required in the latter; the <em>bang</em> binds more tightly than the <em>not</em></li>
 <li>if there&#8217;s any ambiguity at all in your expression, always include parentheses</li>
-<li>if you have an <code>else</code> clause, <code>if</code> is generally a better choice than <code>unless</code></li>
+<li>if you have an <code>else</code> clause, better to use <code>if</code> than <code>unless</code></li>
 <li>local variables are initialized to nil at runtime <em>even if they are not ultimately used</em>.  This is not the case with instance and class variables</li>
-<li>note that in <code>case/when</code> structures, the matches are evalueated using the <em>case equality</em> or &#8216;threequal&#8217; operator <code>===</code>.  For strings and any object that does not override it it is equivalent to <code>==</code> but it can be overridden in any class to define how your objects behave in a case statement</li>
-<li>the <code>case</code> statement can be used with no test expression and followed by some when clauses; the first when whose condition is true will bring home the bacon.  And since the statement evaluates to an object, you can do suchlike:</li>
+<li>note that in <code>case/when</code> structures, the matches are evaluated using the <em>case equality</em> or &#8216;threequal&#8217; operator <code>===</code>.  For strings and any object that does not override it it is equivalent to <code>==</code> but it can be overridden in any class to define how your objects behave in a case statement</li>
+<li>the <code>case</code> statement can be used with no test expression and followed by a sequence of <code>when</code> clauses; the first clause whose condition is true will bring home the bacon.  And since the statement evaluates to an object, you can do suchlike:</li>
 </ul>
 
 
@@ -190,7 +190,7 @@
 <h4>Iteration</h4>
 
 <ul>
-<li>note that <code>yield</code> is not the same as returning from a method; yielding takes place while the method is still running.  Also note that the code block is not an argument but rather just part of the method call itself - part of the syntax</li>
+<li>note that <code>yield</code> is not the same as returning from a method; yielding takes place while the method is still running.  Also note that the code block is not an argument but rather just part of the method call itself - i.e. part of the syntax</li>
 </ul>
 
 ]]></content>
