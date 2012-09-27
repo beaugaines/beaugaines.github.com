@@ -73,3 +73,24 @@ bob.your_uncle
 {% codeblock top-level-kernel-methods lang:ruby %}
 [:Array, :Complex, :Float, :Integer, :Rational, :String, :__callee__, :__method__, :`, :abort, :at_exit, :autoload, :autoload?, :binding, :block_given?, :caller, :catch, :eval, :exec, :exit, :exit!, :fail, :fork, :format, :gem, :gem_original_require, :gets, :global_variables, :initialize_copy, :iterator?, :lambda, :load, :local_variables, :loop, :open, :p, :print, :printf, :proc, :putc, :puts, :raise, :rand, :readline, :readlines, :remove_instance_variable, :require, :require_relative, :select, :set_trace_func, :sleep, :spawn, :sprintf, :srand, :syscall, :system, :test, :throw, :trace_var, :trap, :untrace_var, :warn]
 {% endcodeblock %}
+
+#### Control Flow
+- you can negate conditions two ways: `if not "bob" == "uncle"` and `if !("bob" == "uncle").  Parentheses required in the latter; the _bang_ binds more tightly than the _not_.
+- if there's any ambiguity at all in your expression, always include parentheses
+- if you have an `else` clause, `if` is generally a better choice than `unless`
+- local variables are initialized to nil at runtime _even if they are not ultimately used_.  This is not the case with instance and class variables
+- note that in `case/when` structures, the matches are evalueated using the _case equality_ or 'threequal' operator `===`.  For strings and any object that does not override it it is equivalent to `==` but it can be overridden in any class to define how your objects behave in a case statement
+- the `case` statement can be used with no test expression and followed by some when clauses; the first when whose condition is true will bring home the bacon.  And since the statement evaluates to an object, you can do suchlike:
+{% codeblock puts-case-ex lang:ruby %}
+puts case
+  when meal.breakfast == 'Bacon'
+    'Good!'
+  when meal.lunch == 'Natto'
+    'Bad!'
+  else
+    'No food better than natto!'
+end
+{% endcodeblock %}
+
+#### Iteration
+- note that `yield` is not the same as returning from a method; yielding takes place while the method is still running.  Also note that the code block is not an argument but rather just part of the method call itself - part of the syntax
