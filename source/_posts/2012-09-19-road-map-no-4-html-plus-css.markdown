@@ -6,4 +6,11 @@ comments: true
 categories: 
 ---
 
-TBD!
+####HTML5 & CSS3 & SASS
+- ~~CodeSchool HTML 5 course~~
+- ~~Pragmatic _HTML5 and CSS3_
+- ~~Pragmatic _Rails Views_
+- ~~CodeSchool CSS course~~
+- SMACCS
+- CodeSchool SASS course 
+- HardBoiled Web Dev

@@ -94,3 +94,12 @@ end
 
 #### Iteration
 - note that `yield` is not the same as returning from a method; yielding takes place while the method is still running.  Also note that the code block is not an argument but rather just part of the method call itself - i.e. part of the syntax
+- on blocks and scope:  blocks have access to the variables that already exist when they're created - but variables used in _block parameters_ are *not* the same as variables by the same name in local scope and the latter will not be changed by what happens _en bloqe_.
+
+#### Exceptions
+- the beginning of a method definition provides an implicit begin/end context, so you can just put a _rescue_ clause in the body of the method without an explicit _begin_.  However you can get more precise control by including an explicit _begin_; only what lies between _begin_ and _rescue_ will be governed by the clause
+- good practice to specify which exception you wish to capture - so you do not mask problems by rescuing excessively
+- you can assign the exception message to a variable thusly: `rescue => e`.  And that variable responds to messages; `backtrace` and `message` are especially useful
+- note the syntax `raise ArgumentError` looks as if a class is being raised, but in truth an instance of the exception class is being raised
+- you can re-raise an exception - for ex. if you want to log the exception but still have it treated as an exception; to do this you just call `raise` from within the rescue block
+- you can create your own exception classes by inheriting from `Exception` or one of its descendant classes

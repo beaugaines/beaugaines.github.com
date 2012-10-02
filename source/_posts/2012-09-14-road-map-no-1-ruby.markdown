@@ -8,9 +8,9 @@ categories:
 
 Not yet in strict order, here's my list:
 
-1. Go through the APIs for Ruby **Arrayы, Hashes, Strings, and Files**.  Learn 'em by heart
-2. Finish *The Well-Grounded Rubyist*
-3. Finish *Ruby Koans*
-4. Read chaps. 23 and 34 of *The Pickaxe*
-5. Read *Practical Projects in Ruby*
-6. Read *Metaprogramming in Ruby*
+- finish *The Well-Grounded Rubyist*
+- finish *Ruby Koans*
+- go through the APIs for Ruby **Arrayы, Hashes, Strings, and Files**.  Learn 'em by heart
+- read chaps. 23 and 34 of *The Pickaxe*
+- read *Practical Projects in Ruby*
+- read *Metaprogramming in Ruby*

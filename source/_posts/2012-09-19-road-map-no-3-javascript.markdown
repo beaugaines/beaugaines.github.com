@@ -6,4 +6,15 @@ comments: true
 categories: 
 ---
 
-TBD!
+- ~~Sitepoint _Simply Javascript_~~
+- ~~CodeSchool CoffeeScript course~~
+- ~~CodeSchool Node course~~
+- ~~CodeSchool Jquery courses~~
+- ~~CodeSchool Backbone course
+- Code Academy exercises - all of 'em
+- Eloquent Javascript
+- CoffeeScript in Action
+- NodeJS in Action
+- Manning _Single Page Web Applications_
+- Osmani, _Backbone Fundamentals_
+- Thoughbot Backbone book
