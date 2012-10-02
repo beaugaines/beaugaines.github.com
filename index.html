@@ -93,20 +93,23 @@
   </header>
 
 
-  <div class="entry-content"><p>I&#8217;ve been using <em>Sublime Text</em> for about a year now.  It&#8217;s probably the best engineered tool I&#8217;ve ever used to do anything - period.  Just recently though I&#8217;ve been starting to use some of its more remarkable features.  I&#8217;m going to document them here for easy reference.  This is on a Linux installation and some of these are custom commands:</p>
+  <div class="entry-content"><p>I&#8217;ve been using <em>Sublime Text</em> for about a year now.  It&#8217;s probably the best engineered tool I&#8217;ve ever used to do anything - period.  Just recently though I&#8217;ve been starting to use some of its more useful features.  I&#8217;m going to document them here for easy reference.  This is on a Linux installation and some of these are custom commands:</p>
 
 <ul>
 <li><code>super+d</code>:  select word/multiple select</li>
 <li><code>shift+right-mouse-button+ drag</code>: column select</li>
 <li><code>ctrl+shift+l</code>: multiple selections per line</li>
 <li><code>super+r</code>: go to symbol</li>
-</ul>
-
-
-<p>More complicated options:</p>
-
-<ul>
-<li>hit <code>ctrl+p</code> and then immediately type in a symbol to go straight to a class or method in the file</li>
+<li><code>ctrl+m</code>: jump to closing parens</li>
+<li><code>ctrl+shift+m</code>: select all contents of the current parentheses</li>
+<li><code>ctrl+k+k</code>: delete from cursor till end of line</li>
+<li><code>ctrl+k+backspace</code>: delete from cursor till beginning of line</li>
+<li><code>ctrl+shift+/</code>: block comment current selection</li>
+<li><code>ctrl+y</code>: repeat last keyboard shortcut</li>
+<li><code>ctrl+KU</code>: transform to uppercase</li>
+<li><p><code>ctrl+KL</code>: transform to lowercase
+More complicated options:</p></li>
+<li><p>hit <code>ctrl+p</code> and then immediately type in a symbol to go straight to a class or method in the file</p></li>
 </ul>
 
 </div>
@@ -293,6 +296,19 @@
 
 <ul>
 <li>note that <code>yield</code> is not the same as returning from a method; yielding takes place while the method is still running.  Also note that the code block is not an argument but rather just part of the method call itself - i.e. part of the syntax</li>
+<li>on blocks and scope:  blocks have access to the variables that already exist when they&#8217;re created - but variables used in <em>block parameters</em> are <em>not</em> the same as variables by the same name in local scope and the latter will not be changed by what happens <em>en bloqe</em>.</li>
+</ul>
+
+
+<h4>Exceptions</h4>
+
+<ul>
+<li>the beginning of a method definition provides an implicit begin/end context, so you can just put a <em>rescue</em> clause in the body of the method without an explicit <em>begin</em>.  However you can get more precise control by including an explicit <em>begin</em>; only what lies between <em>begin</em> and <em>rescue</em> will be governed by the clause</li>
+<li>good practice to specify which exception you wish to capture - so you do not mask problems by rescuing excessively</li>
+<li>you can assign the exception message to a variable thusly: <code>rescue =&gt; e</code>.  And that variable responds to messages; <code>backtrace</code> and <code>message</code> are especially useful</li>
+<li>note the syntax <code>raise ArgumentError</code> looks as if a class is being raised, but in truth an instance of the exception class is being raised</li>
+<li>you can re-raise an exception - for ex. if you want to log the exception but still have it treated as an exception; to do this you just call <code>raise</code> from within the rescue block</li>
+<li>you can create your own exception classes by inheriting from <code>Exception</code> or one of its descendant classes</li>
 </ul>
 
 </div>
@@ -396,7 +412,18 @@
   </header>
 
 
-  <div class="entry-content"><p>TBD!</p>
+  <div class="entry-content"><h4>HTML5 &amp; CSS3 &amp; SASS</h4>
+
+<ul>
+<li><del>CodeSchool HTML 5 course</del></li>
+<li>~~Pragmatic <em>HTML5 and CSS3</em></li>
+<li>~~Pragmatic <em>Rails Views</em></li>
+<li><del>CodeSchool CSS course</del></li>
+<li>SMACCS</li>
+<li>CodeSchool SASS course</li>
+<li>HardBoiled Web Dev</li>
+</ul>
+
 </div>
   
   
@@ -432,7 +459,21 @@
   </header>
 
 
-  <div class="entry-content"><p>TBD!</p>
+  <div class="entry-content"><ul>
+<li><del>Sitepoint <em>Simply Javascript</em></del></li>
+<li><del>CodeSchool CoffeeScript course</del></li>
+<li><del>CodeSchool Node course</del></li>
+<li><del>CodeSchool Jquery courses</del></li>
+<li>~~CodeSchool Backbone course</li>
+<li>Code Academy exercises - all of &#8216;em</li>
+<li>Eloquent Javascript</li>
+<li>CoffeeScript in Action</li>
+<li>NodeJS in Action</li>
+<li>Manning <em>Single Page Web Applications</em></li>
+<li>Osmani, <em>Backbone Fundamentals</em></li>
+<li>Thoughbot Backbone book</li>
+</ul>
+
 </div>
   
   
@@ -602,14 +643,14 @@ Any recipes that interest you</p>
 
   <div class="entry-content"><p>Not yet in strict order, here&#8217;s my list:</p>
 
-<ol>
-<li>Go through the APIs for Ruby <strong>Arrayы, Hashes, Strings, and Files</strong>.  Learn &#8216;em by heart</li>
-<li>Finish <em>The Well-Grounded Rubyist</em></li>
-<li>Finish <em>Ruby Koans</em></li>
-<li>Read chaps. 23 and 34 of <em>The Pickaxe</em></li>
-<li>Read <em>Practical Projects in Ruby</em></li>
-<li>Read <em>Metaprogramming in Ruby</em></li>
-</ol>
+<ul>
+<li>finish <em>The Well-Grounded Rubyist</em></li>
+<li>finish <em>Ruby Koans</em></li>
+<li>go through the APIs for Ruby <strong>Arrayы, Hashes, Strings, and Files</strong>.  Learn &#8216;em by heart</li>
+<li>read chaps. 23 and 34 of <em>The Pickaxe</em></li>
+<li>read <em>Practical Projects in Ruby</em></li>
+<li>read <em>Metaprogramming in Ruby</em></li>
+</ul>
 
 </div>
   
