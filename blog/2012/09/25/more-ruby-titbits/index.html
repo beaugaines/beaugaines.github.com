@@ -1,0 +1,418 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>more ruby titbits - A Raker's Progress</title>
+  <meta name="author" content="Beau Gaines">
+
+  
+  <meta name="description" content="I&#8217;ve decided to press ahead and finish The Well Grounded Rubyist. I don&#8217;t find it easy reading somehow&#8230;too much blah blah blah and &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://beaugaines.github.com/blog/2012/09/25/more-ruby-titbits/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="A Raker's Progress" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">A Raker's Progress</a></h1>
+  
+    <h2>Exploring the spelunc of Ruby and other dark caverns.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:beaugaines.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">More Ruby Titbits</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-09-25T11:32:00-04:00" pubdate data-updated="true">Sep 25<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>I&#8217;ve decided to press ahead and finish <em>The Well Grounded Rubyist</em>.  I don&#8217;t find it easy reading somehow&#8230;too much blah blah blah and not enough doing.  But I&#8217;ll plow through it and then spend a couple days plundering the Ruby APIs.  Some selected titbits from said plowing and plundering:</p>
+
+<h4>Default objects and scope:</h4>
+
+<ul>
+<li>self inside a singleton method is the object whose singleton method it is.  For ex., a class method can be defined thus:</li>
+</ul>
+
+
+<figure class='code'><figcaption><span>singleton-class-method  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Bob</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">x</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;This is Bob&#39;s class method&quot;</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;self: </span><span class="si">#{</span><span class="nb">self</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># =&gt; This is Bob&#39;s class method</span>
+</span><span class='line'><span class="c1"># =&gt; self:  Bob</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>note that where the receiver of a method&#8217;s call is self, the receiver can be omitted and will be called implicitly, e.g. <code>self.babble</code> is the same as plain old <code>babble</code>.  This is most common when one method calls another:</li>
+</ul>
+
+
+<figure class='code'><figcaption><span>dotless-method-call  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Bob</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">is</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;This is method &#39;is&#39;&quot;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">your_uncle</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;Method your_uncle here, about to call is with no dot.&quot;</span>
+</span><span class='line'>    <span class="n">is</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">bob</span> <span class="o">=</span> <span class="no">Bob</span><span class="o">.</span><span class="n">new</span>
+</span><span class='line'><span class="n">bob</span><span class="o">.</span><span class="n">your_uncle</span>
+</span><span class='line'><span class="c1"># =&gt; Method your_uncle here, about to call is with no dot.</span>
+</span><span class='line'><span class="c1"># =&gt; This is method &#39;is&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>every instance variable belongs to whatever object is <code>self</code> at that current point of execution.</li>
+<li><em>scope</em> refers to the visibility of <em>identifiers</em> - particularly variables and constants</li>
+<li>note that you can start a new scope without self changing - but sometimes they can change together</li>
+<li>some common global variables:  <code>$0</code> - the name of the startup file for the currently running program; <code>$:</code> - a list of the directories Ruby searches when you load an external file; <code>$$</code> - contains the process id of the current Ruby process</li>
+<li>good practice to avoid global variables as much as possible - to avoid namespace contamination and design things such that data and actions are encapsulated in objects</li>
+<li><em>local scope</em> is the foundation of every program; at any moment, your program is in a particular local scope. Every top level has its own local scope; every class or module definition has its own local scope; and every call to a method generates a new local scope, with all local vars set to and undefined state</li>
+<li>like a slash at the beginning of a pathname, a <code>::</code> in front of a constant means &#8216;start the search for this at the top level&#8217;</li>
+<li>class variables are written as <code>@@bob</code> and provide a storage mechanism that is shared between a class an instances of that class, but is not visible to any other objects.  This differs from Constants and Globals in that they are visible throughout the program.</li>
+<li>note that class variables are actually <em>class hierarchy variables</em>.  Classes and their descendents share the same class variables; so if you set one in a child class, it is shared all the way up the hierarchy</li>
+</ul>
+
+
+<h4>On private, public, and protected:</h4>
+
+<ul>
+<li><em>private</em> is a method and takes as an argument a list of the methods you want private; alternately you can define a bunch of instance methods below the call to private</li>
+<li>private means that a method <em>can&#8217;t be called with an explicit receiver</em> - e.g. <code>b = Bob.new</code> would fail b/c you&#8217;ve specified the receiver <code>b</code></li>
+<li>lacking an explicit receiver, private methods adopt the implicit receiver of <code>self</code></li>
+<li>difference between singleton and private methods:  singleton methods belong to only one object, but are not private by default; private methods can be shared by many objects, but may only be called when the object calling them is <code>self</code> and has access to said method</li>
+<li>note that the <em>no explicit receiver</em> stipulation is ignored when it comes to <em>setter</em> methods, as these methods require an explicit reciever</li>
+<li><em>protected</em> methods can be called on a given object x provided that self is an instance of the same class as x - or of an ancestor or descendent of x&#8217;s class</li>
+<li>what that adds up to is this:  protected is usually used when you want an instance of a class to do something with another instance of the same class</li>
+<li>note also that subclasses inherit method access rules from their superclass, although these can be overriden</li>
+</ul>
+
+
+<h4>Writing and using top-level methods</h4>
+
+<ul>
+<li>sometimes you&#8217;ll want to forego writing classes and modules and just whack together a script; when you do you&#8217;re coding in the context of the top-level default object - which is <em>main</em></li>
+<li>methods defined at the top level are not instance methods of any class or module but instead are stored as a private instance method of the <code>Object</code> class</li>
+<li>for this reason, methods defined at top level can only be called on self - not an an explicit receiver</li>
+<li>many many build in top-level methods - e.g. <code>print</code> or <code>puts</code> - which are private methods of <em>Kernel</em>.  Here is a full list of Ruby&#8217;s top-level Kernel methods:</li>
+</ul>
+
+
+<figure class='code'><figcaption><span>top-level-kernel-methods  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">[</span><span class="ss">:Array</span><span class="p">,</span> <span class="ss">:Complex</span><span class="p">,</span> <span class="ss">:Float</span><span class="p">,</span> <span class="ss">:Integer</span><span class="p">,</span> <span class="ss">:Rational</span><span class="p">,</span> <span class="ss">:String</span><span class="p">,</span> <span class="ss">:__callee__</span><span class="p">,</span> <span class="ss">:__method__</span><span class="p">,</span> <span class="ss">:`</span><span class="p">,</span> <span class="ss">:abort</span><span class="p">,</span> <span class="ss">:at_exit</span><span class="p">,</span> <span class="ss">:autoload</span><span class="p">,</span> <span class="ss">:autoload?</span><span class="p">,</span> <span class="ss">:binding</span><span class="p">,</span> <span class="ss">:block_given?</span><span class="p">,</span> <span class="ss">:caller</span><span class="p">,</span> <span class="ss">:catch</span><span class="p">,</span> <span class="ss">:eval</span><span class="p">,</span> <span class="ss">:exec</span><span class="p">,</span> <span class="ss">:exit</span><span class="p">,</span> <span class="ss">:exit!</span><span class="p">,</span> <span class="ss">:fail</span><span class="p">,</span> <span class="ss">:fork</span><span class="p">,</span> <span class="ss">:format</span><span class="p">,</span> <span class="ss">:gem</span><span class="p">,</span> <span class="ss">:gem_original_require</span><span class="p">,</span> <span class="ss">:gets</span><span class="p">,</span> <span class="ss">:global_variables</span><span class="p">,</span> <span class="ss">:initialize_copy</span><span class="p">,</span> <span class="ss">:iterator?</span><span class="p">,</span> <span class="ss">:lambda</span><span class="p">,</span> <span class="ss">:load</span><span class="p">,</span> <span class="ss">:local_variables</span><span class="p">,</span> <span class="ss">:loop</span><span class="p">,</span> <span class="ss">:open</span><span class="p">,</span> <span class="ss">:p</span><span class="p">,</span> <span class="ss">:print</span><span class="p">,</span> <span class="ss">:printf</span><span class="p">,</span> <span class="ss">:proc</span><span class="p">,</span> <span class="ss">:putc</span><span class="p">,</span> <span class="ss">:puts</span><span class="p">,</span> <span class="ss">:raise</span><span class="p">,</span> <span class="ss">:rand</span><span class="p">,</span> <span class="ss">:readline</span><span class="p">,</span> <span class="ss">:readlines</span><span class="p">,</span> <span class="ss">:remove_instance_variable</span><span class="p">,</span> <span class="ss">:require</span><span class="p">,</span> <span class="ss">:require_relative</span><span class="p">,</span> <span class="ss">:select</span><span class="p">,</span> <span class="ss">:set_trace_func</span><span class="p">,</span> <span class="ss">:sleep</span><span class="p">,</span> <span class="ss">:spawn</span><span class="p">,</span> <span class="ss">:sprintf</span><span class="p">,</span> <span class="ss">:srand</span><span class="p">,</span> <span class="ss">:syscall</span><span class="p">,</span> <span class="ss">:system</span><span class="p">,</span> <span class="ss">:test</span><span class="p">,</span> <span class="ss">:throw</span><span class="p">,</span> <span class="ss">:trace_var</span><span class="p">,</span> <span class="ss">:trap</span><span class="p">,</span> <span class="ss">:untrace_var</span><span class="p">,</span> <span class="ss">:warn</span><span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>Control Flow</h4>
+
+<ul>
+<li>you can negate conditions two ways: <code>if not "bob" == "uncle"</code> and <code>if !("bob" == "uncle")</code>.  Parentheses required in the latter; the <em>bang</em> binds more tightly than the <em>not</em></li>
+<li>if there&#8217;s any ambiguity at all in your expression, always include parentheses</li>
+<li>if you have an <code>else</code> clause, better to use <code>if</code> than <code>unless</code></li>
+<li>local variables are initialized to nil at runtime <em>even if they are not ultimately used</em>.  This is not the case with instance and class variables</li>
+<li>note that in <code>case/when</code> structures, the matches are evaluated using the <em>case equality</em> or &#8216;threequal&#8217; operator <code>===</code>.  For strings and any object that does not override it it is equivalent to <code>==</code> but it can be overridden in any class to define how your objects behave in a case statement</li>
+<li>the <code>case</code> statement can be used with no test expression and followed by a sequence of <code>when</code> clauses; the first clause whose condition is true will bring home the bacon.  And since the statement evaluates to an object, you can do suchlike:</li>
+</ul>
+
+
+<figure class='code'><figcaption><span>puts-case-ex  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">puts</span> <span class="k">case</span>
+</span><span class='line'>  <span class="k">when</span> <span class="n">meal</span><span class="o">.</span><span class="n">breakfast</span> <span class="o">==</span> <span class="s1">&#39;Bacon&#39;</span>
+</span><span class='line'>    <span class="s1">&#39;Good!&#39;</span>
+</span><span class='line'>  <span class="k">when</span> <span class="n">meal</span><span class="o">.</span><span class="n">lunch</span> <span class="o">==</span> <span class="s1">&#39;Natto&#39;</span>
+</span><span class='line'>    <span class="s1">&#39;Bad!&#39;</span>
+</span><span class='line'>  <span class="k">else</span>
+</span><span class='line'>    <span class="s1">&#39;No food better than natto!&#39;</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>Iteration</h4>
+
+<ul>
+<li>note that <code>yield</code> is not the same as returning from a method; yielding takes place while the method is still running.  Also note that the code block is not an argument but rather just part of the method call itself - i.e. part of the syntax</li>
+<li>on blocks and scope:  blocks have access to the variables that already exist when they&#8217;re created - but variables used in <em>block parameters</em> are <em>not</em> the same as variables by the same name in local scope and the latter will not be changed by what happens <em>en bloqe</em>.</li>
+</ul>
+
+
+<h4>Exceptions</h4>
+
+<ul>
+<li>the beginning of a method definition provides an implicit begin/end context, so you can just put a <em>rescue</em> clause in the body of the method without an explicit <em>begin</em>.  However you can get more precise control by including an explicit <em>begin</em>; only what lies between <em>begin</em> and <em>rescue</em> will be governed by the clause</li>
+<li>good practice to specify which exception you wish to capture - so you do not mask problems by rescuing excessively</li>
+<li>you can assign the exception message to a variable thusly: <code>rescue =&gt; e</code>.  And that variable responds to messages; <code>backtrace</code> and <code>message</code> are especially useful</li>
+<li>note the syntax <code>raise ArgumentError</code> looks as if a class is being raised, but in truth an instance of the exception class is being raised</li>
+<li>you can re-raise an exception - for ex. if you want to log the exception but still have it treated as an exception; to do this you just call <code>raise</code> from within the rescue block</li>
+<li>you can create your own exception classes by inheriting from <code>Exception</code> or one of its descendant classes</li>
+</ul>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Beau Gaines</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-09-25T11:32:00-04:00" pubdate data-updated="true">Sep 25<span>th</span>, 2012</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://beaugaines.github.com/blog/2012/09/25/more-ruby-titbits/" data-via="perfectidiot" data-counturl="http://beaugaines.github.com/blog/2012/09/25/more-ruby-titbits/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/09/19/notes-on-scala/" title="Previous Post: Notes on Scala">&laquo; Notes on Scala</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2012/09/26/sublime-text-voodoo/" title="Next Post: Sublime Text Voodoo">Sublime Text Voodoo &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/09/26/sublime-text-voodoo/">Sublime Text Voodoo</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/09/25/more-ruby-titbits/">more ruby titbits</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/09/19/notes-on-scala/">Notes on Scala</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/09/19/road-map-no-4-html-plus-css/">road map no. 4 - html+css</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/09/19/road-map-no-3-javascript/">road map no. 3 - javascript</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/beaugaines">@beaugaines</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'beaugaines',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("perfectidiot", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/perfectidiot" class="twitter-follow-button" data-show-count="false">Follow @perfectidiot</a>
+  
+</section>
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Beau Gaines -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

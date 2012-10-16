@@ -1,0 +1,351 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>road map no. 2 - postgres - A Raker's Progress</title>
+  <meta name="author" content="Beau Gaines">
+
+  
+  <meta name="description" content="Straight from Thoughtbot&#8217;s map: Read these sections of the Postgres manual Basics 2.5. Querying a Table 2.6. Joins Between Tables 2.7. &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://beaugaines.github.com/blog/2012/09/19/road-map-no-2-postgres/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="A Raker's Progress" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">A Raker's Progress</a></h1>
+  
+    <h2>Exploring the spelunc of Ruby and other dark caverns.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:beaugaines.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Road Map No. 2 - Postgres</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-09-19T17:39:00-04:00" pubdate data-updated="true">Sep 19<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Straight from Thoughtbot&#8217;s map:</p>
+
+<p>Read these sections of the <a href="http://www.postgresql.org/docs/9.0/static/index.html">Postgres manual</a></p>
+
+<h4>Basics</h4>
+
+<ul>
+<li><del> 2.5. Querying a Table </del></li>
+<li><del> 2.6. Joins Between Tables </del></li>
+<li><del> 2.7. Aggregate Functions </del></li>
+<li><del> 3.5. Window Functions </del></li>
+</ul>
+
+
+<h4>SQL Syntax</h4>
+
+<ul>
+<li>4.1. Lexical Structure</li>
+<li>4.2. Value Expressions</li>
+</ul>
+
+
+<h4>Data Definition</h4>
+
+<ul>
+<li>5.1. Table Basics</li>
+<li>5.2. Default Values</li>
+<li>5.3. Constraints</li>
+<li>5.5. Modifying Tables</li>
+</ul>
+
+
+<h4>Data Manipulation</h4>
+
+<ul>
+<li>6.1. Inserting Data</li>
+<li>6.2. Updating Data</li>
+<li>6.3. Deleting Data</li>
+</ul>
+
+
+<h4>Queries</h4>
+
+<ul>
+<li>7.1. overview</li>
+<li>7.2. table expressions</li>
+<li>7.3. select lists</li>
+<li>7.4. combining queries</li>
+<li>7.5. sorting rows</li>
+<li>7.6. limit and offset</li>
+<li>7.7. values lists</li>
+<li>7.8. WITH Queries (Common Table Expressions)</li>
+</ul>
+
+
+<h4>Functions and Operators</h4>
+
+<ul>
+<li>9.1. Logical Operators</li>
+<li>9.2. Comparison Operators</li>
+<li>9.7.1. LIKE</li>
+<li>9.20.Subquery Expressions</li>
+</ul>
+
+
+<h4>Indexes</h4>
+
+<ul>
+<li>11.1. Introduction</li>
+<li>11.5. Combining Multiple Indexes</li>
+</ul>
+
+
+<p>I. SQL Commands</p>
+
+<figure class='code'><figcaption><span>sql-commands  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='sql'><span class='line'><span class="k">ALTER</span> <span class="k">TABLE</span>
+</span><span class='line'><span class="k">CREATE</span> <span class="k">INDEX</span> <span class="p">[</span> <span class="n">CONCURRENTLY</span> <span class="p">]</span>
+</span><span class='line'><span class="k">CREATE</span> <span class="k">TABLE</span>
+</span><span class='line'><span class="k">DELETE</span>
+</span><span class='line'><span class="k">INSERT</span>
+</span><span class='line'><span class="k">SELECT</span>
+</span><span class='line'><span class="k">UPDATE</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Read the following sections of the SQL Cookbook:</p>
+
+<p>Appendix A: Window Function Refresher
+Any recipes that interest you</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Beau Gaines</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-09-19T17:39:00-04:00" pubdate data-updated="true">Sep 19<span>th</span>, 2012</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://beaugaines.github.com/blog/2012/09/19/road-map-no-2-postgres/" data-via="perfectidiot" data-counturl="http://beaugaines.github.com/blog/2012/09/19/road-map-no-2-postgres/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/09/14/road-map-no-1-ruby/" title="Previous Post: Road Map No. 1 - Ruby">&laquo; Road Map No. 1 - Ruby</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2012/09/19/road-map-no-3-javascript/" title="Next Post: road map no. 3 - javascript">road map no. 3 - javascript &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/09/26/sublime-text-voodoo/">Sublime Text Voodoo</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/09/25/more-ruby-titbits/">more ruby titbits</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/09/19/notes-on-scala/">Notes on Scala</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/09/19/road-map-no-4-html-plus-css/">road map no. 4 - html+css</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/09/19/road-map-no-3-javascript/">road map no. 3 - javascript</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/beaugaines">@beaugaines</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'beaugaines',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("perfectidiot", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/perfectidiot" class="twitter-follow-button" data-show-count="false">Follow @perfectidiot</a>
+  
+</section>
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Beau Gaines -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

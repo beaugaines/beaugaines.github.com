@@ -1,0 +1,479 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Code titbits no. 1 - A Raker's Progress</title>
+  <meta name="author" content="Beau Gaines">
+
+  
+  <meta name="description" content="In no particular order, here are the things I learned this week about: Github pages Learned how to set up the bones of this site and deploy to Github &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://beaugaines.github.com/blog/2012/09/12/code-titbits-no-1/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="A Raker's Progress" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">A Raker's Progress</a></h1>
+  
+    <h2>Exploring the spelunc of Ruby and other dark caverns.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:beaugaines.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Code Titbits No. 1</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-09-12T11:44:00-04:00" pubdate data-updated="true">Sep 12<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>In no particular order, here are the things I learned this week about:</p>
+
+<h3>Github pages</h3>
+
+<p>Learned how to set up the bones of this site and deploy to Github via <a href="http://www.tomordonez.com/blog/2012/06/04/creating-a-github-blog-using-octopress/">Tom Ordonez&#8217; fine instructions</a></p>
+
+<h3>Cucumber</h3>
+
+<p>Learned this from <a href="http://coryschires.com">Corey Schires&#8217; blog</a>:</p>
+
+<ul>
+<li>consolidate positive and negative assertions in step definitions:</li>
+</ul>
+
+
+<figure class='code'><figcaption><span>negative assertions in Cuke  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='gherkin'><span class='line'><span class="k">Then </span><span class="nf">/^I should( not)? see the following columns: &quot;</span><span class="s">([^</span><span class="nf">&quot;]*)&quot;</span><span class="s">$/ do |negate, columns|</span>
+</span><span class='line'><span class="s">  within(&#39;table thead tr&#39;) do</span>
+</span><span class='line'><span class="s">    columns.split(&#39;, &#39;).each do |column|</span>
+</span><span class='line'><span class="s">      negate ? page.should_not(have_content(column)) : page.should(have_content(column))</span>
+</span><span class='line'><span class="s">    end</span>
+</span><span class='line'><span class="s">  end</span>
+</span><span class='line'><span class="s">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The optional <code>( not)?</code> gets passed into the step as <code>negate</code> var for conditional assertion goodness.</p>
+
+<p>Also learned (true titbits here):</p>
+
+<ul>
+<li>to get the convenience methods in Cucumber features, create a file <code>features/support/factory_girl.rb</code> with the contents <code>World(FactoryGirl::Syntax::Methods)</code></li>
+<li>to be <em>fair</em> to both Rspec and Cucumber, it&#8217;s good to put factories in their own <code>factories/..</code> folder at your application root.  If you do this you also need to put this in a file at <code>features/support/factories.rb</code>:</li>
+</ul>
+
+
+<figure class='code'><figcaption><span>factories-support-fil  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Dir</span><span class="o">[</span><span class="no">Rails</span><span class="o">.</span><span class="n">root</span> <span class="o">+</span> <span class="s2">&quot;factories/*.rb&quot;</span><span class="o">].</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">file</span><span class="o">|</span>
+</span><span class='line'>  <span class="nb">require</span> <span class="n">file</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Gimp</h3>
+
+<p>I wanted to create a transparent png from a black and white image.  This is pretty easy in gimp:</p>
+
+<ol>
+<li>add an alpha layer to the image ( Layer > Transparency > Add Alpha Layer )</li>
+<li>make sure the image is in RGB mode ( Image > Mode > RGB )</li>
+<li>change the background to alpha ( Colors > Color to Alpha)</li>
+</ol>
+
+
+<p>That second bit is important; if the image is greyscale the Color to Alpha option will be greyed out&#8230;</p>
+
+<h3>Ruby</h3>
+
+<p>I&#8217;m working my way through the Ruby section of <a href="http://pragprog.com/book/btlang/seven-languages-in-seven-weeks">Seven Languages in Seven Weeks</a>.  This book has been great fun.  I like how broad a scope it takes:  from the simplest features of the language on Day 1 to fairly sophisticated subjects on Day 3.</p>
+
+<p>Here are my answers for the Day 2 exercises:</p>
+
+<h4>1. Find out how to access files with and without a code block.  What is the benefit of the code block?</h4>
+
+<figure class='code'><figcaption><span>File handling in a block  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">file</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;guacamole.txt&quot;</span><span class="p">,</span> <span class="s1">&#39;w+&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="n">file</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;Holy guacamole&quot;</span>
+</span><span class='line'><span class="n">file</span><span class="o">.</span><span class="n">close</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># accessing the file in the blocky mode:</span>
+</span><span class='line'>
+</span><span class='line'><span class="no">File</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;guacamole.txt&quot;</span><span class="p">,</span> <span class="s1">&#39;w+&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">line</span><span class="o">|</span> <span class="nb">puts</span> <span class="n">line</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>One line versus three, and at the end of the block the file closes automatically. Tidy and elegant.</p>
+
+<h4>2. How to translate a hash into an array?  And can the reverse be done?</h4>
+
+<p>A trivial task using Ruby&#8217;s <code>to_a</code> method:</p>
+
+<figure class='code'><figcaption><span>hash-to-array-conversion  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">hash</span> <span class="o">=</span> <span class="p">{</span> <span class="ss">:bob</span> <span class="o">=&gt;</span> <span class="s2">&quot;uncle&quot;</span> <span class="p">}</span>
+</span><span class='line'><span class="nb">hash</span><span class="o">.</span><span class="n">to_a</span><span class="o">.</span><span class="n">flatten</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">word</span><span class="o">|</span> <span class="n">word</span><span class="o">.</span><span class="n">to_s</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And the reverse:</p>
+
+<figure class='code'><figcaption><span>array-to-hash-conversion  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">array</span> <span class="o">=</span> <span class="n">w</span><span class="sx">%(bob is your uncle)</span>
+</span><span class='line'><span class="nb">hash</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">[*</span><span class="n">array</span><span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>3. Can you iterate through a hash?</h4>
+
+<p>Yes, thusly:</p>
+
+<figure class='code'><figcaption><span>hash-iteration  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">hash</span> <span class="o">=</span> <span class="p">{</span><span class="ss">:bob</span> <span class="o">=&gt;</span> <span class="s2">&quot;uncle&quot;</span><span class="p">,</span> <span class="ss">:belinda</span> <span class="o">=&gt;</span> <span class="s2">&quot;aunt&quot;</span><span class="p">}</span>
+</span><span class='line'><span class="nb">hash</span><span class="o">.</span><span class="n">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span> <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">key</span><span class="si">}</span><span class="s2"> - </span><span class="si">#{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>4. Ruby arrays can be used as stacks.  What other data structures do arrays support?</h4>
+
+<p>I tried to find a comprehensive list of array data structures but this is all I came up with.  I&#8217;ll add more when I find em.</p>
+
+<figure class='code'><figcaption><span>array-data-structures  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Queues/Dequeues</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">queue</span> <span class="o">=</span> <span class="o">[]</span>
+</span><span class='line'><span class="n">queue</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s2">&quot;delightful&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s2">&quot;queue&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="n">queue</span><span class="o">.</span><span class="n">unshift</span><span class="p">(</span><span class="s2">&quot;2&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">unshift</span><span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">queue</span><span class="o">.</span><span class="n">pop</span>  <span class="c1"># =&gt; &quot;queue&quot;</span>
+</span><span class='line'><span class="n">queue</span><span class="o">.</span><span class="n">shift</span> <span class="c1"># =&gt; &quot;1&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Lists</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">list</span> <span class="o">=</span> <span class="sx">%w(a bag of tricks)</span>
+</span><span class='line'><span class="n">list</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;special&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="n">list</span><span class="o">.</span><span class="n">map!</span> <span class="p">{</span> <span class="o">|</span><span class="n">e</span><span class="o">|</span> <span class="n">e</span> <span class="o">==</span> <span class="s2">&quot;bag&quot;</span> <span class="p">?</span> <span class="s2">&quot;hag&quot;</span> <span class="p">:</span> <span class="n">e</span> <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Bag/Set</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">bag</span> <span class="o">=</span> <span class="sx">%w(ceci n&#39;est pas une emeraude)</span>
+</span><span class='line'><span class="n">bag2</span> <span class="o">=</span> <span class="sx">%w(non pas du tout une emeraude)</span>
+</span><span class='line'><span class="n">set</span> <span class="o">=</span> <span class="n">bag</span> <span class="o">|</span> <span class="n">bag2</span> <span class="c1"># =&gt; [&quot;ceci&quot;, &quot;n&#39;est&quot;, &quot;pas&quot;, &quot;une&quot;,</span>
+</span><span class='line'>                 <span class="c1">#     &quot;emeraude&quot;, &quot;non&quot;, &quot;du&quot;, &quot;tout&quot;]</span>
+</span><span class='line'><span class="c1"># Matrices</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">m</span> <span class="o">=</span> <span class="o">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="o">]</span><span class="p">,</span> <span class="o">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="o">]</span><span class="p">,</span> <span class="o">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="o">]]</span>
+</span><span class='line'><span class="n">m</span><span class="o">.</span><span class="n">transpose</span> <span class="c1"># =&gt; [[1,4,7], [2,5,8], [3,6,9]]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>5.  Print the content of an array of sixteen numbers, four numbers at a time, using just each.  Then do the same with <code>each_slice</code> in Enumerable.</h4>
+
+<p>I couldn&#8217;t find an <code>each</code> implementation I liked so I came up with this.</p>
+
+<figure class='code'><figcaption><span>array-slice-n-dice  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">a</span> <span class="o">=</span> <span class="o">[*</span><span class="p">(</span><span class="mi">1</span><span class="o">.</span><span class="n">.</span><span class="mi">16</span><span class="p">)</span><span class="o">]</span>
+</span><span class='line'><span class="mi">4</span><span class="o">.</span><span class="n">times</span> <span class="p">{</span> <span class="nb">p</span> <span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span> <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># and the same done with `each_slice`:</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">a</span><span class="o">.</span><span class="n">each_slice</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">slice</span><span class="o">|</span> <span class="nb">p</span> <span class="n">slice</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>6.  Write a simple grep that will print the lines of a file having any occurrences of a phrase anywhere in that line.  Include line numbers if you like.</h4>
+
+<figure class='code'><figcaption><span>simple-grep  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">simple_grep</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">regex</span> <span class="o">=</span> <span class="sr">%r{pattern}</span>
+</span><span class='line'>  <span class="no">File</span><span class="o">.</span><span class="n">foreach</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span><span class="o">.</span><span class="n">with_index</span> <span class="k">do</span> <span class="o">|</span><span class="n">line</span><span class="p">,</span> <span class="n">line_num</span><span class="o">|</span>
+</span><span class='line'>    <span class="nb">p</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">line_num</span> <span class="o">-</span> <span class="n">line</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">if</span> <span class="n">regex</span> <span class="o">=~</span> <span class="n">line</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Beau Gaines</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-09-12T11:44:00-04:00" pubdate data-updated="true">Sep 12<span>th</span>, 2012</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://beaugaines.github.com/blog/2012/09/12/code-titbits-no-1/" data-via="perfectidiot" data-counturl="http://beaugaines.github.com/blog/2012/09/12/code-titbits-no-1/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+      
+        <a class="basic-alignment right" href="/blog/2012/09/14/my-road-map/" title="Next Post: My road map">My road map &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/09/26/sublime-text-voodoo/">Sublime Text Voodoo</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/09/25/more-ruby-titbits/">more ruby titbits</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/09/19/notes-on-scala/">Notes on Scala</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/09/19/road-map-no-4-html-plus-css/">road map no. 4 - html+css</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/09/19/road-map-no-3-javascript/">road map no. 3 - javascript</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/beaugaines">@beaugaines</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'beaugaines',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("perfectidiot", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/perfectidiot" class="twitter-follow-button" data-show-count="false">Follow @perfectidiot</a>
+  
+</section>
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Beau Gaines -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
