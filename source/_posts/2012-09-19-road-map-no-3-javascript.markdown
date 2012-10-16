@@ -10,7 +10,7 @@ categories:
 - ~~CodeSchool CoffeeScript course~~
 - ~~CodeSchool Node course~~
 - ~~CodeSchool Jquery courses~~
-- ~~CodeSchool Backbone course
+- ~~CodeSchool Backbone course~~
 - Code Academy exercises - all of 'em
 - Eloquent Javascript
 - CoffeeScript in Action

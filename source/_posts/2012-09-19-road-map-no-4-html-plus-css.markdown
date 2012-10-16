@@ -8,8 +8,8 @@ categories:
 
 ####HTML5 & CSS3 & SASS
 - ~~CodeSchool HTML 5 course~~
-- ~~Pragmatic _HTML5 and CSS3_
-- ~~Pragmatic _Rails Views_
+- ~~Pragmatic _HTML5 and CSS3~~
+- ~~Pragmatic _Rails Views~~
 - ~~CodeSchool CSS course~~
 - SMACCS
 - CodeSchool SASS course 
