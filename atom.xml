@@ -4,7 +4,7 @@
   <title><![CDATA[A Raker's Progress]]></title>
   <link href="http://beaugaines.github.com/atom.xml" rel="self"/>
   <link href="http://beaugaines.github.com/"/>
-  <updated>2012-10-16T17:49:54-04:00</updated>
+  <updated>2012-10-24T10:43:29-04:00</updated>
   <id>http://beaugaines.github.com/</id>
   <author>
     <name><![CDATA[Beau Gaines]]></name>
@@ -12,6 +12,19 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[My love affair with regexps]]></title>
+    <link href="http://beaugaines.github.com/blog/2012/10/23/my-love-affair-with-regexps/"/>
+    <updated>2012-10-23T17:07:00-04:00</updated>
+    <id>http://beaugaines.github.com/blog/2012/10/23/my-love-affair-with-regexps</id>
+    <content type="html"><![CDATA[<p>I haven&#8217;t posted here in ages.  I&#8217;ve been busy polishing up my first real app - a Rails clone of Stashboard.  I&#8217;m pretty happy with the results.  I managed to get version with responsive tables working.  Just some styling tweaks and some sort of admin dashboard remain to be done.  And deployment.  I&#8217;m hoping for the end of next week at the latest.</p>
+
+<p>Have also been making good progress through <em>The Well-Grounded Rubyist</em>.  I found it a bit dry at first but it&#8217;s grown on me a lot.  Just finished the chapter on <code>Enumerable</code> - very interesting - and am now working through the <code>regexp</code> chapter.  Heaven!  I&#8217;ve always loved regexps.  I don&#8217;t understand why people find them so distasteful.  In his preface to the chapter David Black says some people believe them to be &#8216;counterproductive&#8217;.  I don&#8217;t understand what he means by that&#8230;but I&#8217;ll look into it.</p>
+
+<p>Anyway&#8230;unproductive or not, I&#8217;m really enjoying it.  I&#8217;m looking forward to finishing the rest of the book and moving on to <em>Metaprogramming in Ruby</em>.  Then I&#8217;m gonna dig into Javascript.  I have a lot to learn on that front.  I wish it were more likeable as a language.  But it&#8217;s indispensible it seems&#8230;so I&#8217;ll take the plunge.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Sublime Text Voodoo]]></title>
@@ -406,7 +419,7 @@ Any recipes that interest you</p>
     <content type="html"><![CDATA[<p>Not yet in strict order, here&#8217;s my list:</p>
 
 <ul>
-<li>finish <em>The Well-Grounded Rubyist</em></li>
+<li>finish <em>The Well-Grounded Rubyist</em> <em>(update: on page 335)</em></li>
 <li>finish <em>Ruby Koans</em></li>
 <li>go through the APIs for Ruby <strong>Arrayы, Hashes, Strings, and Files</strong>.  Learn &#8216;em by heart</li>
 <li>read chaps. 23 and 34 of <em>The Pickaxe</em></li>

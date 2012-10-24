@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Sublime Text Voodoo - A Raker's Progress</title>
+  <title>My love affair with regexps - A Raker's Progress</title>
   <meta name="author" content="Beau Gaines">
 
   
-  <meta name="description" content="I&#8217;ve been using Sublime Text for about a year now. It&#8217;s probably the best engineered tool I&#8217;ve ever used to do anything - period. &hellip;">
+  <meta name="description" content="I haven&#8217;t posted here in ages. I&#8217;ve been busy polishing up my first real app - a Rails clone of Stashboard. I&#8217;m pretty happy with &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://beaugaines.github.com/blog/2012/09/26/sublime-text-voodoo/">
+  <link rel="canonical" href="http://beaugaines.github.com/blog/2012/10/23/my-love-affair-with-regexps/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -67,7 +67,7 @@
   
   <header>
     
-      <h1 class="entry-title">Sublime Text Voodoo</h1>
+      <h1 class="entry-title">My Love Affair With Regexps</h1>
     
     
       <p class="meta">
@@ -83,70 +83,18 @@
   
 
 
-<time datetime="2012-09-26T10:57:00-04:00" pubdate data-updated="true">Sep 26<span>th</span>, 2012</time>
+<time datetime="2012-10-23T17:07:00-04:00" pubdate data-updated="true">Oct 23<span>rd</span>, 2012</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>I&#8217;ve been using <em>Sublime Text</em> for about a year now.  It&#8217;s probably the best engineered tool I&#8217;ve ever used to do anything - period.  Just recently though I&#8217;ve been starting to use some of its more useful features.  I&#8217;m going to document them here for easy reference.  This is on a Linux installation and some of these are custom commands:</p>
+<div class="entry-content"><p>I haven&#8217;t posted here in ages.  I&#8217;ve been busy polishing up my first real app - a Rails clone of Stashboard.  I&#8217;m pretty happy with the results.  I managed to get version with responsive tables working.  Just some styling tweaks and some sort of admin dashboard remain to be done.  And deployment.  I&#8217;m hoping for the end of next week at the latest.</p>
 
-<h3>Keystrokes</h3>
+<p>Have also been making good progress through <em>The Well-Grounded Rubyist</em>.  I found it a bit dry at first but it&#8217;s grown on me a lot.  Just finished the chapter on <code>Enumerable</code> - very interesting - and am now working through the <code>regexp</code> chapter.  Heaven!  I&#8217;ve always loved regexps.  I don&#8217;t understand why people find them so distasteful.  In his preface to the chapter David Black says some people believe them to be &#8216;counterproductive&#8217;.  I don&#8217;t understand what he means by that&#8230;but I&#8217;ll look into it.</p>
 
-<ul>
-<li><code>super+d</code>:  select word/multiple select</li>
-<li><code>shift+right-mouse-button+ drag</code>: column select</li>
-<li><code>ctrl+shift+l</code>: multiple selections per line</li>
-<li><code>super+r</code>: go to symbol</li>
-<li><code>ctrl+m</code>: jump to closing parens</li>
-<li><code>ctrl+shift+m</code>: select all contents of the current parentheses</li>
-<li><code>ctrl+k+k</code>: delete from cursor till end of line</li>
-<li><code>ctrl+k+backspace</code>: delete from cursor till beginning of line</li>
-<li><code>ctrl+shift+/</code>: block comment current selection</li>
-<li><code>ctrl+y</code>: repeat last keyboard shortcut</li>
-<li><code>ctrl+KU</code>: transform to uppercase</li>
-<li><code>ctrl+KL</code>: transform to lowercase</li>
-<li>hit <code>ctrl+p</code> and then immediately type in a symbol to go straight to a class or method in the file
-
-<ul>
-<li>if you select a line of text and hit open parentheses it will add the closing parenthesis</li>
-</ul>
-</li>
-<li></li>
-</ul>
-
-
-<h3>Snippets</h3>
-
-<h4>Zen Coding</h4>
-
-<ul>
-<li><code>ul&gt;li*4&gt;a[href='#']{Important Link}</code>  #=></li>
-</ul>
-
-
-<figure class='code'><figcaption><span>html-zen-code-block  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;ul&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span>Important Link<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span>Important Link<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span>Important Link<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span>Important Link<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-</span><span class='line'><span class="nt">&lt;/ul&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li>can wrap in parentheses to distinguish between sections:
-<code>.container&gt;(.header&gt;header&gt;h1{My Website})+.main+.footer&gt;footer</code></li>
-</ul>
-
+<p>Anyway&#8230;unproductive or not, I&#8217;m really enjoying it.  I&#8217;m looking forward to finishing the rest of the book and moving on to <em>Metaprogramming in Ruby</em>.  Then I&#8217;m gonna dig into Javascript.  I have a lot to learn on that front.  I wish it were more likeable as a language.  But it&#8217;s indispensible it seems&#8230;so I&#8217;ll take the plunge.</p>
 </div>
 
 
@@ -169,7 +117,7 @@
   
 
 
-<time datetime="2012-09-26T10:57:00-04:00" pubdate data-updated="true">Sep 26<span>th</span>, 2012</time>
+<time datetime="2012-10-23T17:07:00-04:00" pubdate data-updated="true">Oct 23<span>rd</span>, 2012</time>
       
 
 
@@ -177,7 +125,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://beaugaines.github.com/blog/2012/09/26/sublime-text-voodoo/" data-via="perfectidiot" data-counturl="http://beaugaines.github.com/blog/2012/09/26/sublime-text-voodoo/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://beaugaines.github.com/blog/2012/10/23/my-love-affair-with-regexps/" data-via="perfectidiot" data-counturl="http://beaugaines.github.com/blog/2012/10/23/my-love-affair-with-regexps/" >Tweet</a>
   
   
   
@@ -186,10 +134,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2012/09/25/more-ruby-titbits/" title="Previous Post: more ruby titbits">&laquo; more ruby titbits</a>
+        <a class="basic-alignment left" href="/blog/2012/09/26/sublime-text-voodoo/" title="Previous Post: Sublime Text Voodoo">&laquo; Sublime Text Voodoo</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2012/10/23/my-love-affair-with-regexps/" title="Next Post: My love affair with regexps">My love affair with regexps &raquo;</a>
       
     </p>
   </footer>
