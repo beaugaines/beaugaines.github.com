@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>road map no. 2 - postgres - A Raker's Progress</title>
+  <title>Setting up my other Octopress on Linode - A Raker's Progress</title>
   <meta name="author" content="Beau Gaines">
 
   
-  <meta name="description" content="Straight from Thoughtbot&#8217;s map: Read these sections of the Postgres manual Basics 2.5. Querying a Table 2.6. Joins Between Tables 2.7. &hellip;">
+  <meta name="description" content="Octopress + Rsync + Linode + + Debian +Nginx I obviously run this blog on Github pages, which is pretty painless and is the easiest blog I have ever &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://beaugaines.github.com/blog/2012/09/19/road-map-no-2-postgres/">
+  <link rel="canonical" href="http://beaugaines.github.com/blog/2012/11/07/setting-up-my-other-octopress-on-linode/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -67,7 +67,7 @@
   
   <header>
     
-      <h1 class="entry-title">Road Map No. 2 - Postgres</h1>
+      <h1 class="entry-title">Setting Up My Other Octopress on Linode</h1>
     
     
       <p class="meta">
@@ -83,110 +83,25 @@
   
 
 
-<time datetime="2012-09-19T17:39:00-04:00" pubdate data-updated="true">Sep 19<span>th</span>, 2012</time>
+<time datetime="2012-11-07T15:08:00-05:00" pubdate data-updated="true">Nov 7<span>th</span>, 2012</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>Straight from Thoughtbot&#8217;s map:</p>
+<div class="entry-content"><h4>Octopress + Rsync + Linode + + Debian +Nginx</h4>
 
-<p>Read these sections of the <a href="http://www.postgresql.org/docs/9.0/static/index.html">Postgres manual</a></p>
+<p>I obviously run this blog on Github pages, which is pretty painless and is the easiest blog I have ever set up and administered.  But I have a couple other blogs that I wanted to start and I decided to avoid Heroku and host them on my Linode server running Debian Squeeze.  I poked around a bit for a good guide on this but had to cobble together the process&#8230;so here&#8217;s what I did, a cobbled together solution extracted from a bunch of websites but especially from [INCLUDE SITES]:</p>
 
-<h4>Basics</h4>
+<ol>
+<li>installed Nginx</li>
+<li>added my username to the www-data group:  <code>sudo adduser _username_ www-data</code></li>
+<li>change the ownership of the /var/www directory:  <code>sudo chown _username_:www-data -R /var/www</code></li>
+<li>change permissions to limit write permissions on the directory to its owner - i.e. you: <code>sudo chmod 0755 -R /var/www</code></li>
+<li><em>FAIL</em>.  One might even say <em>EPIC FAIL</em>.  I have failed to follow the various directions I&#8217;ve found online in a number of locales.  Once I fix the thing I&#8217;ll post what I&#8217;ve discovered here.  I&#8217;m surprised I haven&#8217;t been able to figure it out as I&#8217;ve been using Linux for ten years.  But only the buggy but lovable desktop variety - no expereince dealing with servers.  Anyway, I&#8217;ll figure it out.  Most of the things I&#8217;ve learned have come through failure and this will be the same.</li>
+</ol>
 
-<ul>
-<li><del> 2.5. Querying a Table </del></li>
-<li><del> 2.6. Joins Between Tables </del></li>
-<li><del> 2.7. Aggregate Functions </del></li>
-<li><del> 3.5. Window Functions </del></li>
-</ul>
-
-
-<h4>SQL Syntax</h4>
-
-<ul>
-<li>4.1. Lexical Structure</li>
-<li>4.2. Value Expressions</li>
-</ul>
-
-
-<h4>Data Definition</h4>
-
-<ul>
-<li>5.1. Table Basics</li>
-<li>5.2. Default Values</li>
-<li>5.3. Constraints</li>
-<li>5.5. Modifying Tables</li>
-</ul>
-
-
-<h4>Data Manipulation</h4>
-
-<ul>
-<li>6.1. Inserting Data</li>
-<li>6.2. Updating Data</li>
-<li>6.3. Deleting Data</li>
-</ul>
-
-
-<h4>Queries</h4>
-
-<ul>
-<li>7.1. overview</li>
-<li>7.2. table expressions</li>
-<li>7.3. select lists</li>
-<li>7.4. combining queries</li>
-<li>7.5. sorting rows</li>
-<li>7.6. limit and offset</li>
-<li>7.7. values lists</li>
-<li>7.8. WITH Queries (Common Table Expressions)</li>
-</ul>
-
-
-<h4>Functions and Operators</h4>
-
-<ul>
-<li>9.1. Logical Operators</li>
-<li>9.2. Comparison Operators</li>
-<li>9.7.1. LIKE</li>
-<li>9.20.Subquery Expressions</li>
-</ul>
-
-
-<h4>Indexes</h4>
-
-<ul>
-<li>11.1. Introduction</li>
-<li>11.5. Combining Multiple Indexes</li>
-</ul>
-
-
-<p>I. SQL Commands</p>
-
-<figure class='code'><figcaption><span>sql-commands  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='sql'><span class='line'><span class="k">ALTER</span> <span class="k">TABLE</span>
-</span><span class='line'><span class="k">CREATE</span> <span class="k">INDEX</span> <span class="p">[</span> <span class="n">CONCURRENTLY</span> <span class="p">]</span>
-</span><span class='line'><span class="k">CREATE</span> <span class="k">TABLE</span>
-</span><span class='line'><span class="k">DELETE</span>
-</span><span class='line'><span class="k">INSERT</span>
-</span><span class='line'><span class="k">SELECT</span>
-</span><span class='line'><span class="k">UPDATE</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Read the following sections of the SQL Cookbook:</p>
-
-<p>Appendix A: Window Function Refresher
-Any recipes that interest you</p>
 </div>
 
 
@@ -209,15 +124,21 @@ Any recipes that interest you</p>
   
 
 
-<time datetime="2012-09-19T17:39:00-04:00" pubdate data-updated="true">Sep 19<span>th</span>, 2012</time>
+<time datetime="2012-11-07T15:08:00-05:00" pubdate data-updated="true">Nov 7<span>th</span>, 2012</time>
       
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/linode-/'>linode,</a>, <a class='category' href='/blog/categories/octopress-/'>octopress,</a>, <a class='category' href='/blog/categories/server/'>server</a>
+  
+</span>
 
 
     </p>
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://beaugaines.github.com/blog/2012/09/19/road-map-no-2-postgres/" data-via="perfectidiot" data-counturl="http://beaugaines.github.com/blog/2012/09/19/road-map-no-2-postgres/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://beaugaines.github.com/blog/2012/11/07/setting-up-my-other-octopress-on-linode/" data-via="perfectidiot" data-counturl="http://beaugaines.github.com/blog/2012/11/07/setting-up-my-other-octopress-on-linode/" >Tweet</a>
   
   
   
@@ -226,10 +147,8 @@ Any recipes that interest you</p>
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2012/09/14/road-map-no-1-ruby/" title="Previous Post: Road Map No. 1 - Ruby and Rails">&laquo; Road Map No. 1 - Ruby and Rails</a>
+        <a class="basic-alignment left" href="/blog/2012/10/23/my-love-affair-with-regexps/" title="Previous Post: My love affair with regexps">&laquo; My love affair with regexps</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2012/09/19/road-map-no-3-javascript/" title="Next Post: road map no. 3 - javascript">road map no. 3 - javascript &raquo;</a>
       
     </p>
   </footer>

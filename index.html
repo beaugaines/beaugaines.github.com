@@ -9,7 +9,7 @@
   <meta name="author" content="Beau Gaines">
 
   
-  <meta name="description" content="I haven&#8217;t posted here in ages. I&#8217;ve been busy polishing up my first real app - a Rails clone of Stashboard. I&#8217;m pretty happy with &hellip;">
+  <meta name="description" content="Octopress + Rsync + Linode + + Debian +Nginx I obviously run this blog on Github pages, which is pretty painless and is the easiest blog I have ever &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -64,6 +64,53 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/11/07/setting-up-my-other-octopress-on-linode/">Setting Up My Other Octopress on Linode</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-11-07T15:08:00-05:00" pubdate data-updated="true">Nov 7<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h4>Octopress + Rsync + Linode + + Debian +Nginx</h4>
+
+<p>I obviously run this blog on Github pages, which is pretty painless and is the easiest blog I have ever set up and administered.  But I have a couple other blogs that I wanted to start and I decided to avoid Heroku and host them on my Linode server running Debian Squeeze.  I poked around a bit for a good guide on this but had to cobble together the process&#8230;so here&#8217;s what I did, a cobbled together solution extracted from a bunch of websites but especially from [INCLUDE SITES]:</p>
+
+<ol>
+<li>installed Nginx</li>
+<li>added my username to the www-data group:  <code>sudo adduser _username_ www-data</code></li>
+<li>change the ownership of the /var/www directory:  <code>sudo chown _username_:www-data -R /var/www</code></li>
+<li>change permissions to limit write permissions on the directory to its owner - i.e. you: <code>sudo chmod 0755 -R /var/www</code></li>
+<li><em>FAIL</em>.  One might even say <em>EPIC FAIL</em>.  I have failed to follow the various directions I&#8217;ve found online in a number of locales.  Once I fix the thing I&#8217;ll post what I&#8217;ve discovered here.  I&#8217;m surprised I haven&#8217;t been able to figure it out as I&#8217;ve been using Linux for ten years.  But only the buggy but lovable desktop variety - no expereince dealing with servers.  Anyway, I&#8217;ll figure it out.  Most of the things I&#8217;ve learned have come through failure and this will be the same.</li>
+</ol>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -432,8 +479,11 @@
 <li><del>Pragmatic _Rails Views</del></li>
 <li><del>CodeSchool CSS course</del></li>
 <li>SMACCS</li>
-<li>CodeSchool SASS course</li>
+<li><del>CodeSchool SASS course</del></li>
 <li>HardBoiled Web Dev</li>
+<li>HTML5 in Action</li>
+<li>Manning - Responsive Web</li>
+<li>SASS and Compass in Action</li>
 </ul>
 
 </div>
@@ -479,8 +529,9 @@
 <li><del>CodeSchool Backbone course</del></li>
 <li>Code Academy exercises - all of &#8216;em</li>
 <li>Eloquent Javascript</li>
+<li>Master Time And Space with Javascript</li>
 <li>CoffeeScript in Action</li>
-<li>NodeJS in Action</li>
+<li>NodeJS in Action (11/25/12 - <em>in progress!</em>)</li>
 <li>Manning <em>Single Page Web Applications</em></li>
 <li>Osmani, <em>Backbone Fundamentals</em></li>
 <li>Thoughbot Backbone book</li>
@@ -630,7 +681,7 @@ Any recipes that interest you</p>
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2012/09/14/road-map-no-1-ruby/">Road Map No. 1 - Ruby</a></h1>
+      <h1 class="entry-title"><a href="/blog/2012/09/14/road-map-no-1-ruby/">Road Map No. 1 - Ruby and Rails</a></h1>
     
     
       <p class="meta">
@@ -656,12 +707,22 @@ Any recipes that interest you</p>
   <div class="entry-content"><p>Not yet in strict order, here&#8217;s my list:</p>
 
 <ul>
-<li>finish <em>The Well-Grounded Rubyist</em> <em>(update: on page 335)</em></li>
-<li>finish <em>Ruby Koans</em></li>
+<li><del> finish <em>The Well-Grounded Rubyist</em> <em>(update: on page 335)</em> </del> <em><em>FIN!</em></em></li>
+<li><del>finish <em>Ruby Koans</em></del></li>
+<li>Practical Object-Oriented Design in Ruby (11/25/12 - <em>in progress!</em>)</li>
 <li>go through the APIs for Ruby <strong>Arrayы, Hashes, Strings, and Files</strong>.  Learn &#8216;em by heart</li>
-<li>read chaps. 23 and 34 of <em>The Pickaxe</em></li>
+<li>read chaps. 23 and 34 of <em>The Pickaxe</em> (11/25/12 - <em>currently working through the whole hog instead of just the two chaps</em>)</li>
 <li>read <em>Practical Projects in Ruby</em></li>
 <li>read <em>Metaprogramming in Ruby</em></li>
+<li>Avdi Grimm&#8217;s <em>Objects on Rails</em></li>
+<li><em>Rebuilding Rails</em></li>
+<li><del>Rails 3 in Action</del></li>
+<li><del>Every Day Rails Testing</del></li>
+<li><del>The RSpec Book</del></li>
+<li><del>CodeSchool <em>Testing with RSpec</em></del></li>
+<li><del>CodeSchool <em>Rails Best Practices</em></del></li>
+<li><del>CodeSchool <em>Ruby Bits 1 &amp; 2</em></del></li>
+<li><del>Rails Views</del></li>
 </ul>
 
 </div>
@@ -984,6 +1045,10 @@ Any recipes that interest you</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/11/07/setting-up-my-other-octopress-on-linode/">Setting up my other Octopress on Linode</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/10/23/my-love-affair-with-regexps/">My love affair with regexps</a>
       </li>
     
@@ -997,10 +1062,6 @@ Any recipes that interest you</p>
     
       <li class="post">
         <a href="/blog/2012/09/19/road-map-no-4-html-plus-css/">road map no. 4 - html+css</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/09/19/road-map-no-3-javascript/">road map no. 3 - javascript</a>
       </li>
     
   </ul>

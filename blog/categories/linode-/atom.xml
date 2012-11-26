@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: linode, | A Raker's Progress]]></title>
+  <link href="http://beaugaines.github.com/blog/categories/linode-/atom.xml" rel="self"/>
+  <link href="http://beaugaines.github.com/"/>
+  <updated>2012-11-25T23:36:09-05:00</updated>
+  <id>http://beaugaines.github.com/</id>
+  <author>
+    <name><![CDATA[Beau Gaines]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Setting up my other Octopress on Linode]]></title>
+    <link href="http://beaugaines.github.com/blog/2012/11/07/setting-up-my-other-octopress-on-linode/"/>
+    <updated>2012-11-07T15:08:00-05:00</updated>
+    <id>http://beaugaines.github.com/blog/2012/11/07/setting-up-my-other-octopress-on-linode</id>
+    <content type="html"><![CDATA[<h4>Octopress + Rsync + Linode + + Debian +Nginx</h4>
+
+<p>I obviously run this blog on Github pages, which is pretty painless and is the easiest blog I have ever set up and administered.  But I have a couple other blogs that I wanted to start and I decided to avoid Heroku and host them on my Linode server running Debian Squeeze.  I poked around a bit for a good guide on this but had to cobble together the process...so here's what I did, a cobbled together solution extracted from a bunch of websites but especially from [INCLUDE SITES]:</p>
+
+<ol>
+<li>installed Nginx</li>
+<li>added my username to the www-data group:  <code>sudo adduser _username_ www-data</code></li>
+<li>change the ownership of the /var/www directory:  <code>sudo chown _username_:www-data -R /var/www</code></li>
+<li>change permissions to limit write permissions on the directory to its owner - i.e. you: <code>sudo chmod 0755 -R /var/www</code></li>
+<li><em>FAIL</em>.  One might even say <em>EPIC FAIL</em>.  I have failed to follow the various directions I've found online in a number of locales.  Once I fix the thing I'll post what I've discovered here.  I'm surprised I haven't been able to figure it out as I've been using Linux for ten years.  But only the buggy but lovable desktop variety - no expereince dealing with servers.  Anyway, I'll figure it out.  Most of the things I've learned have come through failure and this will be the same.</li>
+</ol>
+
+]]></content>
+  </entry>
+  
+</feed>
