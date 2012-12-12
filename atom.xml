@@ -4,7 +4,7 @@
   <title><![CDATA[A Raker's Progress]]></title>
   <link href="http://beaugaines.github.com/atom.xml" rel="self"/>
   <link href="http://beaugaines.github.com/"/>
-  <updated>2012-11-25T23:38:21-05:00</updated>
+  <updated>2012-12-12T16:01:25-05:00</updated>
   <id>http://beaugaines.github.com/</id>
   <author>
     <name><![CDATA[Beau Gaines]]></name>
@@ -14,31 +14,11 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Setting up my other Octopress on Linode]]></title>
-    <link href="http://beaugaines.github.com/blog/2012/11/07/setting-up-my-other-octopress-on-linode/"/>
-    <updated>2012-11-07T15:08:00-05:00</updated>
-    <id>http://beaugaines.github.com/blog/2012/11/07/setting-up-my-other-octopress-on-linode</id>
-    <content type="html"><![CDATA[<h4>Octopress + Rsync + Linode + + Debian +Nginx</h4>
-
-<p>I obviously run this blog on Github pages, which is pretty painless and is the easiest blog I have ever set up and administered.  But I have a couple other blogs that I wanted to start and I decided to avoid Heroku and host them on my Linode server running Debian Squeeze.  I poked around a bit for a good guide on this but had to cobble together the process&#8230;so here&#8217;s what I did, a cobbled together solution extracted from a bunch of websites:</p>
-
-<ol>
-<li>installed Nginx</li>
-<li>added my username to the www-data group:  <code>sudo adduser _username_ www-data</code></li>
-<li>change the ownership of the /var/www directory:  <code>sudo chown _username_:www-data -R /var/www</code></li>
-<li>change permissions to limit write permissions on the directory to its owner - i.e. you: <code>sudo chmod 0755 -R /var/www</code></li>
-<li><em>FAIL</em>.  One might even say <em>EPIC FAIL</em>.  I have failed to follow the various directions I&#8217;ve found online in a number of locales.  Once I fix the thing I&#8217;ll post what I&#8217;ve discovered here.  I&#8217;m surprised I haven&#8217;t been able to figure it out as I&#8217;ve been using Linux for ten years.  But only the buggy but lovable desktop variety - no expereince dealing with servers.  Anyway, I&#8217;ll figure it out.  Most of the things I&#8217;ve learned have come through failure and this will be the same.</li>
-</ol>
-
-]]></content>
-  </entry>
-  
-  <entry>
     <title type="html"><![CDATA[My love affair with regexps]]></title>
     <link href="http://beaugaines.github.com/blog/2012/10/23/my-love-affair-with-regexps/"/>
     <updated>2012-10-23T17:07:00-04:00</updated>
     <id>http://beaugaines.github.com/blog/2012/10/23/my-love-affair-with-regexps</id>
-    <content type="html"><![CDATA[<p>I haven&#8217;t posted here in ages.  I&#8217;ve been busy polishing up my first real app - a Rails clone of Stashboard.  I&#8217;m pretty happy with the results.  I managed to get version with responsive tables working.  Just some styling tweaks and some sort of admin dashboard remain to be done.  And deployment.  I&#8217;m hoping for the end of next week at the latest.</p>
+    <content type="html"><![CDATA[<p>I haven&#8217;t posted here in ages.  I&#8217;ve been busy polishing up my first real app - a Rails clone of Stashboard.  I&#8217;m pretty happy with the results.  I managed to get a version with responsive tables working.  Just some styling tweaks and some sort of admin dashboard remain to be done.  And deployment.  I&#8217;m hoping for the end of next week at the latest.</p>
 
 <p>Have also been making good progress through <em>The Well-Grounded Rubyist</em>.  I found it a bit dry at first but it&#8217;s grown on me a lot.  Just finished the chapter on <code>Enumerable</code> - very interesting - and am now working through the <code>regexp</code> chapter.  Heaven!  I&#8217;ve always loved regexps.  I don&#8217;t understand why people find them so distasteful.  In his preface to the chapter David Black says some people believe them to be &#8216;counterproductive&#8217;.  I don&#8217;t understand what he means by that&#8230;but I&#8217;ll look into it.</p>
 
@@ -68,10 +48,11 @@
 <li><code>ctrl+y</code>: repeat last keyboard shortcut</li>
 <li><code>ctrl+KU</code>: transform to uppercase</li>
 <li><code>ctrl+KL</code>: transform to lowercase</li>
-<li>hit <code>ctrl+p</code> and then immediately type in a symbol to go straight to a class or method in the file
+<li>hit <code>ctrl+p</code> and then immediately type in a symbol to go straight to a class or method in the file</li>
+<li>if you select a line of text and hit open parentheses it will add the closing parenthesis
 
 <ul>
-<li>if you select a line of text and hit open parentheses it will add the closing parenthesis</li>
+<li><code>ciw</code>: cut internal word (Vintage mode)</li>
 </ul>
 </li>
 <li></li>
