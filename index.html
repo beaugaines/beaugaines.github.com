@@ -9,7 +9,7 @@
   <meta name="author" content="Beau Gaines">
 
   
-  <meta name="description" content="I&#8217;ve been using Sublime Text for about a year now. It&#8217;s probably the best engineered tool I&#8217;ve ever used to do anything - period. &hellip;">
+  <meta name="description" content="I haven&#8217;t posted here in ages. I&#8217;ve been busy polishing up my first real app - a Rails clone of Stashboard. I&#8217;m pretty happy with &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -70,6 +70,46 @@
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2012/10/23/my-love-affair-with-regexps/">My Love Affair With Regexps</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-10-23T17:07:00-04:00" pubdate data-updated="true">Oct 23<span>rd</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I haven&#8217;t posted here in ages.  I&#8217;ve been busy polishing up my first real app - a Rails clone of Stashboard.  I&#8217;m pretty happy with the results.  I managed to get a version with responsive tables working.  Just some styling tweaks and some sort of admin dashboard remain to be done.  And deployment.  I&#8217;m hoping for the end of next week at the latest.</p>
+
+<p>Have also been making good progress through <em>The Well-Grounded Rubyist</em>.  I found it a bit dry at first but it&#8217;s grown on me a lot.  Just finished the chapter on <code>Enumerable</code> - very interesting - and am now working through the <code>regexp</code> chapter.  Heaven!  I&#8217;ve always loved regexps.  I don&#8217;t understand why people find them so distasteful.  In his preface to the chapter David Black says some people believe them to be &#8216;counterproductive&#8217;.  I don&#8217;t understand what he means by that&#8230;but I&#8217;ll look into it.</p>
+
+<p>Anyway&#8230;unproductive or not, I&#8217;m really enjoying it.  I&#8217;m looking forward to finishing the rest of the book and moving on to <em>Metaprogramming in Ruby</em>.  Then I&#8217;m gonna dig into Javascript.  I have a lot to learn on that front.  I wish it were more likeable as a language.  But it&#8217;s indispensible it seems&#8230;so I&#8217;ll take the plunge.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2012/09/26/sublime-text-voodoo/">Sublime Text Voodoo</a></h1>
     
     
@@ -95,6 +135,8 @@
 
   <div class="entry-content"><p>I&#8217;ve been using <em>Sublime Text</em> for about a year now.  It&#8217;s probably the best engineered tool I&#8217;ve ever used to do anything - period.  Just recently though I&#8217;ve been starting to use some of its more useful features.  I&#8217;m going to document them here for easy reference.  This is on a Linux installation and some of these are custom commands:</p>
 
+<h3>Keystrokes</h3>
+
 <ul>
 <li><code>super+d</code>:  select word/multiple select</li>
 <li><code>shift+right-mouse-button+ drag</code>: column select</li>
@@ -107,9 +149,46 @@
 <li><code>ctrl+shift+/</code>: block comment current selection</li>
 <li><code>ctrl+y</code>: repeat last keyboard shortcut</li>
 <li><code>ctrl+KU</code>: transform to uppercase</li>
-<li><p><code>ctrl+KL</code>: transform to lowercase
-More complicated options:</p></li>
-<li><p>hit <code>ctrl+p</code> and then immediately type in a symbol to go straight to a class or method in the file</p></li>
+<li><code>ctrl+KL</code>: transform to lowercase</li>
+<li>hit <code>ctrl+p</code> and then immediately type in a symbol to go straight to a class or method in the file</li>
+<li>if you select a line of text and hit open parentheses it will add the closing parenthesis
+
+<ul>
+<li><code>ciw</code>: cut internal word (Vintage mode)</li>
+</ul>
+</li>
+<li></li>
+</ul>
+
+
+<h3>Snippets</h3>
+
+<h4>Zen Coding</h4>
+
+<ul>
+<li><code>ul&gt;li*4&gt;a[href='#']{Important Link}</code>  #=></li>
+</ul>
+
+
+<figure class='code'><figcaption><span>html-zen-code-block  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;ul&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span>Important Link<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span>Important Link<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span>Important Link<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span>Important Link<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+</span><span class='line'><span class="nt">&lt;/ul&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>can wrap in parentheses to distinguish between sections:
+<code>.container&gt;(.header&gt;header&gt;h1{My Website})+.main+.footer&gt;footer</code></li>
 </ul>
 
 </div>
@@ -323,72 +402,6 @@ More complicated options:</p></li>
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2012/09/19/notes-on-scala/">Notes on Scala</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-09-19T18:55:00-04:00" pubdate data-updated="true">Sep 19<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I&#8217;m taking the free course from Coursera.  It&#8217;s hard!  But I&#8217;m giving it a go.</p>
-
-<h4>Lecture 1</h4>
-
-<ul>
-<li>pure imperative programming models are limited by the &#8220;Von Neumann&#8221; bottleneck; in order to scale up, higher-level abstractions will be required</li>
-<li>in a <em>restricted sense</em>, functional programming means programming without mutable variables, assignments, loops, and other imperative control structures.  In a <em>broader</em> sense, it just means focusing on the functions.  Functions are values that are &#8216;produced, consumed, and composed&#8217;.</li>
-<li>every programming language provides:  a) primitive <em>expressions</em> representing the simplest elements, b) ways to <em>combine</em> expressions, and c) ways to <em>abstract</em> expressions, which introduce a name for an expression by which it can be referred to</li>
-<li>in its most basic sesne, functional programming can be looked at as a bit like using a calculator.  An interactive shell lets one write expressions and responds to their value</li>
-<li>in Scala, definitions can have parameters, e.g.</li>
-</ul>
-
-
-<figure class='code'><figcaption><span>func-def-params  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='scala'><span class='line'><span class="n">scala</span><span class="o">&gt;</span> <span class="k">def</span> <span class="n">square</span><span class="o">(</span><span class="n">x</span><span class="k">:</span> <span class="kt">Double</span><span class="o">)</span> <span class="k">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
-</span><span class='line'><span class="n">square</span><span class="k">:</span> <span class="o">(</span><span class="kt">Double</span><span class="o">)</span><span class="kt">Double</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li>function parameters come with their type, which appears after the colon.  If a return type is given, it appears after the parameter list.
-
-<ul>
-<li>n.b. that <code>if - else</code> in Scala is used for <em>expressions</em>, not for statements as in Java</li>
-</ul>
-</li>
-<li></li>
-</ul>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
       <h1 class="entry-title"><a href="/blog/2012/09/19/road-map-no-4-html-plus-css/">Road Map No. 4 - Html+css</a></h1>
     
     
@@ -416,12 +429,15 @@ More complicated options:</p></li>
 
 <ul>
 <li><del>CodeSchool HTML 5 course</del></li>
-<li>~~Pragmatic <em>HTML5 and CSS3</em></li>
-<li>~~Pragmatic <em>Rails Views</em></li>
+<li><del>Pragmatic _HTML5 and CSS3</del></li>
+<li><del>Pragmatic _Rails Views</del></li>
 <li><del>CodeSchool CSS course</del></li>
 <li>SMACCS</li>
-<li>CodeSchool SASS course</li>
+<li><del>CodeSchool SASS course</del></li>
 <li>HardBoiled Web Dev</li>
+<li>HTML5 in Action</li>
+<li>Manning - Responsive Web</li>
+<li>SASS and Compass in Action</li>
 </ul>
 
 </div>
@@ -464,11 +480,12 @@ More complicated options:</p></li>
 <li><del>CodeSchool CoffeeScript course</del></li>
 <li><del>CodeSchool Node course</del></li>
 <li><del>CodeSchool Jquery courses</del></li>
-<li>~~CodeSchool Backbone course</li>
+<li><del>CodeSchool Backbone course</del></li>
 <li>Code Academy exercises - all of &#8216;em</li>
 <li>Eloquent Javascript</li>
+<li>Master Time And Space with Javascript</li>
 <li>CoffeeScript in Action</li>
-<li>NodeJS in Action</li>
+<li>NodeJS in Action (11/25/12 - <em>in progress!</em>)</li>
 <li>Manning <em>Single Page Web Applications</em></li>
 <li>Osmani, <em>Backbone Fundamentals</em></li>
 <li>Thoughbot Backbone book</li>
@@ -618,7 +635,7 @@ Any recipes that interest you</p>
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2012/09/14/road-map-no-1-ruby/">Road Map No. 1 - Ruby</a></h1>
+      <h1 class="entry-title"><a href="/blog/2012/09/14/road-map-no-1-ruby/">Road Map No. 1 - Ruby and Rails</a></h1>
     
     
       <p class="meta">
@@ -644,12 +661,22 @@ Any recipes that interest you</p>
   <div class="entry-content"><p>Not yet in strict order, here&#8217;s my list:</p>
 
 <ul>
-<li>finish <em>The Well-Grounded Rubyist</em></li>
-<li>finish <em>Ruby Koans</em></li>
+<li><del> finish <em>The Well-Grounded Rubyist</em> <em>(update: on page 335)</em> </del> <em><em>FIN!</em></em></li>
+<li><del>finish <em>Ruby Koans</em></del></li>
+<li>Practical Object-Oriented Design in Ruby (11/25/12 - <em>in progress!</em>)</li>
 <li>go through the APIs for Ruby <strong>Arrayы, Hashes, Strings, and Files</strong>.  Learn &#8216;em by heart</li>
-<li>read chaps. 23 and 34 of <em>The Pickaxe</em></li>
+<li>read chaps. 23 and 34 of <em>The Pickaxe</em> (11/25/12 - <em>currently working through the whole hog instead of just the two chaps</em>)</li>
 <li>read <em>Practical Projects in Ruby</em></li>
 <li>read <em>Metaprogramming in Ruby</em></li>
+<li>Avdi Grimm&#8217;s <em>Objects on Rails</em></li>
+<li><em>Rebuilding Rails</em></li>
+<li><del>Rails 3 in Action</del></li>
+<li><del>Every Day Rails Testing</del></li>
+<li><del>The RSpec Book</del></li>
+<li><del>CodeSchool <em>Testing with RSpec</em></del></li>
+<li><del>CodeSchool <em>Rails Best Practices</em></del></li>
+<li><del>CodeSchool <em>Ruby Bits 1 &amp; 2</em></del></li>
+<li><del>Rails Views</del></li>
 </ul>
 
 </div>
@@ -972,15 +999,15 @@ Any recipes that interest you</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/10/23/my-love-affair-with-regexps/">My love affair with regexps</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/09/26/sublime-text-voodoo/">Sublime Text Voodoo</a>
       </li>
     
       <li class="post">
         <a href="/blog/2012/09/25/more-ruby-titbits/">more ruby titbits</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/09/19/notes-on-scala/">Notes on Scala</a>
       </li>
     
       <li class="post">
