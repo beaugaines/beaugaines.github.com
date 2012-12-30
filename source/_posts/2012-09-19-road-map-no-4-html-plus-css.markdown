@@ -12,5 +12,8 @@ categories:
 - ~~Pragmatic _Rails Views~~
 - ~~CodeSchool CSS course~~
 - SMACCS
-- CodeSchool SASS course 
+- ~~CodeSchool SASS course~~
 - HardBoiled Web Dev
+- HTML5 in Action
+- Manning - Responsive Web
+- SASS and Compass in Action

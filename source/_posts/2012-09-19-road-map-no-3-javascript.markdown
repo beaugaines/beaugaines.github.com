@@ -13,8 +13,10 @@ categories:
 - ~~CodeSchool Backbone course~~
 - Code Academy exercises - all of 'em
 - Eloquent Javascript
+- Master Time And Space with Javascript
 - CoffeeScript in Action
-- NodeJS in Action
+- NodeJS in Action (11/25/12 - _in progress!_)
 - Manning _Single Page Web Applications_
 - Osmani, _Backbone Fundamentals_
 - Thoughbot Backbone book
+

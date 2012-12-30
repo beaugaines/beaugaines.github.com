@@ -18,8 +18,8 @@ Read these sections of the [Postgres manual](http://www.postgresql.org/docs/9.0/
 - ~~ 3.5. Window Functions ~~
 
 ####SQL Syntax  
-- 4.1. Lexical Structure
-- 4.2. Value Expressions
+- ~~4.1. Lexical Structure~~
+- ~~4.2. Value Expressions~~
 
 ####Data Definition  
 - 5.1. Table Basics
