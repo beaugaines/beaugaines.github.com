@@ -1,47 +1,51 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>http://beaugaines.github.com/blog/2012/09/12/code-titbits-no-1/</loc>
+        <loc>http://beaugaines.github.com/code-titbits-no-1/</loc>
         <lastmod>2012-09-21T14:04:03-04:00</lastmod>
     </url>
     <url>
-        <loc>http://beaugaines.github.com/blog/2012/09/14/my-road-map/</loc>
+        <loc>http://beaugaines.github.com/my-road-map/</loc>
         <lastmod>2012-09-14T14:52:02-04:00</lastmod>
     </url>
     <url>
-        <loc>http://beaugaines.github.com/blog/2012/09/14/road-map-no-1-ruby/</loc>
+        <loc>http://beaugaines.github.com/road-map-no-1-ruby/</loc>
         <lastmod>2012-11-25T21:23:02-05:00</lastmod>
     </url>
     <url>
-        <loc>http://beaugaines.github.com/blog/2012/09/19/road-map-no-2-postgres/</loc>
-        <lastmod>2012-09-24T15:57:18-04:00</lastmod>
+        <loc>http://beaugaines.github.com/road-map-no-2-postgres/</loc>
+        <lastmod>2012-12-18T14:52:10-05:00</lastmod>
     </url>
     <url>
-        <loc>http://beaugaines.github.com/blog/2012/09/19/road-map-no-3-javascript/</loc>
+        <loc>http://beaugaines.github.com/road-map-no-3-javascript/</loc>
         <lastmod>2012-11-25T21:23:16-05:00</lastmod>
     </url>
     <url>
-        <loc>http://beaugaines.github.com/blog/2012/09/19/road-map-no-4-html-plus-css/</loc>
+        <loc>http://beaugaines.github.com/road-map-no-4-html-plus-css/</loc>
         <lastmod>2012-11-25T21:13:32-05:00</lastmod>
     </url>
     <url>
-        <loc>http://beaugaines.github.com/blog/2012/09/25/more-ruby-titbits/</loc>
+        <loc>http://beaugaines.github.com/more-ruby-titbits/</loc>
         <lastmod>2012-10-03T12:02:07-04:00</lastmod>
     </url>
     <url>
-        <loc>http://beaugaines.github.com/blog/2012/09/26/sublime-text-voodoo/</loc>
+        <loc>http://beaugaines.github.com/sublime-text-voodoo/</loc>
         <lastmod>2012-12-07T11:08:51-05:00</lastmod>
     </url>
     <url>
-        <loc>http://beaugaines.github.com/blog/2012/10/23/my-love-affair-with-regexps/</loc>
+        <loc>http://beaugaines.github.com/my-love-affair-with-regexps/</loc>
         <lastmod>2012-11-25T23:39:52-05:00</lastmod>
     </url>
     <url>
-        <loc>http://beaugaines.github.com/</loc>
-        <lastmod>2012-12-07T11:08:51-05:00</lastmod>
+        <loc>http://beaugaines.github.com/goals-for-the-new-year/</loc>
+        <lastmod>2013-01-01T19:15:42-05:00</lastmod>
     </url>
     <url>
-        <loc>http://beaugaines.github.com/blog/archives/</loc>
-        <lastmod>2012-12-07T11:08:51-05:00</lastmod>
+        <loc>http://beaugaines.github.com/archives/</loc>
+        <lastmod>2013-01-01T19:15:42-05:00</lastmod>
+    </url>
+    <url>
+        <loc>http://beaugaines.github.com/</loc>
+        <lastmod>2013-01-01T19:15:42-05:00</lastmod>
     </url>
 </urlset>
