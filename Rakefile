@@ -9,6 +9,7 @@ ssh_port       = "22"
 document_root  = "~/website.com/"
 rsync_delete   = true
 deploy_default = "push"
+s3_bucket = "blog.example.com"
 
 # This will be configured for you when you run config_deploy
 deploy_branch  = "master"
