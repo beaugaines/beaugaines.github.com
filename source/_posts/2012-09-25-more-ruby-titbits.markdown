@@ -7,7 +7,7 @@ categories:
 ---
 
 I've decided to press ahead and finish _The Well Grounded Rubyist_.  I don't find it easy reading somehow...too much blah blah blah and not enough doing.  But I'll plow through it and then spend a couple days plundering the Ruby APIs.  Some selected titbits from said plowing and plundering:
-
+<!-- more -->
 #### Default objects and scope:
 
 - self inside a singleton method is the object whose singleton method it is.  For ex., a class method can be defined thus:

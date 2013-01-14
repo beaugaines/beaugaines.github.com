@@ -11,7 +11,7 @@ In no particular order, here are the things I learned this week about:
 ### Github pages
 
 Learned how to set up the bones of this site and deploy to Github via [Tom Ordonez' fine instructions](http://www.tomordonez.com/blog/2012/06/04/creating-a-github-blog-using-octopress/)
-
+<!-- more -->
 ### Cucumber
 
 Learned this from [Corey Schires' blog](http://coryschires.com):

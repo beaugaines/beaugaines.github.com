@@ -6,7 +6,7 @@ comments: true
 categories: 
 ---
 
-Whew!  The last couple months have been so busy, I've had no time to write here at all.  It's been a good period in terms of pushing ahead with my goals.  I finished working my way through _The Well-Grounded Rubyist_, and am now half-way through _The Pickaxe_, which I'm really enjoying.  I'm also half way through [Rebuilding Rails](http://rebuilding-rails.com/), which I'm also enjoying.  And I'm also reading [The S3 Cookbook](https://leanpub.com/thes3cookbook) - which is also very interesting!
+Whew!  The last couple months have been so busy, I've had no time to write here at all.  It's been a good period in terms of pushing ahead with my goals.  I finished working my way through _The Well-Grounded Rubyist_, and am now half-way through _The Pickaxe_, which I'm really enjoying.<!--more -->  I'm also half way through [Rebuilding Rails](http://rebuilding-rails.com/), which I'm also enjoying.  And I'm also reading [The S3 Cookbook](https://leanpub.com/thes3cookbook) - which is also very interesting!
 
 I'm in the midst of polishing up and deploying my Stashboard clone - and will post the link to that soon.  I learned a lot on that project.  A couple other Rails projects are nearing fruition as well.
 
