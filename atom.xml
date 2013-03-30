@@ -4,7 +4,7 @@
   <title><![CDATA[A Raker's Progress]]></title>
   <link href="http://beaugaines.github.com/atom.xml" rel="self"/>
   <link href="http://beaugaines.github.com/"/>
-  <updated>2013-01-13T19:42:05-05:00</updated>
+  <updated>2013-03-29T22:35:35-04:00</updated>
   <id>http://beaugaines.github.com/</id>
   <author>
     <name><![CDATA[Beau Gaines]]></name>
@@ -12,6 +12,30 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[the charms of amortized cost analysis]]></title>
+    <link href="http://beaugaines.github.com/the-charms-of-amortized-cost-analysis/"/>
+    <updated>2013-03-15T21:21:00-04:00</updated>
+    <id>http://beaugaines.github.com/the-charms-of-amortized-cost-analysis</id>
+    <content type="html"><![CDATA[<h3>Ugh.</h3>
+
+<p>I have not posted here in far too long - which I&#8217;m not happy about - although I feel like I read this on someone&#8217;s blog nearly every day, so at least I&#8217;m not alone.  I&#8217;ve been super busy of late:  working on my learning objectives for the year, upgrading my Javascript skills, and upgrading my coding skills full stop - thanks to the <em>EdX 6.00</em> course from MIT. <!-- more -->  It&#8217;s nominally <em>Intro to Comp. Sci</em>, so some of it is review, but I&#8217;ve never encountered a better taught course anywhere I&#8217;ve studied and it&#8217;s really solidified my grounding in the topic.  I have some more work to do before I fully grasp amortized cost analysis, but Big O notation is fairly well-lodged in the noggin I think.  Most important thing:  I&#8217;m really enjoying the study and the better I get at programming the happier I am doing it.</p>
+
+<p>Apart from the MIT course, here are my immediate goals for the next couple months:</p>
+
+<ul>
+<li>Eloquent Javascript (half way through!)</li>
+<li>Manning SPA book</li>
+<li>Rebuilding Rails</li>
+<li>CoffeeScript in Action</li>
+<li>MongoDB in Action</li>
+</ul>
+
+
+<p>In addition I have a new Rails project I want to work on - a tool for private tutors and teachers.  So many projects, so little time&#8230;</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[goals for the new year]]></title>
