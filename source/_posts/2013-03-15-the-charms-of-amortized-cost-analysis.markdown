@@ -19,3 +19,8 @@ Apart from the MIT course, here are my immediate goals for the next couple month
 - MongoDB in Action
 
 In addition I have a new Rails project I want to work on - a tool for private tutors and teachers.  So many projects, so little time...
+
+
+ALSO...have some new titles to put on the 'To Do' list...including these:
+
+_Object Thinking_, David West; _Elemental Design Patterns_, JM Smith; _Domain Driven Design_, Eric Evans; _Refactoring_, Fowler et al, _Exploring Everyday Things with R and Ruby_, SS Chang, and Brian Ward's book on Unix and Superusers, which I own, and the contents of which I should already know, but I'm going to read it anyway.
