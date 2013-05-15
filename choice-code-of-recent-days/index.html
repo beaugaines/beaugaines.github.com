@@ -1,0 +1,411 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Choice code of recent days - A Raker's Progress</title>
+  <meta name="author" content="Beau Gaines">
+
+  
+  <meta name="description" content="I&#8217;ve been busy! Never manage to post here as much as I&#8217;d like. That, and improving the styling of this site, are both high on my to-do &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://beaugaines.github.com/choice-code-of-recent-days/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="A Raker's Progress" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">A Raker's Progress</a></h1>
+  
+    <h2>Exploring the spelunc of Ruby and other dark caverns.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:beaugaines.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Choice Code of Recent Days</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-05-09T14:21:00-04:00" pubdate data-updated="true">May 9<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h4>I&#8217;ve been busy!</h4>
+
+<p>Never manage to post here as much as I&#8217;d like.  That, and improving the styling of this site, are both high on my to-do list.  But so far they have been usurped by the tasks at hand.</p>
+
+<p>Most of free my time lately has been spent working on the EdX Python/Intro to Comp. Sci class, as well as a <em>Mongo for Devs</em> class offered online by 10gen.  They&#8217;ve both been challenging but fun and I&#8217;ve learned a ton.<!-- more -->  I wanted to post some of nicer bits of code I&#8217;ve come up with and so here they are:</p>
+
+<p>First this hideously lovely regex, from an exercise in <a href="http://www.diveintopython.com">Dive Into Python</a>, but I like regex so much I came up with it on my own:</p>
+
+<figure class='code'><figcaption><span>hideous-regex  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">hideousRegex</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;</span>
+</span><span class='line'><span class="s">                   # don&#39;t match beginning of string, number can start anywhere</span>
+</span><span class='line'><span class="s">\(?                # match a possible opening bracket for area code </span>
+</span><span class='line'><span class="s">(\d{3})            # area code at beginning of string</span>
+</span><span class='line'><span class="s">\)?                # match a possible closing bracket</span>
+</span><span class='line'><span class="s">\D*                # one or more &#39;non-word&#39; character - e.g. a hyphen, a space</span>
+</span><span class='line'><span class="s">(\d{3})            # trunk of number - 3 digits</span>
+</span><span class='line'><span class="s">\D*                # one or more &#39;non-word&#39; chars</span>
+</span><span class='line'><span class="s">(\d{4})            # last 4 digits</span>
+</span><span class='line'><span class="s">\D*                # more non-words</span>
+</span><span class='line'><span class="s">(\d*)?             # maybe an extension of one or more digits</span>
+</span><span class='line'><span class="s">$</span>
+</span><span class='line'><span class="s">&quot;&quot;&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>I also got pretty excited about this recursive range functionn I came up with for the <em>MIT/EdX</em> class:</p>
+
+<figure class='code'><figcaption><span>recursively-ranging   </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="k">def</span> <span class="nf">recurRange</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">step</span><span class="p">,</span><span class="n">storage</span><span class="o">=</span><span class="p">[])</span>
+</span><span class='line'>    <span class="n">storage</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</span><span class='line'>    <span class="k">if</span> <span class="n">y</span> <span class="o">-</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+</span><span class='line'>        <span class="k">return</span> <span class="n">storage</span>
+</span><span class='line'>    <span class="k">else</span><span class="p">:</span>
+</span><span class='line'>        <span class="k">return</span> <span class="n">recurRange</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">step</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">step</span><span class="p">,</span><span class="n">storage</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>RECURSION!  I read somewhere recently that for most any application it is vastly less efficient than an iterative loop.  But it&#8217;s hard not to love the elegance of it.  I&#8217;m smitten.</p>
+
+<p>Also had some fun with a blog scraping script I wrote for a project a couple weeks back:</p>
+
+<figure class='code'><figcaption><span>blog-scrapr  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">require</span> <span class="s1">&#39;nokogiri&#39;</span>
+</span><span class='line'><span class="nb">require</span> <span class="s1">&#39;open-uri&#39;</span>
+</span><span class='line'><span class="nb">require</span> <span class="s1">&#39;sequel&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="no">BLOG_1</span> <span class="o">=</span> <span class="s1">&#39;http://widgetmasters.blogspot.com&#39;</span>
+</span><span class='line'><span class="n">freq</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</span><span class='line'><span class="n">page</span> <span class="o">=</span> <span class="no">Nokogiri</span><span class="o">::</span><span class="no">HTML</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="no">BLOG_1</span><span class="p">))</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">skip_words</span> <span class="o">=</span> <span class="sx">%w(i and of to the a in my her with as on is his like for she that</span>
+</span><span class='line'><span class="sx">at an it from - am this our out we are he be was but me their up into one</span>
+</span><span class='line'><span class="sx">back through not . were then have by down each around just they its which</span>
+</span><span class='line'><span class="sx">all it&#39;s over or little you there what against what can had so me been and but</span>
+</span><span class='line'><span class="sx">don&#39;t let feet side trying get do then than if no how has about only we long more</span>
+</span><span class='line'><span class="sx">arm left weight will my few past makes straight know head them where towards</span>
+</span><span class='line'><span class="sx">take coud him still tell many two one if your here onto </span>
+</span><span class='line'><span class="sx">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">page</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s1">&#39;div.entry-content p&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="nb">p</span><span class="o">|</span>
+</span><span class='line'>  <span class="n">words</span> <span class="o">=</span> <span class="nb">p</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">split</span>
+</span><span class='line'>  <span class="n">words</span><span class="o">.</span><span class="n">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">word</span><span class="o">|</span> <span class="n">word</span><span class="o">.</span><span class="n">gsub!</span><span class="p">(</span><span class="sr">/(?=\s)(\d|\W)/</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="p">}</span>
+</span><span class='line'>  <span class="n">words</span><span class="o">.</span><span class="n">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">word</span><span class="o">|</span> <span class="n">freq</span><span class="o">[</span><span class="n">word</span><span class="o">.</span><span class="n">downcase</span><span class="o">]</span> <span class="o">+=</span> <span class="mi">1</span> <span class="p">}</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">sorted</span> <span class="o">=</span> <span class="n">freq</span><span class="o">.</span><span class="n">sort_by</span><span class="p">{</span> <span class="o">|</span><span class="n">k</span><span class="p">,</span><span class="n">v</span><span class="o">|</span> <span class="o">-</span><span class="n">v</span> <span class="p">}</span><span class="o">.</span><span class="n">last</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">skip_words</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">word</span><span class="o">|</span>
+</span><span class='line'>  <span class="n">sorted</span><span class="o">.</span><span class="n">delete_if</span> <span class="p">{</span> <span class="o">|</span><span class="n">k</span><span class="p">,</span><span class="n">v</span><span class="o">|</span> <span class="n">useless_words</span><span class="o">.</span><span class="n">include?</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="p">}</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># put it into sqlite - in memory, using the cool sequel gem</span>
+</span><span class='line'>
+</span><span class='line'><span class="no">DB</span> <span class="o">=</span> <span class="no">Sequel</span><span class="o">.</span><span class="n">sqlite</span>
+</span><span class='line'>
+</span><span class='line'><span class="no">DB</span><span class="o">.</span><span class="n">create_table</span> <span class="ss">:words</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">primary_key</span> <span class="ss">:id</span>
+</span><span class='line'>  <span class="nb">String</span> <span class="ss">:name</span>
+</span><span class='line'>  <span class="nb">Integer</span> <span class="ss">:count</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">words</span> <span class="o">=</span> <span class="no">DB</span><span class="o">[</span><span class="ss">:words</span><span class="o">]</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">sorted</span><span class="o">.</span><span class="n">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">key</span><span class="p">,</span><span class="n">value</span><span class="o">|</span> <span class="n">words</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span> <span class="ss">:name</span> <span class="o">=&gt;</span> <span class="n">key</span><span class="p">,</span> <span class="ss">:count</span> <span class="o">=&gt;</span> <span class="n">value</span><span class="p">)</span> <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># run some queries on the DB</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">words</span><span class="o">.</span><span class="n">order</span><span class="p">(</span><span class="ss">:count</span><span class="p">)</span><span class="o">.</span><span class="n">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">w</span><span class="o">|</span> <span class="nb">puts</span> <span class="n">w</span><span class="o">[</span><span class="ss">:name</span><span class="o">]</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And that&#8217;s it for this edition of <em>Charlie&#8217;s Choice Code</em>.</p>
+
+<p>IN OTHER NEWS - I&#8217;ve been busy recently writing a test suite for <a href="http://www.nfoshare.com">Nfoshare.com</a>.  I love writing tests and it&#8217;s been interesting to work through their code and test out the classes.  I&#8217;m nearly done with the unit tests and will do an integration test suite as well.  I haven&#8217;t done much test writing recently but I hope to do more of it in coming days.  It&#8217;s a satisfying way to code&#8230;</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Beau Gaines</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-05-09T14:21:00-04:00" pubdate data-updated="true">May 9<span>th</span>, 2013</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://beaugaines.github.com/choice-code-of-recent-days/" data-via="perfectidiot" data-counturl="http://beaugaines.github.com/choice-code-of-recent-days/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/the-charms-of-amortized-cost-analysis/" title="Previous Post: the charms of amortized cost analysis">&laquo; the charms of amortized cost analysis</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/choice-code-of-recent-days/">Choice code of recent days</a>
+      </li>
+    
+      <li class="post">
+        <a href="/the-charms-of-amortized-cost-analysis/">the charms of amortized cost analysis</a>
+      </li>
+    
+      <li class="post">
+        <a href="/goals-for-the-new-year/">goals for the new year</a>
+      </li>
+    
+      <li class="post">
+        <a href="/my-love-affair-with-regexps/">My love affair with regexps</a>
+      </li>
+    
+      <li class="post">
+        <a href="/sublime-text-voodoo/">Sublime Text Voodoo</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/beaugaines">@beaugaines</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'beaugaines',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("perfectidiot", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/perfectidiot" class="twitter-follow-button" data-show-count="false">Follow @perfectidiot</a>
+  
+</section>
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Beau Gaines -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
