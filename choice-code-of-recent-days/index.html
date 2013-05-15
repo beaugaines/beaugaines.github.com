@@ -9,7 +9,7 @@
   <meta name="author" content="Beau Gaines">
 
   
-  <meta name="description" content="I&#8217;ve been busy! Never manage to post here as much as I&#8217;d like. That, and improving the styling of this site, are both high on my to-do &hellip;">
+  <meta name="description" content="I&#8217;ve been busy! Never manage to post here as much as I&#8217;d like. That, and improving the styling of this site, are both medium-high on my &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -92,7 +92,7 @@
 
 <div class="entry-content"><h4>I&#8217;ve been busy!</h4>
 
-<p>Never manage to post here as much as I&#8217;d like.  That, and improving the styling of this site, are both high on my to-do list.  But so far they have been usurped by the tasks at hand.</p>
+<p>Never manage to post here as much as I&#8217;d like.  That, and improving the styling of this site, are both medium-high on my to-do list.  But so far they have been usurped by the tasks at hand.</p>
 
 <p>Most of free my time lately has been spent working on the EdX Python/Intro to Comp. Sci class, as well as a <em>Mongo for Devs</em> class offered online by 10gen.  They&#8217;ve both been challenging but fun and I&#8217;ve learned a ton.<!-- more -->  I wanted to post some of nicer bits of code I&#8217;ve come up with and so here they are:</p>
 
@@ -128,7 +128,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>I also got pretty excited about this recursive range functionn I came up with for the <em>MIT/EdX</em> class:</p>
+<p>I also got pretty excited about this recursive range function I came up with for the <em>MIT/EdX</em> class:</p>
 
 <figure class='code'><figcaption><span>recursively-ranging   </span></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -246,9 +246,87 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
+<p>And finally - a Javascript hack to slice up a pseudo-html paragraph and return html:</p>
+
+<figure class='code'><figcaption><span>jscript-switch-and-interpolation  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">content</span> <span class="o">=</span> <span class="s2">&quot;%% Language\n\n\</span>
+</span><span class='line'><span class="s2">\</span>
+</span><span class='line'><span class="s2">When a programming language is created, it is given syntax and\</span>
+</span><span class='line'><span class="s2">semantics. The syntax describes the form of the program, the semantics\</span>
+</span><span class='line'><span class="s2">describe the function. When the syntax is beautiful and the semantics\</span>
+</span><span class='line'><span class="s2">are clear, the program will be like a stately tree. When the syntax is\</span>
+</span><span class='line'><span class="s2">clumsy and the semantics confusing, the program will be like a bramble\</span>
+</span><span class='line'><span class="s2">bush.\</span>
+</span><span class='line'><span class="s2">&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kd">function</span> <span class="nx">processParagraph</span><span class="p">(</span><span class="nx">paragraph</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">sprintf</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;sprintf-js&#39;</span><span class="p">).</span><span class="nx">sprintf</span><span class="p">,</span>
+</span><span class='line'>    <span class="nx">vsprintf</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;sprintf-js&#39;</span><span class="p">).</span><span class="nx">vsprintf</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">sections</span> <span class="o">=</span> <span class="nx">paragraph</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;\n\n&#39;</span><span class="p">);</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">headers</span> <span class="o">=</span> <span class="nx">sections</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">);</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">headerTag</span> <span class="o">=</span> <span class="nx">headers</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">length</span><span class="p">;</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">body</span> <span class="o">=</span> <span class="s1">&#39;&lt;p&gt;&#39;</span> <span class="o">+</span> <span class="nx">sections</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;&lt;/p&gt;&#39;</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">switch</span><span class="p">(</span><span class="nx">headerTag</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">{</span>
+</span><span class='line'>    <span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
+</span><span class='line'>    <span class="nx">headerTag</span> <span class="o">=</span> <span class="s1">&#39;h1&#39;</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">case</span> <span class="mi">2</span><span class="o">:</span>
+</span><span class='line'>    <span class="nx">headerTag</span> <span class="o">=</span> <span class="s1">&#39;h2&#39;</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">case</span> <span class="mi">3</span><span class="o">:</span>
+</span><span class='line'>    <span class="nx">headerTag</span> <span class="o">=</span> <span class="s1">&#39;h3&#39;</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">case</span> <span class="mi">4</span><span class="o">:</span>
+</span><span class='line'>    <span class="nx">headerTag</span> <span class="o">=</span> <span class="s1">&#39;h4&#39;</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">case</span> <span class="mi">5</span><span class="o">:</span>
+</span><span class='line'>    <span class="nx">headerTag</span> <span class="o">=</span> <span class="s1">&#39;h5&#39;</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">return</span> <span class="nx">sprintf</span><span class="p">(</span><span class="s1">&#39;&lt;%1$s&gt;&#39;</span><span class="p">,</span> <span class="nx">headerTag</span><span class="p">)</span> <span class="o">+</span> <span class="nx">headers</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="nx">sprintf</span><span class="p">(</span><span class="s1">&#39;&lt;/%1$s&gt;&#39;</span><span class="p">,</span> <span class="nx">headerTag</span><span class="p">)</span> <span class="o">+</span> <span class="nx">body</span>
+</span><span class='line'>  <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
 <p>And that&#8217;s it for this edition of <em>Charlie&#8217;s Choice Code</em>.</p>
 
-<p>IN OTHER NEWS - I&#8217;ve been busy recently writing a test suite for <a href="http://www.nfoshare.com">Nfoshare.com</a>.  I love writing tests and it&#8217;s been interesting to work through their code and test out the classes.  I&#8217;m nearly done with the unit tests and will do an integration test suite as well.  I haven&#8217;t done much test writing recently but I hope to do more of it in coming days.  It&#8217;s a satisfying way to code&#8230;</p>
+<p>IN OTHER NEWS - I&#8217;ve been busy recently writing a test suite for <a href="http://nfoshare.com">Nfoshare.com</a>.  I love writing tests and it&#8217;s been interesting to work through their code and test out the classes.  I&#8217;m nearly done with the unit tests and will do an integration test suite as well.  I haven&#8217;t done much test writing recently but I hope to do more of it in coming days.  It&#8217;s a satisfying way to code&#8230;</p>
 </div>
 
 
