@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Attachinary | A Raker's Progress]]></title>
+  <link href="http://beaugaines.github.com/categories/attachinary/atom.xml" rel="self"/>
+  <link href="http://beaugaines.github.com/"/>
+  <updated>2014-08-07T12:20:09-04:00</updated>
+  <id>http://beaugaines.github.com/</id>
+  <author>
+    <name><![CDATA[Beau Gaines]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Rails Image Upload with Attachinary]]></title>
+    <link href="http://beaugaines.github.com/rails-image-upload-with-attachinary/"/>
+    <updated>2013-12-17T11:37:00-05:00</updated>
+    <id>http://beaugaines.github.com/rails-image-upload-with-attachinary</id>
+    <content type="html"><![CDATA[<p>More appalling neglect of this blog in recent months, but I aim to change that in the new year.  That and the long-deferred blog restyle.  It will be done!</p>
+
+<p>In the meantime, I decided I would write up my experience implementing <a href="https://github.com/assembler/attachinary">Attachinary</a> for image upload in Rails 4. <!-- more -->  I've used both <a href="https://github.com/thoughtbot/paperclip">Paperclip</a> and <a href="https://github.com/jnicklas/carrierwave">Carrierwave</a> in the past.  They both work great, but for my current project for the <a href="http://billionoysterproject.org">Billion Oyster Project</a> I wanted to try out <a href="http://cloudinary.com">Cloudinary</a>.  Looking through their documentation I found Attachinary, and it sounds great:  no need to change your models when you need to add an attachment, jQuery plugin for async file uploads with preview, and handling of both has_one and has_many use cases.  It's also very simple to configure.  Happy days!</p>
+
+<h4>Basic config</h4>
+
+<p>The usual drill, add it to your gemfile:</p>
+
+<p><code>ruby
+gem 'attachinary'
+</code>
+Or for Rails 4:
+``` ruby
+gem 'attachinary', git: 'git://github.com/rochers/attachinary.git', branch: 'rails4'</p>
+
+<p>```</p>
+
+<p>Add to application.rb:</p>
+
+<p><code>
+require "attachinary/orm/active_record" #  works with mongo too
+</code></p>
+
+<p>Generate and run the necessessary migrations:</p>
+
+<p>```
+bundle exec rake attachinary:install:migrations
+bundle exec rake db:migrate</p>
+
+<p>```</p>
+
+<p>Throw this in your routes file:
+<code>
+mount Attachinary::Engine =&gt; '/attachinary'
+</code></p>
+
+<p>And then add to your application layout:
+<code>
+= cloudinary_js_config
+</code></p>
+
+<p>Done!</p>
+
+<p>Oh, not quite, need to add the our associations:</p>
+
+<p><code>
+class Post &lt; ActiveRecord::Base
+  belongs_to :user
+  has_attachments :photos, maximum: 5
+end
+</code></p>
+
+<p>And a very simple form:
+<code>
+= simple_form_for(@post) do |f|
+  = f.input :title
+  = f.input :caption, label: 'Comment'
+  = f.input :photos, as: :attachinary
+</code>
+The docs say if you don't have the JQuery File Upload assets you need to run this rake task.  I had to run it, I'm guessing most people will:</p>
+
+<p><code>
+rake attachinary:fetch_fileupload
+</code></p>
+
+<p>Then add t javascript payload to application.js - most of it to handle the upload to Cloudinary:
+<code>
+//= require jquery.ui.widget
+//= require jquery.iframe-transport
+//= require jquery.fileupload
+//= require cloudinary/jquery.cloudinary
+//= require attachinary
+</code>
+And finally add the javascript call to one of your coffee asset files:
+<code>
+$('.attachinary-input').attachinary()
+</code></p>
+
+<p>The jQuery plugin is unstyled, so we'll be adding some styles here:
+<code>
+ADD STYLES
+</code></p>
+
+<p>Fetching the images from Cloudinary is easy-peasy:
+<code>
+@post.photos.each do |photo|
+  cl_image_tag(photo.path, { size: '50x50', crop: :fit})
+end
+</code></p>
+
+<p>The only problem is at this point I was not able to upload multiple files...</p>
+
+<p>Hat tip to <a href="http://zogovic.com/">Milovan Zogovic</a> for the topwork!</p>
+]]></content>
+  </entry>
+  
+</feed>

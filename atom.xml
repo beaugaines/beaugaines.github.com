@@ -4,7 +4,7 @@
   <title><![CDATA[A Raker's Progress]]></title>
   <link href="http://beaugaines.github.com/atom.xml" rel="self"/>
   <link href="http://beaugaines.github.com/"/>
-  <updated>2013-05-15T11:03:40-04:00</updated>
+  <updated>2014-08-07T12:20:09-04:00</updated>
   <id>http://beaugaines.github.com/</id>
   <author>
     <name><![CDATA[Beau Gaines]]></name>
@@ -12,6 +12,175 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Using Stormpath for User Management in Rails Apps]]></title>
+    <link href="http://beaugaines.github.com/using-stormpath-for-user-management-in-rails-apps/"/>
+    <updated>2014-07-30T09:51:00-04:00</updated>
+    <id>http://beaugaines.github.com/using-stormpath-for-user-management-in-rails-apps</id>
+    <content type="html"><![CDATA[<p>I&#8217;m finally back.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Fixing a broken Octopress install]]></title>
+    <link href="http://beaugaines.github.com/fixing-a-broken-octopress-install/"/>
+    <updated>2013-12-27T23:46:00-05:00</updated>
+    <id>http://beaugaines.github.com/fixing-a-broken-octopress-install</id>
+    <content type="html"><![CDATA[<p>CONFIGURE_OPTS=&#8221;&#8211;with-iconv-dir=/usr/bin&#8221; rbenv install 1.9.3-p448</p>
+
+<p>gem &#8216;pygments.rb&#8217;, &#8216;~> 0.3.0&#8217;</p>
+
+<p>/home/sircharles/.rbenv/versions/1.9.3-p448/lib/ruby/1.9.1/psych.rb:203:in `parse&#8217;: (<unknown>): did not find expected key while parsing a block mapping at line 2 column 1 (Psych::SyntaxError)</p>
+
+<p>/home/sircharles/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/maruku-0.6.0/lib/maruku/input/parse_doc.rb:22:in `require&#8217;: cannot load such file &#8211; iconv (LoadError)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Rails Image Upload with Attachinary]]></title>
+    <link href="http://beaugaines.github.com/rails-image-upload-with-attachinary/"/>
+    <updated>2013-12-17T11:37:00-05:00</updated>
+    <id>http://beaugaines.github.com/rails-image-upload-with-attachinary</id>
+    <content type="html"><![CDATA[<p>More appalling neglect of this blog in recent months, but I aim to change that in the new year.  That and the long-deferred blog restyle.  It will be done!</p>
+
+<p>In the meantime, I decided I would write up my experience implementing <a href="https://github.com/assembler/attachinary">Attachinary</a> for image upload in Rails 4. <!-- more -->  I&#8217;ve used both <a href="https://github.com/thoughtbot/paperclip">Paperclip</a> and <a href="https://github.com/jnicklas/carrierwave">Carrierwave</a> in the past.  They both work great, but for my current project for the <a href="http://billionoysterproject.org">Billion Oyster Project</a> I wanted to try out <a href="http://cloudinary.com">Cloudinary</a>.  Looking through their documentation I found Attachinary, and it sounds great:  no need to change your models when you need to add an attachment, jQuery plugin for async file uploads with preview, and handling of both has_one and has_many use cases.  It&#8217;s also very simple to configure.  Happy days!</p>
+
+<h4>Basic config</h4>
+
+<p>The usual drill, add it to your gemfile:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">gem</span> <span class="s1">&#39;attachinary&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Or for Rails 4:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">gem</span> <span class="s1">&#39;attachinary&#39;</span><span class="p">,</span> <span class="ss">git</span><span class="p">:</span> <span class="s1">&#39;git://github.com/rochers/attachinary.git&#39;</span><span class="p">,</span> <span class="ss">branch</span><span class="p">:</span> <span class="s1">&#39;rails4&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Add to application.rb:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">require</span> <span class="s2">&quot;attachinary/orm/active_record&quot;</span> <span class="c1">#  works with mongo too</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Generate and run the necessessary migrations:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">bundle</span> <span class="nb">exec</span> <span class="n">rake</span> <span class="ss">attachinary</span><span class="p">:</span><span class="ss">install</span><span class="p">:</span><span class="n">migrations</span>
+</span><span class='line'><span class="n">bundle</span> <span class="nb">exec</span> <span class="n">rake</span> <span class="ss">db</span><span class="p">:</span><span class="n">migrate</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Throw this in your routes file:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">mount</span> <span class="ss">Attachinary</span><span class="p">:</span><span class="ss">:Engine</span> <span class="o">=&gt;</span> <span class="s1">&#39;/attachinary&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And then add to your application layout:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">=</span> <span class="n">cloudinary_js_config</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Done!</p>
+
+<p>Oh, not quite, need to add the our associations:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Post</span> <span class="o">&lt;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Base</span>
+</span><span class='line'>  <span class="n">belongs_to</span> <span class="ss">:user</span>
+</span><span class='line'>  <span class="n">has_attachments</span> <span class="ss">:photos</span><span class="p">,</span> <span class="ss">maximum</span><span class="p">:</span> <span class="mi">5</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And a very simple form:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">=</span> <span class="n">simple_form_for</span><span class="p">(</span><span class="vi">@post</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">f</span><span class="o">|</span>
+</span><span class='line'>  <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">input</span> <span class="ss">:title</span>
+</span><span class='line'>  <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">input</span> <span class="ss">:caption</span><span class="p">,</span> <span class="ss">label</span><span class="p">:</span> <span class="s1">&#39;Comment&#39;</span>
+</span><span class='line'>  <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">input</span> <span class="ss">:photos</span><span class="p">,</span> <span class="ss">as</span><span class="p">:</span> <span class="ss">:attachinary</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The docs say if you don&#8217;t have the JQuery File Upload assets you need to run this rake task.  I had to run it, I&#8217;m guessing most people will:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">rake</span> <span class="ss">attachinary</span><span class="p">:</span><span class="n">fetch_fileupload</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then add t javascript payload to application.js - most of it to handle the upload to Cloudinary:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="sr">//</span><span class="o">=</span> <span class="nb">require</span> <span class="n">jquery</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">widget</span>
+</span><span class='line'><span class="sr">//</span><span class="o">=</span> <span class="nb">require</span> <span class="n">jquery</span><span class="o">.</span><span class="n">iframe</span><span class="o">-</span><span class="n">transport</span>
+</span><span class='line'><span class="sr">//</span><span class="o">=</span> <span class="nb">require</span> <span class="n">jquery</span><span class="o">.</span><span class="n">fileupload</span>
+</span><span class='line'><span class="sr">//</span><span class="o">=</span> <span class="nb">require</span> <span class="n">cloudinary</span><span class="o">/</span><span class="n">jquery</span><span class="o">.</span><span class="n">cloudinary</span>
+</span><span class='line'><span class="sr">//</span><span class="o">=</span> <span class="nb">require</span> <span class="n">attachinary</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And finally add the javascript call to one of your coffee asset files:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="err">$</span><span class="p">(</span><span class="s1">&#39;.attachinary-input&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">attachinary</span><span class="p">()</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The jQuery plugin is unstyled, so we&#8217;ll be adding some styles here:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">ADD</span> <span class="no">STYLES</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Fetching the images from Cloudinary is easy-peasy:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="vi">@post</span><span class="o">.</span><span class="n">photos</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">photo</span><span class="o">|</span>
+</span><span class='line'>  <span class="n">cl_image_tag</span><span class="p">(</span><span class="n">photo</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="p">{</span> <span class="ss">size</span><span class="p">:</span> <span class="s1">&#39;50x50&#39;</span><span class="p">,</span> <span class="ss">crop</span><span class="p">:</span> <span class="ss">:fit</span><span class="p">})</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The only problem is at this point I was not able to upload multiple files&#8230;</p>
+
+<p>Hat tip to <a href="http://zogovic.com/">Milovan Zogovic</a> for the topwork!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[third party javascripts and asset_path]]></title>
+    <link href="http://beaugaines.github.com/third-party-javascripts-and-asset-path/"/>
+    <updated>2013-05-15T23:06:00-04:00</updated>
+    <id>http://beaugaines.github.com/third-party-javascripts-and-asset-path</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Choice code of recent days]]></title>

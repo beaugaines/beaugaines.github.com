@@ -1,0 +1,388 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Rails Image Upload with Attachinary - A Raker's Progress</title>
+  <meta name="author" content="Beau Gaines">
+
+  
+  <meta name="description" content="More appalling neglect of this blog in recent months, but I aim to change that in the new year. That and the long-deferred blog restyle. It will be &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://beaugaines.github.com/rails-image-upload-with-attachinary/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="A Raker's Progress" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">A Raker's Progress</a></h1>
+  
+    <h2>Exploring the spelunc of Ruby and other dark caverns.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:beaugaines.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Rails Image Upload With Attachinary</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-12-17T11:37:00-05:00" pubdate data-updated="true">Dec 17<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>More appalling neglect of this blog in recent months, but I aim to change that in the new year.  That and the long-deferred blog restyle.  It will be done!</p>
+
+<p>In the meantime, I decided I would write up my experience implementing <a href="https://github.com/assembler/attachinary">Attachinary</a> for image upload in Rails 4. <!-- more -->  I&#8217;ve used both <a href="https://github.com/thoughtbot/paperclip">Paperclip</a> and <a href="https://github.com/jnicklas/carrierwave">Carrierwave</a> in the past.  They both work great, but for my current project for the <a href="http://billionoysterproject.org">Billion Oyster Project</a> I wanted to try out <a href="http://cloudinary.com">Cloudinary</a>.  Looking through their documentation I found Attachinary, and it sounds great:  no need to change your models when you need to add an attachment, jQuery plugin for async file uploads with preview, and handling of both has_one and has_many use cases.  It&#8217;s also very simple to configure.  Happy days!</p>
+
+<h4>Basic config</h4>
+
+<p>The usual drill, add it to your gemfile:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">gem</span> <span class="s1">&#39;attachinary&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Or for Rails 4:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">gem</span> <span class="s1">&#39;attachinary&#39;</span><span class="p">,</span> <span class="ss">git</span><span class="p">:</span> <span class="s1">&#39;git://github.com/rochers/attachinary.git&#39;</span><span class="p">,</span> <span class="ss">branch</span><span class="p">:</span> <span class="s1">&#39;rails4&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Add to application.rb:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">require</span> <span class="s2">&quot;attachinary/orm/active_record&quot;</span> <span class="c1">#  works with mongo too</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Generate and run the necessessary migrations:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">bundle</span> <span class="nb">exec</span> <span class="n">rake</span> <span class="ss">attachinary</span><span class="p">:</span><span class="ss">install</span><span class="p">:</span><span class="n">migrations</span>
+</span><span class='line'><span class="n">bundle</span> <span class="nb">exec</span> <span class="n">rake</span> <span class="ss">db</span><span class="p">:</span><span class="n">migrate</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Throw this in your routes file:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">mount</span> <span class="ss">Attachinary</span><span class="p">:</span><span class="ss">:Engine</span> <span class="o">=&gt;</span> <span class="s1">&#39;/attachinary&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And then add to your application layout:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">=</span> <span class="n">cloudinary_js_config</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Done!</p>
+
+<p>Oh, not quite, need to add the our associations:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Post</span> <span class="o">&lt;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Base</span>
+</span><span class='line'>  <span class="n">belongs_to</span> <span class="ss">:user</span>
+</span><span class='line'>  <span class="n">has_attachments</span> <span class="ss">:photos</span><span class="p">,</span> <span class="ss">maximum</span><span class="p">:</span> <span class="mi">5</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And a very simple form:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">=</span> <span class="n">simple_form_for</span><span class="p">(</span><span class="vi">@post</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">f</span><span class="o">|</span>
+</span><span class='line'>  <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">input</span> <span class="ss">:title</span>
+</span><span class='line'>  <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">input</span> <span class="ss">:caption</span><span class="p">,</span> <span class="ss">label</span><span class="p">:</span> <span class="s1">&#39;Comment&#39;</span>
+</span><span class='line'>  <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">input</span> <span class="ss">:photos</span><span class="p">,</span> <span class="ss">as</span><span class="p">:</span> <span class="ss">:attachinary</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The docs say if you don&#8217;t have the JQuery File Upload assets you need to run this rake task.  I had to run it, I&#8217;m guessing most people will:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">rake</span> <span class="ss">attachinary</span><span class="p">:</span><span class="n">fetch_fileupload</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then add t javascript payload to application.js - most of it to handle the upload to Cloudinary:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="sr">//</span><span class="o">=</span> <span class="nb">require</span> <span class="n">jquery</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">widget</span>
+</span><span class='line'><span class="sr">//</span><span class="o">=</span> <span class="nb">require</span> <span class="n">jquery</span><span class="o">.</span><span class="n">iframe</span><span class="o">-</span><span class="n">transport</span>
+</span><span class='line'><span class="sr">//</span><span class="o">=</span> <span class="nb">require</span> <span class="n">jquery</span><span class="o">.</span><span class="n">fileupload</span>
+</span><span class='line'><span class="sr">//</span><span class="o">=</span> <span class="nb">require</span> <span class="n">cloudinary</span><span class="o">/</span><span class="n">jquery</span><span class="o">.</span><span class="n">cloudinary</span>
+</span><span class='line'><span class="sr">//</span><span class="o">=</span> <span class="nb">require</span> <span class="n">attachinary</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And finally add the javascript call to one of your coffee asset files:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="err">$</span><span class="p">(</span><span class="s1">&#39;.attachinary-input&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">attachinary</span><span class="p">()</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The jQuery plugin is unstyled, so we&#8217;ll be adding some styles here:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">ADD</span> <span class="no">STYLES</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Fetching the images from Cloudinary is easy-peasy:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="vi">@post</span><span class="o">.</span><span class="n">photos</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">photo</span><span class="o">|</span>
+</span><span class='line'>  <span class="n">cl_image_tag</span><span class="p">(</span><span class="n">photo</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="p">{</span> <span class="ss">size</span><span class="p">:</span> <span class="s1">&#39;50x50&#39;</span><span class="p">,</span> <span class="ss">crop</span><span class="p">:</span> <span class="ss">:fit</span><span class="p">})</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The only problem is at this point I was not able to upload multiple files&#8230;</p>
+
+<p>Hat tip to <a href="http://zogovic.com/">Milovan Zogovic</a> for the topwork!</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Beau Gaines</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-12-17T11:37:00-05:00" pubdate data-updated="true">Dec 17<span>th</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/categories/attachinary/'>Attachinary</a>, <a class='category' href='/categories/image-upload/'>Image upload</a>, <a class='category' href='/categories/rails-4/'>Rails 4</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://beaugaines.github.com/rails-image-upload-with-attachinary/" data-via="perfectidiot" data-counturl="http://beaugaines.github.com/rails-image-upload-with-attachinary/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/third-party-javascripts-and-asset-path/" title="Previous Post: third party javascripts and asset_path">&laquo; third party javascripts and asset_path</a>
+      
+      
+        <a class="basic-alignment right" href="/fixing-a-broken-octopress-install/" title="Next Post: Fixing a broken Octopress install">Fixing a broken Octopress install &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/using-stormpath-for-user-management-in-rails-apps/">Using Stormpath for User Management in Rails Apps</a>
+      </li>
+    
+      <li class="post">
+        <a href="/fixing-a-broken-octopress-install/">Fixing a broken Octopress install</a>
+      </li>
+    
+      <li class="post">
+        <a href="/rails-image-upload-with-attachinary/">Rails Image Upload with Attachinary</a>
+      </li>
+    
+      <li class="post">
+        <a href="/third-party-javascripts-and-asset-path/">third party javascripts and asset_path</a>
+      </li>
+    
+      <li class="post">
+        <a href="/choice-code-of-recent-days/">Choice code of recent days</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/beaugaines">@beaugaines</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'beaugaines',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("perfectidiot", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/perfectidiot" class="twitter-follow-button" data-show-count="false">Follow @perfectidiot</a>
+  
+</section>
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Beau Gaines -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

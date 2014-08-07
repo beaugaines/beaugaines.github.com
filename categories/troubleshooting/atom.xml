@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Troubleshooting | A Raker's Progress]]></title>
+  <link href="http://beaugaines.github.com/categories/troubleshooting/atom.xml" rel="self"/>
+  <link href="http://beaugaines.github.com/"/>
+  <updated>2014-08-07T12:20:09-04:00</updated>
+  <id>http://beaugaines.github.com/</id>
+  <author>
+    <name><![CDATA[Beau Gaines]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Fixing a broken Octopress install]]></title>
+    <link href="http://beaugaines.github.com/fixing-a-broken-octopress-install/"/>
+    <updated>2013-12-27T23:46:00-05:00</updated>
+    <id>http://beaugaines.github.com/fixing-a-broken-octopress-install</id>
+    <content type="html"><![CDATA[<p>CONFIGURE_OPTS="--with-iconv-dir=/usr/bin" rbenv install 1.9.3-p448</p>
+
+<p>gem 'pygments.rb', '~> 0.3.0'</p>
+
+<p>/home/sircharles/.rbenv/versions/1.9.3-p448/lib/ruby/1.9.1/psych.rb:203:in `parse': (<unknown>): did not find expected key while parsing a block mapping at line 2 column 1 (Psych::SyntaxError)</p>
+
+<p>/home/sircharles/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/maruku-0.6.0/lib/maruku/input/parse_doc.rb:22:in `require': cannot load such file -- iconv (LoadError)</p>
+]]></content>
+  </entry>
+  
+</feed>
