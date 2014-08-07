@@ -4,7 +4,7 @@
   <title><![CDATA[A Raker's Progress]]></title>
   <link href="http://beaugaines.github.com/atom.xml" rel="self"/>
   <link href="http://beaugaines.github.com/"/>
-  <updated>2014-08-07T12:20:09-04:00</updated>
+  <updated>2014-08-07T12:22:29-04:00</updated>
   <id>http://beaugaines.github.com/</id>
   <author>
     <name><![CDATA[Beau Gaines]]></name>
@@ -12,30 +12,6 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
-  
-  <entry>
-    <title type="html"><![CDATA[Using Stormpath for User Management in Rails Apps]]></title>
-    <link href="http://beaugaines.github.com/using-stormpath-for-user-management-in-rails-apps/"/>
-    <updated>2014-07-30T09:51:00-04:00</updated>
-    <id>http://beaugaines.github.com/using-stormpath-for-user-management-in-rails-apps</id>
-    <content type="html"><![CDATA[<p>I&#8217;m finally back.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Fixing a broken Octopress install]]></title>
-    <link href="http://beaugaines.github.com/fixing-a-broken-octopress-install/"/>
-    <updated>2013-12-27T23:46:00-05:00</updated>
-    <id>http://beaugaines.github.com/fixing-a-broken-octopress-install</id>
-    <content type="html"><![CDATA[<p>CONFIGURE_OPTS=&#8221;&#8211;with-iconv-dir=/usr/bin&#8221; rbenv install 1.9.3-p448</p>
-
-<p>gem &#8216;pygments.rb&#8217;, &#8216;~> 0.3.0&#8217;</p>
-
-<p>/home/sircharles/.rbenv/versions/1.9.3-p448/lib/ruby/1.9.1/psych.rb:203:in `parse&#8217;: (<unknown>): did not find expected key while parsing a block mapping at line 2 column 1 (Psych::SyntaxError)</p>
-
-<p>/home/sircharles/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/maruku-0.6.0/lib/maruku/input/parse_doc.rb:22:in `require&#8217;: cannot load such file &#8211; iconv (LoadError)</p>
-]]></content>
-  </entry>
   
   <entry>
     <title type="html"><![CDATA[Rails Image Upload with Attachinary]]></title>
@@ -170,15 +146,6 @@
 <p>The only problem is at this point I was not able to upload multiple files&#8230;</p>
 
 <p>Hat tip to <a href="http://zogovic.com/">Milovan Zogovic</a> for the topwork!</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[third party javascripts and asset_path]]></title>
-    <link href="http://beaugaines.github.com/third-party-javascripts-and-asset-path/"/>
-    <updated>2013-05-15T23:06:00-04:00</updated>
-    <id>http://beaugaines.github.com/third-party-javascripts-and-asset-path</id>
-    <content type="html"><![CDATA[
 ]]></content>
   </entry>
   
