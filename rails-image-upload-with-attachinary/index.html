@@ -92,7 +92,7 @@
 
 <div class="entry-content"><p>More appalling neglect of this blog in recent months, but I aim to change that in the new year.  That and the long-deferred blog restyle.  It will be done!</p>
 
-<p>In the meantime, I decided I would write up my experience implementing <a href="https://github.com/assembler/attachinary">Attachinary</a> for image upload in Rails 4. <!-- more -->  I&#8217;ve used both <a href="https://github.com/thoughtbot/paperclip">Paperclip</a> and <a href="https://github.com/jnicklas/carrierwave">Carrierwave</a> in the past.  They both work great, but for my current project for the <a href="http://billionoysterproject.org">Billion Oyster Project</a> I wanted to try out <a href="http://cloudinary.com">Cloudinary</a>.  Looking through their documentation I found Attachinary, and it sounds great:  no need to change your models when you need to add an attachment, jQuery plugin for async file uploads with preview, and handling of both has_one and has_many use cases.  It&#8217;s also very simple to configure.  Happy days!</p>
+<p>In the meantime, I decided I would write up my experience implementing <a href="https://github.com/assembler/attachinary">Attachinary</a> for image upload in Rails 4. <!-- more -->  I&#8217;ve used both <a href="https://github.com/thoughtbot/paperclip">Paperclip</a> and <a href="https://github.com/jnicklas/carrierwave">Carrierwave</a> in the past.  They both work great, but for my current project for the <a href="http://billionoysterproject.org">Billion Oyster Project</a> I wanted to try out <a href="http://cloudinary.com">Cloudinary</a>.  Looking through their documentation I found Attachinary, and it sounded great:  no need to change your models when you need to add an attachment, jQuery plugin for async file uploads with preview, and handling of both <code>has_one</code> and <code>has_many</code> use cases.  It&#8217;s also very simple to configure.  Happy days!</p>
 
 <h4>Basic config</h4>
 
@@ -100,13 +100,6 @@
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">gem</span> <span class="s1">&#39;attachinary&#39;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Or for Rails 4:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">gem</span> <span class="s1">&#39;attachinary&#39;</span><span class="p">,</span> <span class="ss">git</span><span class="p">:</span> <span class="s1">&#39;git://github.com/rochers/attachinary.git&#39;</span><span class="p">,</span> <span class="ss">branch</span><span class="p">:</span> <span class="s1">&#39;rails4&#39;</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -175,7 +168,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Then add t javascript payload to application.js - most of it to handle the upload to Cloudinary:</p>
+<p>Then add the javascript payload to application.js - most of it to handle the upload to Cloudinary:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -200,7 +193,36 @@
 <p>The jQuery plugin is unstyled, so we&#8217;ll be adding some styles here:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">ADD</span> <span class="no">STYLES</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='sass'><span class='line'><span class="nc">.attachinary_container</span>
+</span><span class='line'>  <span class="nd">+border-radius</span><span class="p">(</span><span class="mi">1</span><span class="kt">em</span><span class="p">)</span>
+</span><span class='line'>  <span class="na">background-color</span><span class="o">:</span> <span class="mh">#eee</span>
+</span><span class='line'>  <span class="na">padding</span><span class="o">:</span> <span class="mi">1</span><span class="kt">em</span>
+</span><span class='line'>  <span class="na">margin-bottom</span><span class="o">:</span> <span class="mi">1</span><span class="kt">em</span>
+</span><span class='line'>  <span class="nt">ul</span>
+</span><span class='line'>    <span class="nt">li</span>
+</span><span class='line'>      <span class="na">list-style</span><span class="o">:</span> <span class="no">none</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Mixins are one of my favorite features in SASS.  Here is the border-radius mixin used above:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='sass'><span class='line'><span class="k">@mixin</span><span class="nf"> border-radius</span><span class="p">(</span><span class="nv">$radius</span><span class="p">)</span>
+</span><span class='line'>  <span class="na">-webkit-border-radius</span><span class="o">:</span> <span class="nv">$radius</span>
+</span><span class='line'>  <span class="na">-moz-border-radius</span><span class="o">:</span> <span class="nv">$radius</span>
+</span><span class='line'>  <span class="na">-ms-border-radius</span><span class="o">:</span> <span class="nv">$radius</span>
+</span><span class='line'>  <span class="na">border-radius</span><span class="o">:</span> <span class="nv">$radius</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -209,15 +231,15 @@
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="vi">@post</span><span class="o">.</span><span class="n">photos</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">photo</span><span class="o">|</span>
-</span><span class='line'>  <span class="n">cl_image_tag</span><span class="p">(</span><span class="n">photo</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="p">{</span> <span class="ss">size</span><span class="p">:</span> <span class="s1">&#39;50x50&#39;</span><span class="p">,</span> <span class="ss">crop</span><span class="p">:</span> <span class="ss">:fit</span><span class="p">})</span>
-</span><span class='line'><span class="k">end</span>
+</pre></td><td class='code'><pre><code class='sass'><span class='line'><span class="k">@post</span><span class="nc">.photos.each</span> <span class="nt">do</span> <span class="o">|</span><span class="nt">photo</span><span class="o">|</span>
+</span><span class='line'>  <span class="na">cl_image_tag(photo.path,</span><span class="err"> </span><span class="na">{</span><span class="err"> </span><span class="na">size</span><span class="o">:</span> <span class="s1">&#39;</span><span class="s2">50x50&#39;</span><span class="o">,</span> <span class="no">crop</span><span class="o">:</span> <span class="o">:</span><span class="n">fit</span><span class="err">}</span><span class="p">)</span>
+</span><span class='line'><span class="nt">end</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>The only problem is at this point I was not able to upload multiple files&#8230;</p>
+<p>Cloudinary offers all sort of features like face detection, various sorts of cropping, sprite generation, and much more.  Check out the docs <a href="http://cloudinary.com/documentation/image_transformations#format_conversion">here</a></p>
 
-<p>Hat tip to <a href="http://zogovic.com/">Milovan Zogovic</a> for the topwork!</p>
+<p>Hat tip to <a href="http://zogovic.com/">Milovan Zogovic</a> for the top-notch work!</p>
 </div>
 
 

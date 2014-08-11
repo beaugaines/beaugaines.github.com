@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Rails 4 | A Raker's Progress]]></title>
   <link href="http://beaugaines.github.com/categories/rails-4/atom.xml" rel="self"/>
   <link href="http://beaugaines.github.com/"/>
-  <updated>2014-08-07T12:22:29-04:00</updated>
+  <updated>2014-08-11T05:59:03-04:00</updated>
   <id>http://beaugaines.github.com/</id>
   <author>
     <name><![CDATA[Beau Gaines]]></name>
@@ -20,7 +20,7 @@
     <id>http://beaugaines.github.com/rails-image-upload-with-attachinary</id>
     <content type="html"><![CDATA[<p>More appalling neglect of this blog in recent months, but I aim to change that in the new year.  That and the long-deferred blog restyle.  It will be done!</p>
 
-<p>In the meantime, I decided I would write up my experience implementing <a href="https://github.com/assembler/attachinary">Attachinary</a> for image upload in Rails 4. <!-- more -->  I've used both <a href="https://github.com/thoughtbot/paperclip">Paperclip</a> and <a href="https://github.com/jnicklas/carrierwave">Carrierwave</a> in the past.  They both work great, but for my current project for the <a href="http://billionoysterproject.org">Billion Oyster Project</a> I wanted to try out <a href="http://cloudinary.com">Cloudinary</a>.  Looking through their documentation I found Attachinary, and it sounds great:  no need to change your models when you need to add an attachment, jQuery plugin for async file uploads with preview, and handling of both has_one and has_many use cases.  It's also very simple to configure.  Happy days!</p>
+<p>In the meantime, I decided I would write up my experience implementing <a href="https://github.com/assembler/attachinary">Attachinary</a> for image upload in Rails 4. <!-- more -->  I've used both <a href="https://github.com/thoughtbot/paperclip">Paperclip</a> and <a href="https://github.com/jnicklas/carrierwave">Carrierwave</a> in the past.  They both work great, but for my current project for the <a href="http://billionoysterproject.org">Billion Oyster Project</a> I wanted to try out <a href="http://cloudinary.com">Cloudinary</a>.  Looking through their documentation I found Attachinary, and it sounded great:  no need to change your models when you need to add an attachment, jQuery plugin for async file uploads with preview, and handling of both <code>has_one</code> and <code>has_many</code> use cases.  It's also very simple to configure.  Happy days!</p>
 
 <h4>Basic config</h4>
 
@@ -28,12 +28,7 @@
 
 <p><code>ruby
 gem 'attachinary'
-</code>
-Or for Rails 4:
-``` ruby
-gem 'attachinary', git: 'git://github.com/rochers/attachinary.git', branch: 'rails4'</p>
-
-<p>```</p>
+</code></p>
 
 <p>Add to application.rb:</p>
 
@@ -83,7 +78,7 @@ The docs say if you don't have the JQuery File Upload assets you need to run thi
 rake attachinary:fetch_fileupload
 </code></p>
 
-<p>Then add t javascript payload to application.js - most of it to handle the upload to Cloudinary:
+<p>Then add the javascript payload to application.js - most of it to handle the upload to Cloudinary:
 <code>
 //= require jquery.ui.widget
 //= require jquery.iframe-transport
@@ -97,8 +92,28 @@ $('.attachinary-input').attachinary()
 </code></p>
 
 <p>The jQuery plugin is unstyled, so we'll be adding some styles here:
-<code>
-ADD STYLES
+``` sass
+.attachinary_container
+  +border-radius(1em)
+  background-color: #eee
+  padding: 1em
+  margin-bottom: 1em
+  ul</p>
+
+<pre><code>li
+  list-style: none
+</code></pre>
+
+<p>```</p>
+
+<p>Mixins are one of my favorite features in SASS.  Here is the border-radius mixin used above:</p>
+
+<p><code>sass
+@mixin border-radius($radius)
+  -webkit-border-radius: $radius
+  -moz-border-radius: $radius
+  -ms-border-radius: $radius
+  border-radius: $radius
 </code></p>
 
 <p>Fetching the images from Cloudinary is easy-peasy:
@@ -108,9 +123,9 @@ ADD STYLES
 end
 </code></p>
 
-<p>The only problem is at this point I was not able to upload multiple files...</p>
+<p>Cloudinary offers all sort of features like face detection, various sorts of cropping, sprite generation, and much more.  Check out the docs <a href="http://cloudinary.com/documentation/image_transformations#format_conversion">here</a></p>
 
-<p>Hat tip to <a href="http://zogovic.com/">Milovan Zogovic</a> for the topwork!</p>
+<p>Hat tip to <a href="http://zogovic.com/">Milovan Zogovic</a> for the top-notch work!</p>
 ]]></content>
   </entry>
   
