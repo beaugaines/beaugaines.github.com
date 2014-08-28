@@ -4,7 +4,7 @@
   <title><![CDATA[A Raker's Progress]]></title>
   <link href="http://beaugaines.github.com/atom.xml" rel="self"/>
   <link href="http://beaugaines.github.com/"/>
-  <updated>2014-08-11T05:59:03-04:00</updated>
+  <updated>2014-08-28T15:07:29-04:00</updated>
   <id>http://beaugaines.github.com/</id>
   <author>
     <name><![CDATA[Beau Gaines]]></name>
@@ -182,7 +182,7 @@
 
 <p>Most of free my time lately has been spent working on the EdX Python/Intro to Comp. Sci class, as well as a <em>Mongo for Devs</em> class offered online by 10gen.  They&#8217;ve both been challenging but fun and I&#8217;ve learned a ton.<!-- more -->  I wanted to post some of nicer bits of code I&#8217;ve come up with and so here they are:</p>
 
-<p>First this hideously lovely regex, from an exercise in <a href="http://www.diveintopython.com">Dive Into Python</a>, but I like regex so much I came up with it on my own:</p>
+<p>First this hideously lovely regex, from an exercise in <a href="http://www.diveintopython.com">Dive Into Python</a> - but I like regex so much I came up with it on my own:</p>
 
 <figure class='code'><figcaption><span>hideous-regex  </span></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -289,7 +289,7 @@
 </span><span class='line'>
 </span><span class='line'><span class="no">BLOG_1</span> <span class="o">=</span> <span class="s1">&#39;http://widgetmasters.blogspot.com&#39;</span>
 </span><span class='line'><span class="n">freq</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-</span><span class='line'><span class="n">page</span> <span class="o">=</span> <span class="no">Nokogiri</span><span class="o">::</span><span class="no">HTML</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="no">BLOG_1</span><span class="p">))</span>
+</span><span class='line'><span class="n">page</span> <span class="o">=</span> <span class="ss">Nokogiri</span><span class="p">:</span><span class="ss">:HTML</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="no">BLOG_1</span><span class="p">))</span>
 </span><span class='line'>
 </span><span class='line'><span class="n">skip_words</span> <span class="o">=</span> <span class="sx">%w(i and of to the a in my her with as on is his like for she that</span>
 </span><span class='line'><span class="sx">at an it from - am this our out we are he be was but me their up into one</span>
@@ -297,7 +297,7 @@
 </span><span class='line'><span class="sx">all it&#39;s over or little you there what against what can had so me been and but</span>
 </span><span class='line'><span class="sx">don&#39;t let feet side trying get do then than if no how has about only we long more</span>
 </span><span class='line'><span class="sx">arm left weight will my few past makes straight know head them where towards</span>
-</span><span class='line'><span class="sx">take coud him still tell many two one if your here onto </span>
+</span><span class='line'><span class="sx">take could him still tell many two one if your here onto </span>
 </span><span class='line'><span class="sx">)</span>
 </span><span class='line'>
 </span><span class='line'><span class="n">page</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s1">&#39;div.entry-content p&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="nb">p</span><span class="o">|</span>
@@ -309,7 +309,7 @@
 </span><span class='line'><span class="n">sorted</span> <span class="o">=</span> <span class="n">freq</span><span class="o">.</span><span class="n">sort_by</span><span class="p">{</span> <span class="o">|</span><span class="n">k</span><span class="p">,</span><span class="n">v</span><span class="o">|</span> <span class="o">-</span><span class="n">v</span> <span class="p">}</span><span class="o">.</span><span class="n">last</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
 </span><span class='line'>
 </span><span class='line'><span class="n">skip_words</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">word</span><span class="o">|</span>
-</span><span class='line'>  <span class="n">sorted</span><span class="o">.</span><span class="n">delete_if</span> <span class="p">{</span> <span class="o">|</span><span class="n">k</span><span class="p">,</span><span class="n">v</span><span class="o">|</span> <span class="n">useless_words</span><span class="o">.</span><span class="n">include?</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="p">}</span>
+</span><span class='line'>  <span class="n">sorted</span><span class="o">.</span><span class="n">delete_if</span> <span class="p">{</span> <span class="o">|</span><span class="n">k</span><span class="p">,</span><span class="n">v</span><span class="o">|</span> <span class="n">skip_words</span><span class="o">.</span><span class="n">include?</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="p">}</span>
 </span><span class='line'><span class="k">end</span>
 </span><span class='line'>
 </span><span class='line'><span class="c1"># put it into sqlite - in memory, using the cool sequel gem</span>
